@@ -19,7 +19,7 @@
     <div class="navbar-collapse collapse">
         <ul class="navbar-nav ml-auto">
             <li class="nav-item dropdown">
-                <a href="#" id="dd_user" class="nav-link dropdown-toggle" data-toggle="dropdown"><i class="fa fa-user"></i> John Doe</a>
+                <a href="#" id="dd_user" class="nav-link dropdown-toggle" data-toggle="dropdown"><i class="fa fa-user"></i> {{auth()->user()->name}}</a>
                 <div class="dropdown-menu dropdown-menu-right" aria-labelledby="dd_user">
                     <a href="#" class="dropdown-item">Logout</a>
                 </div>
@@ -52,11 +52,11 @@
             @yield('bradcrumb')
         </h5>
 
-        <div class="card mb-4">
+        @yield('content')
+        {{-- <div class="card mb-4">
             <div class="card-body">
-                @yield('content')
             </div>
-        </div>
+        </div> --}}
     </div>
 </div>
 
