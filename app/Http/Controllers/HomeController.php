@@ -14,7 +14,8 @@ class HomeController extends Controller
     public function index()
     {
         $item = \App\Models\Tbl_item::all();
-        return view('app.index', ['data_item' => $item]);
+        $stock = \App\Models\Tbl_stock::all();
+        return view('app.index', ['data_item' => $item, 'data_stock' => $stock]);
     }
 
     /**

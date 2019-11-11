@@ -13,8 +13,8 @@
                     <div class="col-md-6">
                         Tabel Barang
                     </div>
-                    <div class="col-md-6">
-                        asd
+                    <div class="col-md-6 text-right">
+                        <a href="#" class="btn btn-primary">Add Item</a>
                     </div>
                 </div>
             </div>
@@ -48,37 +48,37 @@
     <div class="col-lg-6">
         <div class="card mb-4">
             <div class="card-header bg-white font-weight-bold">
-                Tabel Barang
+                <div class="row">
+                    <div class="col-md-6">
+                        Tabel Stock
+                    </div>
+                    <div class="col-md-6 text-right">
+                        <a href="#" class="btn btn-primary">Add Item</a>
+                    </div>
+                </div>
             </div>
             <div class="card-body">
                 <table class="table mb-0">
                     <thead class="thead-light">
-                    <tr>
-                        <th scope="col">#</th>
-                        <th scope="col">First</th>
-                        <th scope="col">Last</th>
-                        <th scope="col">Handle</th>
-                    </tr>
+                        <tr>
+                            <th scope="col">#</th>
+                            <th scope="col">Nama</th>
+                            <th scope="col">Stock</th>
+                            <th scope="col">Date</th>
+                        </tr>
                     </thead>
+                    @php
+                        $n=1;
+                    @endphp
                     <tbody>
-                    <tr>
-                        <th scope="row">1</th>
-                        <td>Mark</td>
-                        <td>Otto</td>
-                        <td>@mdo</td>
-                    </tr>
-                    <tr>
-                        <th scope="row">2</th>
-                        <td>Jacob</td>
-                        <td>Thornton</td>
-                        <td>@fat</td>
-                    </tr>
-                    <tr>
-                        <th scope="row">3</th>
-                        <td>Larry</td>
-                        <td>the Bird</td>
-                        <td>@twitter</td>
-                    </tr>
+                        @foreach ($data_stock as $stock)
+                            <tr>
+                                <td>{{$n++}}</td>
+                                <td>{{$stock->getItem()->item_name}}</td>
+                                <td>{{$stock->item_qty}}</td>
+                                <td>{{$item->stock_date}}</td>
+                            </tr>
+                        @endforeach
                     </tbody>
                 </table>
             </div>
