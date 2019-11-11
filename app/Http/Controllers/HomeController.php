@@ -13,7 +13,8 @@ class HomeController extends Controller
      */
     public function index()
     {
-        return view('app.index');
+        $item = \App\Models\Tbl_item::all();
+        return view('app.index', ['data_item' => $item]);
     }
 
     /**
