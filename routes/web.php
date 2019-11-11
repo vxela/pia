@@ -15,5 +15,11 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('/', 'LoginController@index');
+Route::get('/', 'LoginController@index')->name('login');
 Route::post('/', 'LoginController@auth')->name('auth');
+Route::get('/logout', 'LoginController@logout')->name('logout');
+
+Route::group(['middleware' => 'auth'], function(){
+    Route::resource('/dashboard', 'HomeController');
+});
+

@@ -24,20 +24,32 @@
                 <h1 class="text-center mb-4">PIA APP</h1>
                 <div class="card">
                     <div class="card-body">
+                        @if (Session::has('alert'))
+                            @if (Session::get('alert.type') == 'danger')
+                                <div class="alert alert-danger alert-dismissible" role="alert">
+                            @else
+                                <div class="alert alert-success alert-dismissible" role="alert">
+                            @endif
+                                {{Session::get('alert.msg')}}
+                                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                                    <span aria-hidden="true">×</span>
+                                </button>
+                            </div>
+                        @endif
                         <form action="{{route('auth')}}" method="post">
                             @csrf
                             <div class="input-group mb-3">
                                 <div class="input-group-prepend">
                                     <span class="input-group-text"><i class="fa fa-user"></i></span>
                                 </div>
-                                <input type="text" name="username" class="form-control" placeholder="Username">
+                                <input type="text" name="name" class="form-control" placeholder="Username" required>
                             </div>
 
                             <div class="input-group mb-3">
                                 <div class="input-group-prepend">
                                     <span class="input-group-text"><i class="fa fa-key"></i></span>
                                 </div>
-                                <input type="password" name="password" class="form-control" placeholder="Password">
+                                <input type="password" name="password" class="form-control" placeholder="Password" required>
                             </div>
 {{-- 
                             <div class="form-check mb-3">

@@ -12,7 +12,7 @@
 </head>
 <body class="bg-light">
 
-<nav class="navbar navbar-expand navbar-dark bg-primary">
+<nav class="navbar navbar-expand navbar-dark bg-danger">
     <a class="sidebar-toggle mr-3" href="#"><i class="fa fa-bars"></i></a>
     <a class="navbar-brand" href="#">PIA App</a>
 
@@ -41,18 +41,20 @@
                     <li><a href="#">Submenu Item</a></li>
                 </ul>
             </li>
-            <li><a href="#"><i class="fa fa-fw fa-link"></i> Menu Item</a></li>
-            <li><a href="#"><i class="fa fa-fw fa-link"></i> Menu Item</a></li>
+            <li><a href="#"><i class="fa fa-fw fa-link"></i> Tabel Barang</a></li>
+            <li><a href="#"><i class="fa fa-fw fa-link"></i> Tamba</a></li>
             <li><a href="#"><i class="fa fa-fw fa-power-off"></i> Log Out</a></li>
         </ul>
     </div>
 
     <div class="content p-4">
-        <h2 class="mb-4">Blank/Starter</h2>
+        <h5 class="mb-4">
+            @yield('bradcrumb')
+        </h5>
 
         <div class="card mb-4">
             <div class="card-body">
-                This is a blank page you can use as a starting point.
+                @yield('content')
             </div>
         </div>
     </div>
