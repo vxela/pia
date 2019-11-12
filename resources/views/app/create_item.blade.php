@@ -43,10 +43,10 @@
                         </div>
                     </div>
                     <div class="row">
-                        <div class="col-md-4">
+                        <div class="col-md-4 col-4">
                             <button type="reset" class="btn btn-default">Reset</button>
                         </div>
-                        <div class="col-md-8 text-right">
+                        <div class="col-md-8 col-8 text-right">
                             <button type="submit" class="btn btn-primary">Simpan</button>
                         </div>
                     </div>
