@@ -34,7 +34,7 @@
                             <input type="text" class="form-control mb-2 mr-sm-2" name="item_name" id="item_name" required>
                         </div>
                     </div>
-                    <div class="row">
+                    <div class="row mb-3">
                         <div class="col-md-4">
                             <label for="item_unit" class="mr-sm-2">Satuan</label>
                         </div>
