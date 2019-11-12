@@ -71,8 +71,8 @@ class ItemController extends Controller
      */
     public function show($id)
     {
-        $item = \App\Models\Tbl_item::find($id)->first();
 
+        $item = \App\Models\Tbl_item::find($id)->first();
         return view('app.item_show', ['item' => $item]);
 
     }
@@ -85,7 +85,10 @@ class ItemController extends Controller
      */
     public function edit($id)
     {
-        //
+
+        $item = \App\Models\Tbl_item::find($id)->first();
+        return view('app.item_edit', ['item' => $item]);
+
     }
 
     /**
@@ -97,7 +100,7 @@ class ItemController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        dd($request->all());
     }
 
     /**
