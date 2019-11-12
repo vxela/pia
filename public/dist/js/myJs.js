@@ -4,8 +4,9 @@ $(document).ready(function() {
     });
 
     $('#btn-delete').click(function(){
-        $.confirm({
-            theme: 'supervan'
-        });
+        console.log('clicked');
+        // $.confirm({
+        //     theme: 'supervan'
+        // });
     })
 });
