@@ -100,7 +100,20 @@ class ItemController extends Controller
      */
     public function update(Request $request, $id)
     {
-        dd($request->all());
+        $item = \App\Models\Tbl_item::find($id);
+
+        $item->item_name = $request->item_name;
+        $item->item_unit = $request->item_unit;
+
+        $save = $item->save();
+
+        if(!$save) {
+            App::abort(500, 'Error');
+        } else {
+            Session::flash('alert', ['status' => 'success', 'msg' => 'Update Data '.$item->item_name.' berhasil!']);
+
+            return back();
+        }
     }
 
     /**
