@@ -26,6 +26,7 @@
                             <th scope="col">Kode</th>
                             <th scope="col">Nama</th>
                             <th scope="col">Satuan</th>
+                            <th scope="col">-</th>
                         </tr>
                     </thead>
                     @php
@@ -38,6 +39,10 @@
                                 <td>{{$item->item_code}}</td>
                                 <td>{{$item->item_name}}</td>
                                 <td>{{$item->item_unit}}</td>
+                                <td>
+                                    <a href="#"><i class="fa fa-eye"></i></a>
+                                    {{-- {{$item->id}} --}}
+                                </td>
                             </tr>
                         @endforeach
                     </tbody>
@@ -65,6 +70,7 @@
                             <th scope="col">Nama</th>
                             <th scope="col">Stock</th>
                             <th scope="col">Date</th>
+                            <th scope="col">-</th>
                         </tr>
                     </thead>
                     @php
@@ -77,6 +83,10 @@
                                 <td>{{$stock->getItem()->item_name}}</td>
                                 <td>{{$stock->item_qty}}</td>
                                 <td>{{$stock->stock_date}}</td>
+                                <td>
+                                        <a href="#"><i class="fa fa-eye"></i></a>
+                                    {{-- {{$stock->id}} --}}
+                                </td>
                             </tr>
                         @endforeach
                     </tbody>
