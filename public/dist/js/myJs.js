@@ -5,8 +5,8 @@ $(document).ready(function() {
 
     $('#btn-delete').click(function(){
         console.log('clicked');
-        // $.confirm({
-        //     theme: 'supervan'
-        // });
+        $.confirm({
+            theme: 'supervan'
+        });
     })
 });
