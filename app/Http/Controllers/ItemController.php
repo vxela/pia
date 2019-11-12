@@ -36,7 +36,8 @@ class ItemController extends Controller
      */
     public function store(Request $request)
     {
-        $lastid = \App\Models\Tbl_item::latest()->first()->id + 1;
+        $ditem = \App\Models\Tbl_item::latest()->first();
+        $lastid = $ditem->id + 1;
 
         $item_cd = str_pad($lastid, 5, "0", STR_PAD_LEFT);
 

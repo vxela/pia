@@ -1,7 +1,7 @@
 @extends('layout.main')
 
 @section('bradcrumb')
-    Dashboard
+    Dashboard > Item > stock
 @endsection
 
 @section('content')
@@ -32,14 +32,6 @@
                         $n = 1;
                     @endphp
                     <tbody>
-                        @foreach ($data_item as $item)
-                            <tr>
-                                <td>{{$n++}}</td>
-                                <td>{{$item->item_code}}</td>
-                                <td>{{$item->item_name}}</td>
-                                <td>{{$item->item_unit}}</td>
-                            </tr>
-                        @endforeach
                     </tbody>
                 </table>
             </div>
@@ -71,14 +63,6 @@
                         $n=1;
                     @endphp
                     <tbody>
-                        @foreach ($data_stock as $stock)
-                            <tr>
-                                <td>{{$n++}}</td>
-                                <td>{{$stock->getItem()->item_name}}</td>
-                                <td>{{$stock->item_qty}}</td>
-                                <td>{{$stock->stock_date}}</td>
-                            </tr>
-                        @endforeach
                     </tbody>
                 </table>
             </div>

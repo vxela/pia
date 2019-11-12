@@ -41,6 +41,7 @@
                     <li><a href="#">Submenu Item</a></li>
                 </ul>
             </li> --}}
+            {{-- <li><a href="{{route('dashboard.item-stock')}}"><i class="fa fa-fw fa-th"></i> Tambah Item</a></li> --}}
             <li><a href="{{route('item.create')}}"><i class="fa fa-fw fa-plus-square"></i> Tambah Item</a></li>
             <li><a href="{{route('stock.create')}}"><i class="fa fa-fw fa-plus"></i> Tambah Stock</a></li>
             <li><a href="{{route('logout')}}"><i class="fa fa-fw fa-power-off"></i> Log Out</a></li>

@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use DB;
 
 class HomeController extends Controller
 {
@@ -82,5 +83,21 @@ class HomeController extends Controller
     public function destroy($id)
     {
         //
+    }
+    
+    public function itemStock() {
+        $data = DB::select("select 
+                                tbl_items.id as id_item,
+                                tbl_items.item_name as name_item,
+                                SUM(tbl_stocks.item_qty) as qty,
+                                tbl_items.item_unit as satuan 
+                            from tbl_items,
+                                tbl_stocks 
+                            where tbl_stocks.item_id = tbl_items.id 
+                            GROUP BY tbl_items.item_name 
+                            ORDER BY SUM(tbl_stocks.item_qty) ASC");
+
+        dd($data);
+        // return view('app.item_stock');
     }
 }
