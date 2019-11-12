@@ -10,10 +10,10 @@
         <div class="card mb-4">
             <div class="card-header bg-white font-weight-bold">
                 <div class="row">
-                    <div class="col-md-6">
+                    <div class="col-md-6 col-sm-6 col-xs-6">
                         Tabel Barang
                     </div>
-                    <div class="col-md-6 text-right">
+                    <div class="col-md-6 col-sm-6 col-xs-6 text-right">
                         <a href="{{route('item.create')}}" class="btn btn-primary">Add Item</a>
                     </div>
                 </div>
@@ -49,10 +49,10 @@
         <div class="card mb-4">
             <div class="card-header bg-white font-weight-bold">
                 <div class="row">
-                    <div class="col-md-6">
+                    <div class="col-md-6 col-sm-6 col-xs-6">
                         Tabel Stock
                     </div>
-                    <div class="col-md-6 text-right">
+                    <div class="col-md-6 col-sm-6 col-xs-6">
                         <a href="{{route('stock.create')}}" class="btn btn-primary">Add Stock</a>
                     </div>
                 </div>
