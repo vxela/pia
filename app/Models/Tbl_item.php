@@ -13,4 +13,8 @@ class Tbl_item extends Model
         'item_price',
         'user_id'
     ];
+
+    public function getUser() {
+        return \App\User::find($this->id)->first();
+    }
 }

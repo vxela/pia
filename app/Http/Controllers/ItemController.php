@@ -73,7 +73,7 @@ class ItemController extends Controller
     {
         $item = \App\Models\Tbl_item::find($id)->first();
 
-        dd($item);
+        return view('app.item_show', ['item' => $item]);
 
     }
 
