@@ -63,6 +63,7 @@
 <script src="{{asset('dist/js/jquery.min.js')}}"></script>
 <script src="{{asset('dist/js/bootstrap.bundle.min.js')}}"></script>
 <script src="{{asset('dist/js/bootadmin.min.js')}}"></script>
+<script src="{{asset('dist/js/myJs.js')}}"></script>
 
 </body>
 </html>

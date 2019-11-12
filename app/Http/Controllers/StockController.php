@@ -4,9 +4,10 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Session;
+use Carbon\Carbon as Carbon;
 use App;
 
-class ItemController extends Controller
+class StockController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -25,7 +26,8 @@ class ItemController extends Controller
      */
     public function create()
     {
-        return view('app.create_item');
+        $item = \App\Models\Tbl_item::all();
+        return view('app.create_stock', ['data_item' => $item]);
     }
 
     /**
@@ -36,28 +38,28 @@ class ItemController extends Controller
      */
     public function store(Request $request)
     {
-        $lastid = \App\Models\Tbl_item::latest()->first()->id + 1;
-
-        $item_cd = str_pad($lastid, 5, "0", STR_PAD_LEFT);
-
-        $data_item = array(
-            'item_code' => $item_cd,
-            'item_name' => $request->item_name,
-            'item_unit' => $request->item_unit,
-            'item_price' => 0,
-            'user_id' => auth()->user()->id
+        $item_id = \App\Models\Tbl_item::where('item_code', $request->item_cd)->first()->id;
+        
+        $data_stock = array(
+            'item_id' => $item_id,
+            'item_cd' => $request->item_cd,
+            'item_qty' => $request->item_qty,
+            'user_id' => auth()->user()->id,
+            'stock_date' => Carbon::now()->format('Y-m-d')
         );
 
-        $in_item = \App\Models\Tbl_item::create($data_item);
+        $in_stock = \App\Models\Tbl_stock::create($data_stock);
 
-        if ($in_item->exists) {
-            Session::flash('alert', ['status' => 'success', 'msg' => 'Tambah Data '.$in_item->item_name.' berhasil!']);
+        
+        if ($in_stock->exists) {
+            $item = \App\Models\Tbl_item::where('id', $in_stock->item_id)->first();
+            Session::flash('alert', ['status' => 'success', 'msg' => 'Tambah '.$in_stock->item_qty.' '.$item->item_unit.' Stock '.$item->item_name.' berhasil!']);
 
             return back();
          } else {
             App::abort(500, 'Error');
          }
-        
+
     }
 
     /**

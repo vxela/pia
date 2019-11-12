@@ -53,7 +53,7 @@
                         Tabel Stock
                     </div>
                     <div class="col-md-6 text-right">
-                        <a href="#" class="btn btn-primary">Add Item</a>
+                        <a href="{{route('stock.create')}}" class="btn btn-primary">Add Stock</a>
                     </div>
                 </div>
             </div>

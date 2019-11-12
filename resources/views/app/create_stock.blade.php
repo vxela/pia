@@ -1,7 +1,7 @@
 @extends('layout.main')
 
 @section('bradcrumb')
-    Dashboard > Item > create
+    Dashboard > Stock > create
 @endsection
 
 @section('content')
@@ -19,27 +19,40 @@
             <div class="card-header bg-white font-weight-bold">
                 <div class="row">
                     <div class="col-md-12">
-                        Tambah Item
+                        Tambah Stock
                     </div>
                 </div>
             </div>
             <div class="card-body">
-                <form action="{{route('item.store')}}" method="post">
+                <form action="{{route('stock.store')}}" method="post">
                     @csrf
                     <div class="row">
                         <div class="col-md-4">
                             <label for="item_name" class="mr-sm-2">Nama Barang</label>
                         </div>
-                        <div class="col-md-8">
-                            <input type="text" class="form-control mb-2 mr-sm-2" name="item_name" id="item_name" required>
+                        <div class="col-md-8 mb-3">
+                            <select class="form-control" name="item_cd" id="itemList">
+                                <option value="">Pilih Item</option>
+                                @foreach ($data_item as $item)
+                                    <option value="{{$item->item_code}}" data-satuan="{{$item->item_unit}}">{{$item->item_name}}</option>
+                                @endforeach
+                            </select>
                         </div>
                     </div>
                     <div class="row">
                         <div class="col-md-4">
-                            <label for="item_unit" class="mr-sm-2">Satuan</label>
+                            <label for="item_unit" class="mr-sm-2">Jumlah Stok</label>
                         </div>
                         <div class="col-md-8">
-                            <input type="text" class="form-control mb-2 mr-sm-2" name="item_unit" id="item_unit" required>
+                            <input type="number" class="form-control mb-2 mr-sm-2" name="item_qty" id="item_unit" required>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-4 mt-2 mb-3">
+                            <label for="item_unit" class="mr-sm-2">Satuan</label>
+                        </div>
+                        <div class="col-md-8 mt-2 mb-3" id="satuan">
+                            
                         </div>
                     </div>
                     <div class="row">
