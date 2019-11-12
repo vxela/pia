@@ -14,7 +14,7 @@
                         Tabel Barang
                     </div>
                     <div class="col-md-6 text-right">
-                        <a href="#" class="btn btn-primary">Add Item</a>
+                        <a href="{{route('item.create')}}" class="btn btn-primary">Add Item</a>
                     </div>
                 </div>
             </div>

@@ -21,5 +21,6 @@ Route::get('/logout', 'LoginController@logout')->name('logout');
 
 Route::group(['middleware' => 'auth'], function(){
     Route::resource('/dashboard', 'HomeController');
+    Route::resource('/dashboard/item', 'ItemController');
 });
 
