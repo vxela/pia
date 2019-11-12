@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Carbon\Carbon as Carbon;
 use Session;
 use App;
 
@@ -104,6 +105,7 @@ class ItemController extends Controller
 
         $item->item_name = $request->item_name;
         $item->item_unit = $request->item_unit;
+        $item->updated_at = Carbon::now()->format('Y-m-d H:i:s');
 
         $save = $item->save();
 
@@ -124,6 +126,16 @@ class ItemController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $item = \App\Models\Tbl_item::find($id);
+        $delete = $item->forceDelete();
+
+        if(!$delete) {
+            App::abort(500, 'Error');
+        } else {
+            Session::flash('alert', ['status' => 'success', 'msg' => 'Delete data '.$item->item_name.' berhasil!']);
+
+            return back();
+        }
+
     }
 }

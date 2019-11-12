@@ -11,7 +11,9 @@ class Tbl_item extends Model
         'item_name',
         'item_unit',
         'item_price',
-        'user_id'
+        'user_id',
+        'created_at',
+        'updated_at'
     ];
 
     public function getUser() {

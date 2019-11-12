@@ -6,6 +6,7 @@
 
     <link rel="stylesheet" href="{{asset('dist/css/bootstrap.min.css')}}">
     <link rel="stylesheet" href="{{asset('dist/css/fontawesome-all.min.css')}}">
+    <link rel="stylesheet" href="{{asset('dist/css/jquery-confirm.min.css')}}">
     <link rel="stylesheet" href="{{asset('dist/css/bootadmin.min.css')}}">
 
     <title>Pia App</title>
@@ -64,6 +65,7 @@
 <script src="{{asset('dist/js/jquery.min.js')}}"></script>
 <script src="{{asset('dist/js/bootstrap.bundle.min.js')}}"></script>
 <script src="{{asset('dist/js/bootadmin.min.js')}}"></script>
+<script src="{{asset('dist/js/jquery-confirm.min.js')}}"></script>
 <script src="{{asset('dist/js/myJs.js')}}"></script>
 
 </body>

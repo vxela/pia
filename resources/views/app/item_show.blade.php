@@ -75,7 +75,7 @@
                             </a>
                             @method('delete')
                             @csrf
-                            <button type="submit" class="btn btn-danger btn-pill">
+                            <button type="button" id="btn-delete" class="btn btn-danger btn-pill">
                                 <i class="fas fa-trash fa-fw"></i>
                             </button>
                         </form>
