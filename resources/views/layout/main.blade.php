@@ -21,7 +21,7 @@
             <li class="nav-item dropdown">
                 <a href="#" id="dd_user" class="nav-link dropdown-toggle" data-toggle="dropdown"><i class="fa fa-user"></i> {{auth()->user()->name}}</a>
                 <div class="dropdown-menu dropdown-menu-right" aria-labelledby="dd_user">
-                    <a href="#" class="dropdown-item">Logout</a>
+                    <a href="{{route('logout')}}" class="dropdown-item">Logout</a>
                 </div>
             </li>
         </ul>
@@ -31,8 +31,8 @@
 <div class="d-flex">
     <div class="sidebar sidebar-dark bg-dark">
         <ul class="list-unstyled">
-            <li><a href="#"><i class="fa fa-fw fa-tachometer-alt"></i> Menu Item</a></li>
-            <li>
+            <li><a href=" {{route('dashboard.index')}}"><i class="fa fa-fw fa-tachometer-alt"></i> Dashboard</a></li>
+            {{-- <li>
                 <a href="#sm_expand_1" data-toggle="collapse">
                     <i class="fa fa-fw fa-table"></i> Expandable Menu Item
                 </a>
@@ -40,10 +40,10 @@
                     <li><a href="#">Submenu Item</a></li>
                     <li><a href="#">Submenu Item</a></li>
                 </ul>
-            </li>
-            <li><a href="#"><i class="fa fa-fw fa-link"></i> Tabel Barang</a></li>
-            <li><a href="#"><i class="fa fa-fw fa-link"></i> Tamba</a></li>
-            <li><a href="#"><i class="fa fa-fw fa-power-off"></i> Log Out</a></li>
+            </li> --}}
+            <li><a href="{{route('item.create')}}"><i class="fa fa-fw fa-plus-square"></i> Tambah Item</a></li>
+            <li><a href="{{route('stock.create')}}"><i class="fa fa-fw fa-plus"></i> Tambah Stock</a></li>
+            <li><a href="{{route('logout')}}"><i class="fa fa-fw fa-power-off"></i> Log Out</a></li>
         </ul>
     </div>
 
