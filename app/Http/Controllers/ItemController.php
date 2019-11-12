@@ -71,7 +71,10 @@ class ItemController extends Controller
      */
     public function show($id)
     {
-        //
+        $item = \App\Models\Tbl_item::find($id)->first();
+
+        dd($item);
+
     }
 
     /**

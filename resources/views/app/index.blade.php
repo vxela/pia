@@ -40,7 +40,7 @@
                                 <td>{{$item->item_name}}</td>
                                 <td>{{$item->item_unit}}</td>
                                 <td>
-                                    <a href="#"><i class="fa fa-eye"></i></a>
+                                    <a href="{{'dashboard/item/'.$item->id}}"><i class="fa fa-eye"></i></a>
                                     {{-- {{$item->id}} --}}
                                 </td>
                             </tr>
