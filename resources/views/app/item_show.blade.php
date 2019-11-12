@@ -67,6 +67,9 @@
                 <div class="row bg-light p-3 m-1">
                     <div class="col-12 text-center">
                         <form action="{{'/dashboard/item/'.$item->id}}" method="post">
+                            <a href="{{'/dashboard'}}" class="btn btn-primary btn-pill">
+                                <i class="fas fa-home fa-fw"></i>
+                            </a>
                             <a href="{{'/dashboard/item/'.$item->id.'/edit'}}" class="btn btn-info btn-pill">
                                 <i class="fas fa-pencil-alt fa-fw"></i>
                             </a>
