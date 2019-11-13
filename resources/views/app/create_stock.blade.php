@@ -31,7 +31,7 @@
                             <label for="item_name" class="mr-sm-2">Jenis Stock</label>
                         </div>
                         <div class="col-md-8 mb-3">
-                            <select class="form-control" name="stock_type" id="itemList">
+                            <select class="form-control" name="stock_type" id="stock_type" required>
                                 <option value="">Pilih Tipe Stock</option>
                                 <option value="in">Stock Masuk</option>
                                 <option value="out">Stock Keluar</option>
