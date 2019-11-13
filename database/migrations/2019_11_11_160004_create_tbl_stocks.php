@@ -20,7 +20,7 @@ class CreateTblStocks extends Migration
             $table->string('item_cd');
             $table->integer('item_qty');
             $table->integer('user_id');
-            $table->text('stock_desk');
+            $table->text('stock_desk')->nulable();
             $table->date('stock_date');
             $table->timestamps();
         });

@@ -46,8 +46,8 @@ class ItemController extends Controller
 
         $data_item = array(
             'item_code' => $item_cd,
-            'item_name' => $request->item_name,
-            'item_unit' => $request->item_unit,
+            'item_name' => strtoupper($request->item_name),
+            'item_unit' => ucfirst($request->item_unit),
             'item_price' => 0,
             'user_id' => auth()->user()->id
         );
@@ -57,7 +57,7 @@ class ItemController extends Controller
         if ($in_item->exists) {
             Session::flash('alert', ['status' => 'success', 'msg' => 'Tambah Data '.$in_item->item_name.' berhasil!']);
 
-            return back();
+            return redirect('dashboard');
          } else {
             App::abort(500, 'Error');
          }
@@ -103,8 +103,8 @@ class ItemController extends Controller
     {
         $item = \App\Models\Tbl_item::find($id);
 
-        $item->item_name = $request->item_name;
-        $item->item_unit = $request->item_unit;
+        $item->item_name = strtoupper($request->item_name);
+        $item->item_unit = ucfirst($request->item_unit);
         $item->updated_at = Carbon::now()->format('Y-m-d H:i:s');
 
         $save = $item->save();
@@ -114,7 +114,7 @@ class ItemController extends Controller
         } else {
             Session::flash('alert', ['status' => 'success', 'msg' => 'Update Data '.$item->item_name.' berhasil!']);
 
-            return back();
+            return redirect('dashboard');
         }
     }
 

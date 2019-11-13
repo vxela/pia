@@ -5,6 +5,14 @@
 @endsection
 
 @section('content')
+@if(Session::has('alert'))
+    <div class="alert alert-{{Session::get('alert.status')}} alert-dismissible" role="alert">
+        {{Session::get('alert.msg')}}
+        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+            <span aria-hidden="true">×</span>
+        </button>
+    </div>
+@endif
 <div class="row">
     <div class="col-lg-6">
         <div class="card mb-4">

@@ -39,6 +39,12 @@ class StockController extends Controller
     public function store(Request $request)
     {
         $item_id = \App\Models\Tbl_item::where('item_code', $request->item_cd)->first()->id;
+
+        if(empty($request->stock_desk)) {
+            $stock_desk = '-';
+        } else {
+            $stock_desk = $request->stock_desk;
+        }
         
         $data_stock = array(
             'item_id' => $item_id,
@@ -46,7 +52,7 @@ class StockController extends Controller
             'item_cd' => $request->item_cd,
             'item_qty' => $request->item_qty,
             'user_id' => auth()->user()->id,
-            'stock_desk' => $request->stock_desk,
+            'stock_desk' => $stock_desk,
             'stock_date' => Carbon::now()->format('Y-m-d')
         );
 
@@ -57,7 +63,7 @@ class StockController extends Controller
             $item = \App\Models\Tbl_item::where('id', $in_stock->item_id)->first();
             Session::flash('alert', ['status' => 'success', 'msg' => 'Tambah '.$in_stock->item_qty.' '.$item->item_unit.' Stock '.$item->item_name.' berhasil!']);
 
-            return back();
+            return redirect('dashboard');
          } else {
             App::abort(500, 'Error');
          }
