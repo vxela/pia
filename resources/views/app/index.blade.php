@@ -14,7 +14,7 @@
                         Tabel Barang
                     </div>
                     <div class="col-md-6 col-sm-6 col-6 text-right">
-                        <a href="{{route('item.create')}}" class="btn btn-primary">Add Item</a>
+                        <a href="{{route('item.create')}}" class="btn btn-primary">Tambah Item</a>
                     </div>
                 </div>
             </div>
@@ -58,7 +58,7 @@
                         Tabel Stock
                     </div>
                     <div class="col-md-6 col-sm-6 col-6 text-right">
-                        <a href="{{route('stock.create')}}" class="btn btn-primary">Add Stock</a>
+                        <a href="{{route('stock.create')}}" class="btn btn-primary">Tambah Stock</a>
                     </div>
                 </div>
             </div>

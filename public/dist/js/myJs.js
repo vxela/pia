@@ -4,9 +4,27 @@ $(document).ready(function() {
     });
 
     $('#btn-delete').click(function(){
-        console.log('clicked');
         $.confirm({
-            theme: 'supervan'
+            theme: 'modern',
+            escapeKey : true,
+            backgroundDismiss: true,
+            type : 'red',
+            buttons : {
+                okay : {
+                    keys : [
+                        'enter'
+                    ],
+                    action : function() {
+                        console.log('okey');
+                    }
+                },
+                cancel : {
+                    keys: [
+                        'ctrl',
+                        'shift'
+                    ]
+                }
+            }
         });
     })
 });
