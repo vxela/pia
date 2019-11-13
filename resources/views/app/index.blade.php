@@ -34,7 +34,9 @@
                             <th scope="col">Kode</th>
                             <th scope="col">Nama</th>
                             <th scope="col">Satuan</th>
-                            <th scope="col">-</th>
+                            @if (auth()->user()->user_role == 0)
+                                <th scope="col">-</th>
+                            @endif
                         </tr>
                     </thead>
                     @php
@@ -47,13 +49,15 @@
                                 <td>{{$item->item_code}}</td>
                                 <td>{{$item->item_name}}</td>
                                 <td>{{$item->item_unit}}</td>
-                                <td>
-                                    <a href="{{'dashboard/item/'.$item->id}}"><i class="fa fa-eye"></i></a>
-                                    <button type="button" id="btn-delete" class="btn btn-danger btn-pill btn-delete" data-method="delete" data-id_item="{{$item->id}}" data-url="{{'/dashboard/item/'.$item->id}}">
-                                        <i class="fas fa-trash fa-fw"></i>
-                                    </button>
-                                    {{-- {{$item->id}} --}}
-                                </td>
+                                @if (auth()->user()->user_role == 0)
+                                    <td>
+                                        <a href="{{'dashboard/item/'.$item->id}}"><i class="fa fa-eye"></i></a>
+                                        <button type="button" id="btn-delete" class="btn btn-danger btn-pill btn-delete" data-method="delete" data-id_item="{{$item->id}}" data-url="{{'/dashboard/item/'.$item->id}}">
+                                            <i class="fas fa-trash fa-fw"></i>
+                                        </button>
+                                        {{-- {{$item->id}} --}}
+                                    </td>
+                                @endif
                             </tr>
                         @endforeach
                     </tbody>
