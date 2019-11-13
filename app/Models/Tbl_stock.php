@@ -8,9 +8,11 @@ class Tbl_stock extends Model
 {
     protected $fillable = [
         'item_id',
+        'stock_type',
         'item_cd',
         'item_qty',
         'user_id',
+        'stock_desk',
         'stock_date',
     ];
 

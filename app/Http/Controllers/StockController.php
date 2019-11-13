@@ -42,9 +42,11 @@ class StockController extends Controller
         
         $data_stock = array(
             'item_id' => $item_id,
+            'stock_type' => $request->stock_type,
             'item_cd' => $request->item_cd,
             'item_qty' => $request->item_qty,
             'user_id' => auth()->user()->id,
+            'stock_desk' => $request->stock_desk,
             'stock_date' => Carbon::now()->format('Y-m-d')
         );
 

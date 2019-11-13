@@ -72,6 +72,7 @@
                             <th scope="col">#</th>
                             <th scope="col">Nama</th>
                             <th scope="col">Stock</th>
+                            <th scope="col">Type</th>
                             <th scope="col">Date</th>
                             <th scope="col">-</th>
                         </tr>
@@ -85,6 +86,14 @@
                                 <td>{{$n++}}</td>
                                 <td>{{$stock->getItem()->item_name}}</td>
                                 <td>{{$stock->item_qty}}</td>
+                                <td>
+                                    @if ($stock->stock_type == 'in')
+                                        <span class="badge badge-primary">    
+                                    @else
+                                        <span class="badge badge-danger">
+                                    @endif    
+                                    {{$stock->stock_type}}</span>
+                                </td>
                                 <td>{{$stock->stock_date}}</td>
                                 <td>
                                         <a href="#"><i class="fa fa-eye"></i></a>
