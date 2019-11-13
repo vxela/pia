@@ -43,7 +43,7 @@
                             <label for="item_name" class="mr-sm-2">Nama Barang</label>
                         </div>
                         <div class="col-md-8 mb-3">
-                            <select class="form-control" name="item_cd" id="itemList">
+                            <select class="form-control" name="item_cd" id="item_cd" required>
                                 <option value="">Pilih Item</option>
                                 @foreach ($data_item as $item)
                                     <option value="{{$item->item_code}}" data-satuan="{{$item->item_unit}}">{{$item->item_name}}</option>
