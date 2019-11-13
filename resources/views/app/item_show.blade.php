@@ -19,7 +19,7 @@
             <div class="card-header bg-white font-weight-bold">
                 <div class="row">
                     <div class="col-md-12">
-                        Data Item {{$item->item_name}}
+                        Data Item {{$item->id}}
                     </div>
                 </div>
             </div>
@@ -75,7 +75,7 @@
                             </a>
                             @method('delete')
                             @csrf
-                            <button type="button" id="btn-delete" class="btn btn-danger btn-pill">
+                            <button type="button" id="btn-delete" class="btn btn-danger btn-pill btn-delete" data-method="delete" data-id_item="{{$item->id}}" data-url="{{'/dashboard/item/'.$item->id}}">
                                 <i class="fas fa-trash fa-fw"></i>
                             </button>
                         </form>

@@ -17,6 +17,6 @@ class Tbl_item extends Model
     ];
 
     public function getUser() {
-        return \App\User::find($this->id)->first();
+        return \App\User::find($this->user_id);
     }
 }

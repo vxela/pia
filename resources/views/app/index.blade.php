@@ -41,6 +41,9 @@
                                 <td>{{$item->item_unit}}</td>
                                 <td>
                                     <a href="{{'dashboard/item/'.$item->id}}"><i class="fa fa-eye"></i></a>
+                                    <button type="button" id="btn-delete" class="btn btn-danger btn-pill btn-delete" data-method="delete" data-id_item="{{$item->id}}" data-url="{{'/dashboard/item/'.$item->id}}">
+                                        <i class="fas fa-trash fa-fw"></i>
+                                    </button>
                                     {{-- {{$item->id}} --}}
                                 </td>
                             </tr>

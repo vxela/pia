@@ -15,6 +15,6 @@ class Tbl_stock extends Model
     ];
 
     public function getItem() {
-        return Tbl_item::where('item_code', $this->item_cd)->first();
+        return Tbl_item::find($this->item_id);
     }
 }

@@ -73,7 +73,7 @@ class ItemController extends Controller
     public function show($id)
     {
 
-        $item = \App\Models\Tbl_item::find($id)->first();
+        $item = \App\Models\Tbl_item::find($id);
         return view('app.item_show', ['item' => $item]);
 
     }
@@ -87,7 +87,7 @@ class ItemController extends Controller
     public function edit($id)
     {
 
-        $item = \App\Models\Tbl_item::find($id)->first();
+        $item = \App\Models\Tbl_item::find($id);
         return view('app.item_edit', ['item' => $item]);
 
     }
@@ -127,15 +127,21 @@ class ItemController extends Controller
     public function destroy($id)
     {
         $item = \App\Models\Tbl_item::find($id);
-        $delete = $item->forceDelete();
 
-        if(!$delete) {
-            App::abort(500, 'Error');
-        } else {
-            Session::flash('alert', ['status' => 'success', 'msg' => 'Delete data '.$item->item_name.' berhasil!']);
+        $nstock = \App\Models\Tbl_stock::where('item_id', $id)->count();
+        
+        if($nstock != 0) {
 
-            return back();
+            $nstock = \App\Models\Tbl_stock::where('item_id', $id)->get();
+
+            foreach ($nstock as $stock) {
+                $id = $stock->id;
+                \App\Models\Tbl_stock::find($id)->forceDelete();
+            }
+
         }
+
+        $delete = $item->forceDelete();
 
     }
 }

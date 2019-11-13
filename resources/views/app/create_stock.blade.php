@@ -28,6 +28,18 @@
                     @csrf
                     <div class="row">
                         <div class="col-md-4">
+                            <label for="item_name" class="mr-sm-2">Jenis Stock</label>
+                        </div>
+                        <div class="col-md-8 mb-3">
+                            <select class="form-control" name="stock_type" id="itemList">
+                                <option value="">Pilih Tipe Stock</option>
+                                <option value="in">Stock Masuk</option>
+                                <option value="out">Stock Keluar</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-4">
                             <label for="item_name" class="mr-sm-2">Nama Barang</label>
                         </div>
                         <div class="col-md-8 mb-3">
