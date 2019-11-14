@@ -67,6 +67,9 @@
                             @endforeach
                         </tbody>
                     </table>
+                    <div class="col text-center">
+                        {{$data_stock->links()}}
+                    </div>
                 </div>
             </div>   
         </div>
