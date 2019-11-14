@@ -38,7 +38,7 @@
                                 <th scope="col">Nama</th>
                                 <th scope="col">Satuan</th>
                                 @if (auth()->user()->user_role == 1)
-                                    <th scope="col">-</th>
+                                    <th scope="col">action</th>
                                 @endif
                             </tr>
                         </thead>
@@ -54,10 +54,12 @@
                                     <td>{{$item->item_unit}}</td>
                                     @if (auth()->user()->user_role == 1)
                                         <td>
-                                            <a href="{{'/dashboard/item/'.$item->id}}"><i class="fa fa-eye text-info"></i></a>
-                                            <a href="#" id="btn-delete" class="btn-pill btn-delete" data-method="delete" data-id_item="{{$item->id}}" data-url="{{'/dashboard/item/'.$item->id}}">
-                                                <i class="fas fa-trash fa-fw text-danger"></i>
-                                            </a>
+                                            <div class="row">
+                                                <a href="{{'/dashboard/item/'.$item->id}}"><i class="fa fa-eye text-info"></i></a>
+                                                <a href="#" id="btn-delete" class="btn-pill btn-delete" data-method="delete" data-id_item="{{$item->id}}" data-url="{{'/dashboard/item/'.$item->id}}">
+                                                    <i class="fas fa-trash fa-fw text-danger"></i>
+                                                </a>
+                                            </div>
                                             {{-- {{$item->id}} --}}
                                         </td>
                                     @endif

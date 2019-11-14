@@ -118,7 +118,12 @@
                                         {{$stock->created_at}}
                                     </td>
                                     <td>
-                                        {{$stock->stock_type}}
+                                        @if ($stock->stock_type == 'in')
+                                            <span class="badge badge-primary">    
+                                        @else
+                                            <span class="badge badge-danger">
+                                        @endif    
+                                        {{$stock->stock_type}}</span>
                                     </td>
                                     <td>
                                         {{$stock->getUser()->name}}
