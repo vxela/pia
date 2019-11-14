@@ -4,6 +4,26 @@
     Dashboard
 @endsection
 
+@section('boxs')
+    <div class="row mb-4">
+        @php
+            $color = ['primary','dark','info','warning','danger','success','secondary']
+        @endphp
+        @foreach ($data_cst as $cst)
+            <div class="col-md-3 mb-2">
+                <div class="d-flex p-1 bg-{{$color[rand(0,6)]}}">
+                </div>
+                <div class="d-flex border border-left-0">
+                    <div class="flex-grow-1 bg-white p-4">
+                        <p class="text-uppercase text-secondary mb-0">{{$cst->getItem()->item_name}}</p> <hr class="m-0">
+                        <h5 class="font-weight-bold mb-0">Sisa :<small>{{' '.$cst->qty.' '.$cst->getItem()->item_unit}}</small></h5>
+                    </div>
+                </div>
+            </div>
+        @endforeach
+    </div>
+@endsection
+
 @section('content')
 @if(Session::has('alert'))
     <div class="alert alert-{{Session::get('alert.status')}} alert-dismissible" role="alert">

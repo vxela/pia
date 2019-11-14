@@ -14,9 +14,12 @@ class HomeController extends Controller
      */
     public function index()
     {
-        $item = \App\Models\Tbl_item::all();
-        $stock = \App\Models\Tbl_stock::all();
-        return view('app.index', ['data_item' => $item, 'data_stock' => $stock]);
+        $cst = \App\Models\Tbl_stock::selectRaw('item_id, sum(case when stock_type = "in" then item_qty else -item_qty end) as qty')
+                ->groupBy('item_id')->get();
+        // dd($cst);
+        $item = \App\Models\Tbl_item::latest()->offset(5)->limit(10)->get();
+        $stock = \App\Models\Tbl_stock::latest()->offset(5)->limit(10)->get();
+        return view('app.index', ['data_item' => $item, 'data_stock' => $stock, 'data_cst' => $cst]);
     }
 
     /**

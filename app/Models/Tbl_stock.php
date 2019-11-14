@@ -19,4 +19,8 @@ class Tbl_stock extends Model
     public function getItem() {
         return Tbl_item::find($this->item_id);
     }
+
+    public function getUser() {
+        return \App\User::find($this->user_id);
+    }
 }

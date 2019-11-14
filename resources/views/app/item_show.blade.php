@@ -24,7 +24,7 @@
                 </div>
             </div>
             <div class="card-body">
-                <div class="row bg-light p-3 m-1">
+                <div class="row bg-light p-2 m-1">
                     <div class="col-4">
                         Kode Item
                     </div>
@@ -32,7 +32,7 @@
                         {{$item->item_code}}
                     </div>
                 </div>
-                <div class="row bg-light p-3 m-1">
+                <div class="row bg-light p-2 m-1">
                     <div class="col-4">
                         Nama Item
                     </div>
@@ -40,7 +40,7 @@
                         {{$item->item_name}}
                     </div>
                 </div>
-                <div class="row bg-light p-3 m-1">
+                <div class="row bg-light p-2 m-1">
                     <div class="col-4">
                         Item Unit
                     </div>
@@ -48,7 +48,7 @@
                         {{$item->item_unit}}
                     </div>
                 </div>
-                <div class="row bg-light p-3 m-1">
+                <div class="row bg-light p-2 m-1">
                     <div class="col-4">
                         Tanggal Input
                     </div>
@@ -56,7 +56,7 @@
                         {{$item->created_at}}
                     </div>
                 </div>
-                <div class="row bg-light p-3 m-1">
+                <div class="row bg-light p-2 m-1">
                     <div class="col-4">
                         Di input oleh
                     </div>
@@ -64,7 +64,7 @@
                         {{$item->getUser()->name}}
                     </div>
                 </div>
-                <div class="row bg-light p-3 m-1">
+                <div class="row bg-light p-2 m-1">
                     <div class="col-12 text-center">
                         <form action="{{'/dashboard/item/'.$item->id}}" method="post">
                             <a href="{{'/dashboard'}}" class="btn btn-primary btn-pill">
@@ -82,6 +82,65 @@
                         
                     </div>
                 </div>                
+            </div>
+        </div>
+        <div class="card mb-4">
+            <div class="card-header bg-white font-weight-bold">
+                <div class="row">
+                    <div class="col-md-12">
+                        Data Log stock {{$item->item_name}}
+                    </div>
+                </div>
+            </div>
+            <div class="card-body">
+                <div class="row bg-light p-3 m-1">
+                    <table class="table">
+                        <thead>
+                            <tr>
+                                <th>
+                                    Tanggal Waktu
+                                </th>
+                                <th>
+                                    Type
+                                </th>
+                                <th>
+                                    Add by
+                                </th>
+                                <th>
+                                    qty
+                                </th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @foreach ($data_stock as $stock)
+                                <tr>
+                                    <td>
+                                        {{$stock->created_at}}
+                                    </td>
+                                    <td>
+                                        {{$stock->stock_type}}
+                                    </td>
+                                    <td>
+                                        {{$stock->getUser()->name}}
+                                    </td>
+                                    <td>
+                                        {{$stock->item_qty}}
+                                    </td>
+                                </tr>
+                            @endforeach
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+            <div class="card-footer">
+                <div class="row">
+                    <div class="col-6">
+                        <strong>Sisa  {{ucfirst(strtolower($item->item_name))}}</strong>
+                    </div>
+                    <div class="col-6 text-right">
+                        <strong>{{$cst.' '.$item->item_unit}}</strong>
+                    </div>                
+                </div>
             </div>
         </div>   
     </div>

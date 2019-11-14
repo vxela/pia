@@ -43,7 +43,9 @@
                 </ul>
             </li> --}}
             {{-- <li><a href="{{route('dashboard.item-stock')}}"><i class="fa fa-fw fa-th"></i> Tambah Item</a></li> --}}
+            <li><a href="{{'/dashboard/item'}}"><i class="fa fa-fw fa-table"></i> Data Item</a></li>
             <li><a href="{{route('item.create')}}"><i class="fa fa-fw fa-plus-square"></i> Tambah Item</a></li>
+            <li><a href="{{'/dashboard/stock'}}"><i class="fa fa-fw fa-table"></i> Data Stock</a></li>
             <li><a href="{{route('stock.create')}}"><i class="fa fa-fw fa-plus"></i> Tambah Stock</a></li>
             <li><a href="{{route('logout')}}"><i class="fa fa-fw fa-power-off"></i> Log Out</a></li>
         </ul>
@@ -53,7 +55,9 @@
         <h5 class="mb-4">
             @yield('bradcrumb')
         </h5>
-
+        @if(Request::segment(1) === 'dashboard')
+            @yield('boxs')
+        @endif
         @yield('content')
         {{-- <div class="card mb-4">
             <div class="card-body">

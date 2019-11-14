@@ -16,7 +16,8 @@ class ItemController extends Controller
      */
     public function index()
     {
-        //
+        $item = \App\Models\Tbl_item::latest()->offset(5)->limit(10)->get();
+        return view('app.item_list', ['data_item' => $item]);
     }
 
     /**
@@ -74,7 +75,12 @@ class ItemController extends Controller
     {
 
         $item = \App\Models\Tbl_item::find($id);
-        return view('app.item_show', ['item' => $item]);
+        $stock = \App\Models\Tbl_stock::where('item_id', $id)->get();
+        $cst = \App\Models\Tbl_stock::selectRaw('item_id, sum(case when stock_type = "in" then item_qty else -item_qty end) as qty')
+                ->where('item_id', '=', $id)
+                ->groupBy('item_id')
+                ->first();
+        return view('app.item_show', ['item' => $item, 'data_stock' => $stock, 'cst' => $cst->qty]);
 
     }
 
