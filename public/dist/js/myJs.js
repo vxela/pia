@@ -1,5 +1,5 @@
 $(document).ready(function() {
-    $('#itemList').change(function(){
+    $('#item_cd').change(function(){
         $('#satuan').text($(this).find(':selected').data('satuan'));
     });
 

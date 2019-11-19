@@ -18,7 +18,7 @@ class StockController extends Controller
     {
         // echo 'helloworld';
         // $stock = \App\Models\Tbl_stock::latest()->offset(5)->limit(10)->get();
-        $stock = \App\Models\Tbl_stock::paginate(10);
+        $stock = \App\Models\Tbl_stock::latest()->paginate(10);
         return view('app.stock_list', ['data_stock' => $stock]);
 
     }

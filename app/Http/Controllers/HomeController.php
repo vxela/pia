@@ -15,7 +15,7 @@ class HomeController extends Controller
     public function index()
     {
         $cst = \App\Models\Tbl_stock::selectRaw('item_id, sum(case when stock_type = "in" then item_qty else -item_qty end) as qty')
-                ->groupBy('item_id')->get();
+                ->groupBy('item_id')->paginate(8);
         // dd($cst);
         $item = \App\Models\Tbl_item::latest()->offset(5)->limit(10)->get();
         $stock = \App\Models\Tbl_stock::latest()->offset(5)->limit(10)->get();

@@ -16,7 +16,7 @@ class ItemController extends Controller
      */
     public function index()
     {
-        $item = \App\Models\Tbl_item::latest()->offset(5)->limit(10)->get();
+        $item = \App\Models\Tbl_item::latest()->paginate(10);
         return view('app.item_list', ['data_item' => $item]);
     }
 

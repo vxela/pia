@@ -61,18 +61,18 @@
                     </div>
                     <div class="row">
                         <div class="col-md-4 mt-2 mb-3">
-                            <label for="item_unit" class="mr-sm-2">Satuan</label>
+                            <label for="item_unit" class="mr-sm-2">Deskripsi</label>
                         </div>
-                        <div class="col-md-8 mt-2 mb-3" id="satuan">
-                            
+                        <div class="col-md-8 mt-2 mb-3" id="">
+                            <textarea class="form-control" id="stock_desk" name="stock_desk" rows="3" style="margin-top: 0px; margin-bottom: 0px; max-height: 200px"></textarea>
                         </div>
                     </div>
                     <div class="row">
                         <div class="col-md-4 mt-2 mb-3">
-                            <label for="item_unit" class="mr-sm-2">Deskripsi</label>
+                            <label for="item_unit" class="mr-sm-2">Satuan</label>
                         </div>
                         <div class="col-md-8 mt-2 mb-3" id="satuan">
-                            <textarea class="form-control" id="stock_desk" name="stock_desk" rows="3" style="margin-top: 0px; margin-bottom: 0px; max-height: 200px"></textarea>
+                            
                         </div>
                     </div>
                     <div class="row">

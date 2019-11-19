@@ -5,7 +5,7 @@
 @endsection
 
 @section('boxs')
-    <div class="row mb-4">
+    <div class="row mb-2">
         @php
             $color = ['primary','dark','info','warning','danger','success','secondary']
         @endphp
@@ -21,6 +21,9 @@
                 </div>
             </div>
         @endforeach
+    </div>
+    <div class="d-flex justify-content-center">
+        {{$data_cst->links()}}
     </div>
 @endsection
 
@@ -67,14 +70,20 @@
                             <tr>
                                 <td>{{$n++}}</td>
                                 <td>{{$item->item_code}}</td>
-                                <td>{{$item->item_name}}</td>
+                                <td>
+                                    @if (strlen($item->item_name) > 10)
+                                        {{substr($item->item_name, 0, 10).'..'}}
+                                    @else
+                                        {{$item->item_name}}
+                                    @endif
+                                </td>
                                 <td>{{$item->item_unit}}</td>
                                 @if (auth()->user()->user_role == 1)
                                     <td>
                                         <a href="{{'dashboard/item/'.$item->id}}"><i class="fa fa-eye"></i></a>
-                                        <button type="button" id="btn-delete" class="btn btn-danger btn-pill btn-delete" data-method="delete" data-id_item="{{$item->id}}" data-url="{{'/dashboard/item/'.$item->id}}">
-                                            <i class="fas fa-trash fa-fw"></i>
-                                        </button>
+                                        <a href="#" id="btn-delete" class="btn-delete" data-method="delete" data-id_item="{{$item->id}}" data-url="{{'/dashboard/item/'.$item->id}}">
+                                            <i class="fas fa-trash fa-fw text-danger"></i>
+                                        </a>
                                         {{-- {{$item->id}} --}}
                                     </td>
                                 @endif
@@ -82,6 +91,10 @@
                         @endforeach
                     </tbody>
                 </table>
+                <div class="d-flex justify-content-end">
+                    <a href="{{route('item.index')}}" class="btn btn-primary">Lihat semua item</a>
+                    {{-- {{$data_item->links()}} --}}
+                </div>
             </div>
         </div>   
     </div>
@@ -135,6 +148,10 @@
                         @endforeach
                     </tbody>
                 </table>
+                <div class="d-flex justify-content-end">
+                        <a href="{{route('stock.index')}}" class="btn btn-primary">Lihat semua stock</a>
+                    {{-- {{$data_stock->links()}} --}}
+                </div>
             </div>
         </div>   
     </div>
