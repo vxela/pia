@@ -34,12 +34,25 @@
                             <input type="text" class="form-control mb-2 mr-sm-2" name="item_name" id="item_name" required>
                         </div>
                     </div>
-                    <div class="row mb-3">
+                    <div class="row">
                         <div class="col-md-4">
                             <label for="item_unit" class="mr-sm-2">Satuan</label>
                         </div>
                         <div class="col-md-8">
                             <input type="text" class="form-control mb-2 mr-sm-2" name="item_unit" id="item_unit" required>
+                        </div>
+                    </div>
+                    <div class="row mb-3">
+                        <div class="col-md-4">
+                            <label for="item_unit" class="mr-sm-2">Gudang</label>
+                        </div>
+                        <div class="col-md-8">
+                                <select class="form-control" name="gudang_id" id="gudang_id" required>
+                                    <option value="">Pilih Gudang</option>
+                                    @foreach ($data_gudang as $gudang)
+                                    <option value="{{$gudang->id}}">{{$gudang->name}}</option>
+                                    @endforeach
+                                </select>
                         </div>
                     </div>
                     <div class="row">

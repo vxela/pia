@@ -37,6 +37,7 @@
                                 <th scope="col">Kode</th>
                                 <th scope="col">Nama</th>
                                 <th scope="col">Satuan</th>
+                                <th scope="col">Gudang</th>
                                 @if (auth()->user()->user_role == 1)
                                     <th align="right">action</th>
                                 @endif
@@ -52,6 +53,7 @@
                                     <td>{{$item->item_code}}</td>
                                     <td>{{$item->item_name}}</td>
                                     <td>{{$item->item_unit}}</td>
+                                    <td>{{$item->getGudang()->name}}</td>
                                     @if (auth()->user()->user_role == 1)
                                         <td align="right">
                                             <a href="{{'/dashboard/item/'.$item->id}}"><i class="fa fa-eye text-info"></i></a>

@@ -14,7 +14,7 @@ class AddGudangIdToItemTable extends Migration
     public function up()
     {
         Schema::table('tbl_items', function (Blueprint $table) {
-            $table->integer('gudang_id')->nullable()->default(0)->after('item_unit');
+            $table->integer('gudang_id')->nullable()->default(1)->after('item_unit');
         });
     }
 

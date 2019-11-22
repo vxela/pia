@@ -27,7 +27,8 @@ class ItemController extends Controller
      */
     public function create()
     {
-        return view('app.create_item');
+        $gudang = \App\Models\Tbl_warehouse::all();
+        return view('app.create_item', ['data_gudang' => $gudang]);
     }
 
     /**
@@ -49,6 +50,7 @@ class ItemController extends Controller
             'item_code' => $item_cd,
             'item_name' => strtoupper($request->item_name),
             'item_unit' => ucfirst($request->item_unit),
+            'gudang_id' => $request->gudang_id,
             'item_price' => 0,
             'user_id' => auth()->user()->id
         );
