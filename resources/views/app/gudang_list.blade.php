@@ -14,7 +14,7 @@
         </div>
     @endif
     <div class="row">
-        <div class="col-4">
+        <div class="col-4 offset-4">
             <div class="card">
                 <div class="card-header bg-white font-weight-bold">
                     <div class="row">
@@ -30,37 +30,29 @@
                     <table class="table table-hover">
                         <thead>
                         <tr>
-                            <th scope="col">Order ID</th>
-                            <th scope="col">Item</th>
-                            <th scope="col">Customer</th>
-                            <th scope="col">Status</th>
+                            <th scope="col">Nama</th>
+                            <th scope="col">Lokasi</th>
+                            <th scope="col">-</th>
                         </tr>
                         </thead>
                         <tbody>
-                        <tr>
-                            <td><a href="#">00000077</a></td>
-                            <td>Praesent eu viverra leo</td>
-                            <td>Kevin Dion</td>
-                            <td><span class="badge badge-success">Shipped</span></td>
-                        </tr>
-                        <tr>
-                            <td><a href="#">00000078</a></td>
-                            <td>Lorem ipsum dolor</td>
-                            <td>Mark Otto</td>
-                            <td><span class="badge badge-success">Shipped</span></td>
-                        </tr>
-                        <tr>
-                            <td><a href="#">00000079</a></td>
-                            <td>Etiam eleifend elit</td>
-                            <td>Jacob Thornton</td>
-                            <td><span class="badge badge-info">Packaging</span></td>
-                        </tr>
-                        <tr>
-                            <td><a href="#">00000080</a></td>
-                            <td>Donec vitae ante egestas</td>
-                            <td>Larry the Bird</td>
-                            <td><span class="badge badge-secondary">Back Ordered</span></td>
-                        </tr>
+                            @foreach ($data_gudang as $gudang)
+                                <tr>
+                                    <td>{{$gudang->name}}</td>
+                                    <td>{{$gudang->lokasi}}</td>
+                                    <td>
+                                        <a href="#" style="text-decoration: none;">
+                                            <i class="fas fa-search text-primary"></i>
+                                        </a>
+                                        <a href="#" style="text-decoration: none;">
+                                            <i class="fa fa-edit text-info"></i>
+                                        </a>
+                                        <a href="#" style="text-decoration: none;">
+                                            <i class="fas fa-trash text-danger"></i>
+                                        </a>
+                                    </td>
+                                </tr>
+                            @endforeach
                         </tbody>
                     </table>
                 </div>

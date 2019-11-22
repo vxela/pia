@@ -21,43 +21,34 @@
                     {{-- <div class="row">
                     </div> --}}
                 </div>
-                <div class="card-body">            
-                    <table class="table table-hover">
-                        <thead>
-                        <tr>
-                            <th scope="col">Order ID</th>
-                            <th scope="col">Item</th>
-                            <th scope="col">Customer</th>
-                            <th scope="col">Status</th>
-                        </tr>
-                        </thead>
-                        <tbody>
-                        <tr>
-                            <td><a href="#">00000077</a></td>
-                            <td>Praesent eu viverra leo</td>
-                            <td>Kevin Dion</td>
-                            <td><span class="badge badge-success">Shipped</span></td>
-                        </tr>
-                        <tr>
-                            <td><a href="#">00000078</a></td>
-                            <td>Lorem ipsum dolor</td>
-                            <td>Mark Otto</td>
-                            <td><span class="badge badge-success">Shipped</span></td>
-                        </tr>
-                        <tr>
-                            <td><a href="#">00000079</a></td>
-                            <td>Etiam eleifend elit</td>
-                            <td>Jacob Thornton</td>
-                            <td><span class="badge badge-info">Packaging</span></td>
-                        </tr>
-                        <tr>
-                            <td><a href="#">00000080</a></td>
-                            <td>Donec vitae ante egestas</td>
-                            <td>Larry the Bird</td>
-                            <td><span class="badge badge-secondary">Back Ordered</span></td>
-                        </tr>
-                        </tbody>
-                    </table>
+                <div class="card-body"> 
+                    <form action="{{route('gudang.store')}}" method="post">
+                        @csrf
+                        <div class="row">
+                            <div class="col-md-4">
+                                <label for="gdg_name" class="mr-sm-2">Nama</label>
+                            </div>
+                            <div class="col-md-8 mb-1">
+                                    <input type="text" class="form-control mb-2 mr-sm-2" name="gdg_name" id="gdg_name" required>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-4 mt-2 mb-4">
+                                <label for="lokasi" class="mr-sm-2">Lokasi</label>
+                            </div>
+                            <div class="col-md-8 mt-2 mb-4" id="">
+                                <textarea class="form-control" id="gdg_lokasi" name="gdg_lokasi" rows="3" style="margin-top: 0px; margin-bottom: 0px; max-height: 200px"></textarea>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-4 col-4">
+                                <button type="reset" class="btn btn-default">Reset</button>
+                            </div>
+                            <div class="col-md-8 col-8 text-right">
+                                <button type="submit" class="btn btn-primary">Simpan</button>
+                            </div>
+                        </div>
+                    </form>
                 </div>
             </div>
         </div>

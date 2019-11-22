@@ -15,7 +15,7 @@ class CreateTableGudang extends Migration
     {
         Schema::create('tbl_warehouses', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->string('nama');
+            $table->string('name');
             $table->text('lokasi');
             $table->integer('user_id');
             $table->timestamps();
