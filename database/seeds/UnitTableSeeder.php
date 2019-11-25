@@ -13,6 +13,13 @@ class UnitTableSeeder extends Seeder
     public function run()
     {
         DB::table('tbl_units')->insert([
+            'name' => 'Biji',
+            'desc' => 'Satuan terkecil',
+            'user_id' => '1',
+            'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
+            'updated_at' => Carbon::now()->format('Y-m-d H:i:s')
+        ]);
+        DB::table('tbl_units')->insert([
             'name' => 'Rak',
             'desc' => '1 Rak isi 30 Biji',
             'user_id' => '1',

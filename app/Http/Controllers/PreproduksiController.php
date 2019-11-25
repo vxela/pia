@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Session;
+use Carbon\Carbon as Carbon;
 
 class PreproduksiController extends Controller
 {
@@ -37,7 +39,29 @@ class PreproduksiController extends Controller
      */
     public function store(Request $request)
     {
-        dd($request->all());
+        $data = array(
+            'item_id' => $request->produk_id,
+            'jml_item' => $request->jml_produk,
+            'satuan_id' => $request->unit_id,
+            'user_id' => 1,
+            'date' => Carbon::now()->format('Y-m-d'),
+            'time' => Carbon::now()->format('H:i:s')            
+        );
+        
+        $preproduksi = \App\Models\Tbl_preproduction::create($data);
+
+        if ($preproduksi->exists) {
+
+            Session::flash('alert', ['status' => 'success', 'msg' => 'Tambah data berhasil!']);
+
+            return back();
+
+        } else {
+
+        App::abort(500, 'Error');
+
+        }
+
     }
 
     /**
