@@ -13,7 +13,10 @@ class PreproduksiController extends Controller
      */
     public function index()
     {
-        return view('preproduksi.index');
+        $produk = \App\Models\Tbl_item::where('gudang_id', 4)->get();
+        $unit = \App\Models\Tbl_unit::all();
+        // dd($produk);
+        return view('preproduksi.index', ['data_produk' => $produk, 'data_unit' => $unit]);
     }
 
     /**
@@ -34,7 +37,7 @@ class PreproduksiController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        dd($request->all());
     }
 
     /**

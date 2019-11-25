@@ -19,37 +19,46 @@
             <div class="card-header bg-white font-weight-bold">
                 <div class="row">
                     <div class="col-md-12">
-                        Tambah Item
+                        Tambah Produk Setengah Jadi
                     </div>
                 </div>
             </div>
             <div class="card-body">
-                <form action="" method="post">
+                <form action="{{route('preproduksi.store')}}" method="post">
                     @csrf
-                    <div class="row">
+                    <div class="row mb-3">
                         <div class="col-md-4">
-                            <label for="item_name" class="mr-sm-2">Nama Barang</label>
+                            <label for="item_name" class="mr-sm-2">Nama Produk</label>
                         </div>
                         <div class="col-md-8">
-                            <input type="text" class="form-control mb-2 mr-sm-2" name="item_name" id="item_name" required>
+                            <select class="form-control" name="produk_id" id="produk_id" required>
+                                <option value="">Pilih Produk</option>
+                                @foreach ($data_produk as $produk)
+                                <option value="{{$produk->id}}">{{$produk->item_name}}</option>
+                                @endforeach
+                            </select>
                         </div>
-                    </div>
-                    <div class="row">
+                    </div>                    
+                    <div class="row mb-2">
                         <div class="col-md-4">
-                            <label for="item_unit" class="mr-sm-2">Satuan</label>
+                            <label for="item_unit" class="mr-sm-2">Jumlah Produksi</label>
                         </div>
                         <div class="col-md-8">
-                            <input type="text" class="form-control mb-2 mr-sm-2" name="item_unit" id="item_unit" required>
+                            <input type="number" class="form-control mb-2 mr-sm-2" name="jml_produk" id="jml_produk" required>
                         </div>
                     </div>
                     <div class="row mb-3">
                         <div class="col-md-4">
-                            <label for="item_unit" class="mr-sm-2">Gudang</label>
+                            <label for="item_name" class="mr-sm-2">Unit</label>
                         </div>
                         <div class="col-md-8">
-                                <select class="form-control" name="gudang_id" id="gudang_id" required>
-                                    <option value="">Pilih Gudang</option>
-                                </select>
+                            @foreach ($data_unit as $unit)
+                                <div class="form-check-inline">
+                                    <label class="form-check-label">
+                                        <input type="radio" class="form-check-input" name="unit_id" id="unit_id" value="{{$unit->id}}">{{$unit->name}}
+                                    </label>
+                                </div>
+                            @endforeach
                         </div>
                     </div>
                     <div class="row">

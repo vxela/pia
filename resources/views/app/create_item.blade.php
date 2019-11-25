@@ -47,12 +47,12 @@
                             <label for="item_unit" class="mr-sm-2">Gudang</label>
                         </div>
                         <div class="col-md-8">
-                                <select class="form-control" name="gudang_id" id="gudang_id" required>
-                                    <option value="">Pilih Gudang</option>
-                                    @foreach ($data_gudang as $gudang)
-                                    <option value="{{$gudang->id}}">{{$gudang->name}}</option>
-                                    @endforeach
-                                </select>
+                            <select class="form-control" name="gudang_id" id="gudang_id" required>
+                                <option value="">Pilih Gudang</option>
+                                @foreach ($data_gudang as $gudang)
+                                <option value="{{$gudang->id}}">{{$gudang->name}}</option>
+                                @endforeach
+                            </select>
                         </div>
                     </div>
                     <div class="row">
