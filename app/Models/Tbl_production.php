@@ -6,5 +6,12 @@ use Illuminate\Database\Eloquent\Model;
 
 class Tbl_production extends Model
 {
-    //
+    protected $fillable = [
+        'item_id',
+        'jml_item',
+        'satuan_id',
+        'user_id',
+        'date',
+        'time'
+    ];
 }
