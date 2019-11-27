@@ -26,6 +26,7 @@ Route::resource('produksi', 'ProduksiController');
 
 Route::group(['middleware' => 'auth'], function(){
     Route::resource('/dashboard/gudang', 'GudangController');
+    Route::get('/dashboard/dataStock', 'StockController@ajaxGetStock')->name('dataStock');
     Route::resource('/dashboard/stock', 'StockController');
     Route::resource('/dashboard/item', 'ItemController');
     Route::get('/dashboard/item-stock', 'HomeController@itemStock')->name('dashboard.item-stock');

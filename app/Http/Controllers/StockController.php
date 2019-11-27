@@ -119,4 +119,12 @@ class StockController extends Controller
     {
         //
     }
+
+    public function ajaxGetStock() {
+        // $stock = \App\Models\Tbl_stock::all();
+        $query = \App\Models\Tbl_stock::join('tbl_items', 'tbl_stocks.item_id', '=', 'tbl_items.id')
+                                        ->get(array('tbl_stocks.*', 'tbl_items.item_name'));
+        return \DataTables::of($query)->toJson();
+
+    }
 }

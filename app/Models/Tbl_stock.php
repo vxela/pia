@@ -16,6 +16,10 @@ class Tbl_stock extends Model
         'stock_date',
     ];
 
+    public function item() {
+        return $this->hasOne('App\Models\Tbl_item');
+    }
+
     public function getItem() {
         return Tbl_item::find($this->item_id);
     }

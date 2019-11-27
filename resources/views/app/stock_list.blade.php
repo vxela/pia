@@ -37,7 +37,7 @@
                     <table class="table mb-0" id="tbl_stock">
                         <thead class="thead-light">
                             <tr>
-                                <th scope="col">#</th>
+                                {{-- <th scope="col">#</th> --}}
                                 <th scope="col">Nama</th>
                                 <th scope="col">Stock</th>
                                 <th scope="col">Type</th>
@@ -49,7 +49,7 @@
                             $n=1;
                         @endphp
                         <tbody>
-                            @foreach ($data_stock as $stock)
+                            {{-- @foreach ($data_stock as $stock)
                                 <tr>
                                     <td>{{$n++}}</td>
                                     <td>{{$stock->getItem()->item_name}}</td>
@@ -68,7 +68,7 @@
                                         <a href="#"><i class="fa fa-trash text-danger"></i></a>
                                     </td>
                                 </tr>
-                            @endforeach
+                            @endforeach --}}
                         </tbody>
                     </table>
                     <div class="col text-center">
@@ -86,7 +86,18 @@
 <script>
 
 $( document ).ready(function() {
-    $('#tbl_stock').DataTable();
+    $('#tbl_stock').DataTable({
+        processing:true,
+        serversiide:true,
+        ajax:"{{route('dataStock')}}",
+        columns : [
+            { data : 'item_name', name:'item_name' },
+            { data : 'item_qty', name:'item_qty' },
+            { data : 'stock_type', name:'stock_type' },
+            { data : 'stock_date', name:'stock_date' },
+            { data : 'id', name:'id' },
+        ]
+    });
 });
 
 </script>    
