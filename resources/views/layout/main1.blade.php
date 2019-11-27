@@ -8,6 +8,7 @@
     <link rel="stylesheet" href="{{asset('dist/css/fontawesome-all.min.css')}}">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jquery-confirm/3.3.2/jquery-confirm.min.css">
     <link rel="stylesheet" href="{{asset('dist/css/bootadmin.min.css')}}">
+    @yield('onpagecss')
 
     <title>Pia App</title>
 </head>
@@ -71,7 +72,10 @@
 <script src="{{asset('dist/js/bootstrap.bundle.min.js')}}"></script>
 <script src="{{asset('dist/js/bootadmin.min.js')}}"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-confirm/3.3.2/jquery-confirm.min.js"></script>
-<script src="{{asset('dist/js/myJs.js')}}"></script>
+{{-- <script src="{{asset('dist/js/myJs.js')}}"></script> --}}
+
+@yield('onpagejs')
+
 
 </body>
 </html>

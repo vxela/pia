@@ -1,4 +1,8 @@
-@extends('layout.main')
+@extends('layout.main1')
+
+@section('onpagecss')
+    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.20/css/jquery.dataTables.css">
+@endsection
 
 @section('bradcrumb')
     Dashboard
@@ -30,7 +34,7 @@
                     </div>
                 </div>
                 <div class="card-body">
-                    <table class="table mb-0">
+                    <table class="table mb-0" id="tbl_stock">
                         <thead class="thead-light">
                             <tr>
                                 <th scope="col">#</th>
@@ -68,10 +72,22 @@
                         </tbody>
                     </table>
                     <div class="col text-center">
-                        {{$data_stock->links()}}
+                        {{-- {{$data_stock->links()}} --}}
                     </div>
                 </div>
             </div>   
         </div>
     </div>
+@endsection
+
+@section('onpagejs')
+
+<script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.10.20/js/jquery.dataTables.js"></script>
+<script>
+
+$( document ).ready(function() {
+    $('#tbl_stock').DataTable();
+});
+
+</script>    
 @endsection
