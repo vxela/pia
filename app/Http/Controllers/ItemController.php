@@ -14,10 +14,16 @@ class ItemController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
-        $item = \App\Models\Tbl_item::latest()->paginate(10);
-        return view('app.item_list', ['data_item' => $item]);
+        // dd($request->all());
+        if($request->has('search') && $request->search != "") {
+            $item = \App\Models\Tbl_item::where('item_name', 'like', '%'.$request->search.'%')
+                                            ->latest()->paginate(10);
+        } else {
+            $item = \App\Models\Tbl_item::latest()->paginate(10);
+        }
+        return view('app.item_list', ['data_item' => $item]);            
     }
 
     /**

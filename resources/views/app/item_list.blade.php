@@ -25,8 +25,8 @@
                             <a href="{{route('item.create')}}" class="btn btn-primary">Tambah Item</a>
                         </div>
                         <div class="ml-auto p-2 bd-highlight">
-                            <form class="input-group" action="">
-                                <input type="text" class="form-control" placeholder="search item">
+                            <form class="input-group" action="{{route('item.index')}}" method="get">
+                                <input type="text" class="form-control" placeholder="search item" name="search" id="search">
                                 <div class="input-group-append">
                                     <button class="btn btn-success" type="submit"><i class="fa fa-search"></i></button>
                                 </div>
