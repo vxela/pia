@@ -53,7 +53,7 @@
     </div>
 
     <div class="content p-4">
-        <h5 class="mb-4">
+        <h5 class="mb-2">
             @yield('bradcrumb')
         </h5>
         @if(Request::segment(1) === 'dashboard')

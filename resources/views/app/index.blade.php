@@ -8,7 +8,7 @@
     <div class="d-flex justify-content-center">
         <div class="d-flex bd-highlight">
             <div class="ml-auto p-2 bd-highlight">
-                <form class="input-group" action="{{route('item.index')}}" method="get">
+                <form class="input-group" action="{{route('dashboard.index')}}" method="get">
                     <input type="text" class="form-control" placeholder="search item" name="search" id="search">
                     <div class="input-group-append">
                         <button class="btn btn-success" type="submit"><i class="fa fa-search"></i></button>
@@ -17,7 +17,7 @@
             </div>
         </div>
     </div>
-    <div class="row mb-2">
+    <div class="row mt-2 mb-2">
         @php
             $color = ['primary','dark','info','warning','danger','success','secondary'];
             $bcolor = ['primary','dark','info','warning','danger','success','secondary'];
