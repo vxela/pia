@@ -20,14 +20,33 @@
         <div class="col-lg-12">
             <div class="card mb-4">
                 <div class="card-header bg-white font-weight-bold">
-                    <div class="row">
-                        <div class="col-md-6 col-sm-6 col-6 text-left">
+                    <div class="d-flex bd-highlight">
+                        <div class="p-2 bd-highlight">
                             <a href="{{route('item.create')}}" class="btn btn-primary">Tambah Item</a>
                         </div>
-                        <div class="col-md-6 col-sm-6 col-6 text-right">
-                            Tabel Item
+                        <div class="ml-auto p-2 bd-highlight">
+                            <form class="input-group" action="">
+                                <input type="text" class="form-control" placeholder="search item">
+                                <div class="input-group-append">
+                                    <button class="btn btn-success" type="submit"><i class="fa fa-search"></i></button>
+                                </div>
+                            </form>   
                         </div>
                     </div>
+                    {{-- <div class="row">
+                        
+                        <div class="col-xs-6 col-md-9 col-sm-6 text-left">
+                            <a href="{{route('item.create')}}" class="btn btn-primary">Tambah Item</a>
+                        </div>
+                        <div class="col-xs-6 col-md-3 col-sm-6 text-right">
+                            <div class="input-group mb-3">
+                                <input type="text" class="form-control" placeholder="search item">
+                                <div class="input-group-append">
+                                    <button class="btn btn-success" type="submit"><i class="fa fa-search"></i></button>
+                                </div>
+                            </div>
+                        </div>
+                    </div> --}}
                 </div>
                 <div class="card-body">
                     <table class="table mb-0">
