@@ -5,18 +5,38 @@
 @endsection
 
 @section('boxs')
+    <div class="d-flex justify-content-center">
+        <div class="d-flex bd-highlight">
+            <div class="ml-auto p-2 bd-highlight">
+                <form class="input-group" action="{{route('item.index')}}" method="get">
+                    <input type="text" class="form-control" placeholder="search item" name="search" id="search">
+                    <div class="input-group-append">
+                        <button class="btn btn-success" type="submit"><i class="fa fa-search"></i></button>
+                    </div>
+                </form>   
+            </div>
+        </div>
+    </div>
     <div class="row mb-2">
         @php
-            $color = ['primary','dark','info','warning','danger','success','secondary']
+            $color = ['primary','dark','info','warning','danger','success','secondary'];
+            $bcolor = ['primary','dark','info','warning','danger','success','secondary'];
         @endphp
         @foreach ($data_cst as $cst)
-            <div class="col-md-3 mb-2">
+        <div class="col-md-3 mb-2">
                 <div class="d-flex p-1 bg-{{$color[rand(0,6)]}}">
                 </div>
                 <div class="d-flex border border-left-0">
                     <div class="flex-grow-1 bg-white p-4">
-                        <p class="text-uppercase text-secondary mb-0">{{$cst->getItem()->item_name}}</p> <hr class="m-0">
-                        <h5 class="font-weight-bold mb-0">Sisa :<small>{{' '.$cst->qty.' '.$cst->getItem()->item_unit}}</small></h5>
+                        <div class="row">
+                            <div class="col-10">
+                                    <p class="text-uppercase text-secondary mb-0">{{$cst->item_name}}</p> <hr class="m-0">
+                                    <h5 class="font-weight-bold mb-0">Sisa :<small>{{' '.$cst->qty.' '.$cst->item_unit}}</small></h5>
+                            </div>
+                            <div class="d-flex align-items-center">
+                                <a href="{{'/dashboard/item/'.$cst->item_id}}" class="btn btn-{{$color[rand(0,6)]}} btn-pill"><i class="fa fa-play"></i></a>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
