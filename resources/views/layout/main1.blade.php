@@ -6,8 +6,9 @@
     <meta name="csrf-token" content="{{ csrf_token() }}" />
     <link rel="stylesheet" href="{{asset('dist/css/bootstrap.min.css')}}">
     <link rel="stylesheet" href="{{asset('dist/css/fontawesome-all.min.css')}}">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jquery-confirm/3.3.2/jquery-confirm.min.css">
+    {{-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jquery-confirm/3.3.2/jquery-confirm.min.css"> --}}
     <link rel="stylesheet" href="{{asset('dist/css/bootadmin.min.css')}}">
+    <link rel="stylesheet" href="{{asset('dist/css/datatables.min.css')}}">
     @yield('onpagecss')
 
     <title>Pia App</title>
@@ -71,7 +72,9 @@
 <script src="{{asset('dist/js/jquery.min.js')}}"></script>
 <script src="{{asset('dist/js/bootstrap.bundle.min.js')}}"></script>
 <script src="{{asset('dist/js/bootadmin.min.js')}}"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-confirm/3.3.2/jquery-confirm.min.js"></script>
+<script src="{{asset('dist/js/datatables.min.js')}}"></script>
+<script src="{{asset('dist/js/moment.min.js')}}"></script>
+{{-- <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-confirm/3.3.2/jquery-confirm.min.js"></script> --}}
 {{-- <script src="{{asset('dist/js/myJs.js')}}"></script> --}}
 
 @yield('onpagejs')

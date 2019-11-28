@@ -34,7 +34,7 @@
                     </div>
                 </div>
                 <div class="card-body">
-                    <table class="table mb-0" id="tbl_stock">
+                    <table id="tbl_stock" class="table table-hover" cellspacing="0" width="100%">
                         <thead class="thead-light">
                             <tr>
                                 {{-- <th scope="col">#</th> --}}

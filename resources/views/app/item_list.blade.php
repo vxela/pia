@@ -21,11 +21,11 @@
             <div class="card mb-4">
                 <div class="card-header bg-white font-weight-bold">
                     <div class="row">
-                        <div class="col-md-6 col-sm-6 col-6">
-                            Tabel Item
+                        <div class="col-md-6 col-sm-6 col-6 text-left">
+                            <a href="{{route('item.create')}}" class="btn btn-primary">Tambah Item</a>
                         </div>
                         <div class="col-md-6 col-sm-6 col-6 text-right">
-                            <a href="{{route('item.create')}}" class="btn btn-primary">Tambah Item</a>
+                            Tabel Item
                         </div>
                     </div>
                 </div>
