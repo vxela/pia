@@ -23,7 +23,7 @@
             $bcolor = ['primary','dark','info','warning','danger','success','secondary'];
         @endphp
         @foreach ($data_cst as $cst)
-        <div class="col-md-3 mb-2">
+            <div class="col-md-3 mb-2">
                 <div class="d-flex p-1 bg-{{$color[rand(0,6)]}}">
                 </div>
                 <div class="d-flex border border-left-0">
