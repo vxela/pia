@@ -20,8 +20,10 @@ Route::get('/', 'LoginController@index')->name('login');
 Route::post('/', 'LoginController@auth')->name('auth');
 Route::get('/logout', 'LoginController@logout')->name('logout');
 
-Route::resource('preproduksi', 'PreproduksiController');
-Route::resource('produksi', 'ProduksiController');
+// Route::resource('preproduksi', 'PreproduksiController');
+// Route::resource('produksi', 'ProduksiController');
+
+Route::resource('/admin/user', 'UserController');
 
 
 Route::group(['middleware' => 'auth'], function(){
