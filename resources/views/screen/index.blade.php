@@ -20,20 +20,66 @@
                             @endforeach
                         </thead>
                         <tbody>
-                            @foreach ($data_stock as $stock)
-                                <tr>
-                                    <td>#</td>
-                                        @for ($i = 0; $i < count($data_pia); $i++)
-                                        {{$data_pia->item_name}}
-                                            {{-- @foreach ($data_pia as $pia)
-                                                @if ($pia->id == $stock->item_id)
-                                                    <td>{{$stock->item_qty}}</td>
-                                                @endif
-                                            @endforeach --}}
-
-                                        @endfor
-                                </tr>
-                            @endforeach
+                            <tr>
+                                <th>Senin</th>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                            </tr>
+                            <tr>
+                                <th>Selasa</th>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                            </tr>
+                            <tr>
+                                <th>Rabu</th>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                            </tr>
+                            <tr>
+                                <th>Kamis</th>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                            </tr>
+                            <tr>
+                                <th>Jumat</th>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                            </tr>
+                            <tr>
+                                <th>Sabtu</th>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                            </tr>
                         </tbody>
                     </table>
                 </div>
