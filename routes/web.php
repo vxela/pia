@@ -22,6 +22,7 @@ Route::get('/logout', 'LoginController@logout')->name('logout');
 
 // Route::resource('preproduksi', 'PreproduksiController');
 // Route::resource('produksi', 'ProduksiController');
+Route::get('screen', 'ScreenController@index');
 
 Route::resource('/admin/user', 'UserController');
 

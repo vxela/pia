@@ -9,6 +9,7 @@
     {{-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jquery-confirm/3.3.2/jquery-confirm.min.css"> --}}
     <link rel="stylesheet" href="{{asset('dist/css/bootadmin.min.css')}}">
     <link rel="stylesheet" href="{{asset('dist/css/datatables.min.css')}}">
+    <link rel="stylesheet" href="{{asset('dist/css/fullcalendar.min.css')}}">
     @yield('onpagecss')
 
     <title>Pia App</title>
@@ -55,7 +56,11 @@
     </div>
 
     <div class="content p-4">
+    @if (Request::segment(1) != 'screen')
         <h5 class="mb-4">
+    @else
+        <h5 class="mb-0">
+    @endif
             @yield('bradcrumb')
         </h5>
         @if(Request::segment(1) === 'dashboard')
