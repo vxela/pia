@@ -17,8 +17,8 @@
                 $bg = ['primary', 'secondary', 'success', 'danger', 'warning', 'info', 'light', 'dark'];
             @endphp
             @foreach ($data_stock as $cst)
-                <div class="col-3 mb-3">
-                    <div class="col-md">
+                <div class="col-lg-3 col-md-4 col-sm-6 col-xs-12 mb-3">
+                    {{-- <div class="col-md"> --}}
                         <div class="d-flex border">
                             @php
                                 $nbg = $bg[rand(0,7)];
@@ -38,7 +38,7 @@
                                 <h3 class="font-weight-bold mb-0" style="display: inline;">{{$cst->item_qty.' '}}</h3><small>{{$cst->item_unit}}</small>
                             </div>
                         </div>
-                    </div>
+                    {{-- </div> --}}
                 </div>
             @endforeach
         </div>
