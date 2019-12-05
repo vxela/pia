@@ -58,6 +58,7 @@ class ItemController extends Controller
             'item_unit' => ucfirst($request->item_unit),
             'gudang_id' => $request->gudang_id,
             'item_price' => 0,
+            'desc' => $request->keterangan,
             'user_id' => auth()->user()->id
         );
 

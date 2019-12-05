@@ -12,6 +12,7 @@ class Tbl_item extends Model
         'item_unit',
         'gudang_id',
         'item_price',
+        'desc',
         'user_id',
         'created_at',
         'updated_at'

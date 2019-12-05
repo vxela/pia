@@ -42,7 +42,7 @@
                             <input type="text" class="form-control mb-2 mr-sm-2" name="item_unit" id="item_unit" required>
                         </div>
                     </div>
-                    <div class="row mb-3">
+                    <div class="row">
                         <div class="col-md-4">
                             <label for="item_unit" class="mr-sm-2">Gudang</label>
                         </div>
@@ -55,6 +55,15 @@
                             </select>
                         </div>
                     </div>
+                    <div class="row mt-2 mb-3">
+                            <div class="col-md-4">
+                                <label for="item_unit" class="mr-sm-2">Keterangan</label>
+                            </div>
+                            <div class="col-md-8">
+                                {{-- <input type="text" class="form-control mb-2 mr-sm-2" name="item_unit" id="item_unit" required> --}}
+                                <textarea class="form-control" name="keterangan" id="keterangan" rows="3"></textarea>
+                            </div>
+                        </div>
                     <div class="row">
                         <div class="col-md-4 col-4">
                             <button type="reset" class="btn btn-default">Reset</button>
