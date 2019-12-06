@@ -20,9 +20,10 @@ Route::get('/', 'LoginController@index')->name('login');
 Route::post('/', 'LoginController@auth')->name('auth');
 Route::get('/logout', 'LoginController@logout')->name('logout');
 
-Route::resource('preproduksi', 'PreproduksiController');
-Route::resource('produksi', 'ProduksiController');
-Route::get('screen', 'ScreenController@index');
+Route::get('/preproduksi/simple', 'PreproduksiController@simpleView');
+Route::resource('/preproduksi', 'PreproduksiController');
+Route::resource('/produksi', 'ProduksiController');
+Route::get('/screen', 'ScreenController@index');
 
 Route::resource('/admin/user', 'UserController');
 

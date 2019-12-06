@@ -108,4 +108,8 @@ class PreproduksiController extends Controller
     {
         //
     }
+
+    public function simpleView() {
+        return view('preproduksi.simple_index');
+    }
 }
