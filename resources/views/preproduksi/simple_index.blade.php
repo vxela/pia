@@ -18,22 +18,22 @@
         <div class="col-12">
             <div class="row">
                 <div class="col-6 text-center py-2 mb-2">
-                    <button class="btn btn-success py-5">Kacang Hijau</button>
+                    <button class="btn btn-success py-4" style="width:100%">Kacang Hijau</button>
                 </div>
                 <div class="col-6 text-center py-2 mb-2">
-                    <button class="btn btn-success py-5">Kacang Hijau</button>
+                    <button class="btn btn-success py-4" style="width:100%">Kacang Hijau</button>
                 </div>
                 <div class="col-6 text-center py-2 mb-2">
-                    <button class="btn btn-success py-5">Kacang Hijau</button>
+                    <button class="btn btn-success py-4" style="width:100%">Kacang Hijau</button>
                 </div>
                 <div class="col-6 text-center py-2 mb-2">
-                    <button class="btn btn-success py-5">Kacang Hijau</button>
+                    <button class="btn btn-success py-4" style="width:100%">Kacang Hijau</button>
                 </div>
                 <div class="col-6 text-center py-2 mb-2">
-                    <button class="btn btn-success py-5">Kacang Hijau</button>
+                    <button class="btn btn-success py-4" style="width:100%">Kacang Hijau</button>
                 </div>
                 <div class="col-6 text-center py-2 mb-2">
-                    <button class="btn btn-success py-5">Kacang Hijau</button>
+                    <button class="btn btn-success py-4" style="width:100%">Kacang Hijau</button>
                 </div>
             </div>
         </div> 
