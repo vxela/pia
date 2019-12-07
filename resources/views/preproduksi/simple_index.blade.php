@@ -39,7 +39,7 @@
                             @csrf
                             <div class="row mb-2">
                                 <div class="col-12">
-                                    <input type="number" class="form-control mb-2 mr-sm-2" name="jml_produk" id="jml_produk" value="1" required>
+                                    <input type="number" class="form-control form-control-lg mb-3" name="jml_produk" id="jml_produk" value="1" required>
                                 </div>
                             </div>
                             <div class="row mb-3">
@@ -56,8 +56,8 @@
                             <input type="hidden" name="produk_id" id="produk_id" value="">
                         </div>
                         <div class="modal-footer">
-                            <button type="submit" class="btn btn-primary">Simpan</button>
-                            <button type="reset" class="btn btn-primary" data-dismiss="modal">Simpan</button>
+                            <button type="reset" class="btn btn-lg btn-secondary" data-dismiss="modal">reset</button>
+                            <button type="submit" class="btn btn-lg btn-primary">Simpan</button>
                         </div>
                     </form>
                 </div>
