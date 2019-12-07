@@ -17,13 +17,12 @@
         @endif
         <div class="col-12">
             <div class="row">
-                <div class="col-6 mb-3"><button type="button" class="p-4 btn btn-primary btn-lg">Large button</button></div>
-                <div class="col-6 mb-3"><button type="button" class="p-4 btn btn-primary btn-lg">Large button</button></div>
-                <div class="col-6 mb-3"><button type="button" class="p-4 btn btn-primary btn-lg">Large button</button></div>
-                <div class="col-6 mb-3"><button type="button" class="p-4 btn btn-primary btn-lg">Large button</button></div>
-                <div class="col-6 mb-3"><button type="button" class="p-4 btn btn-primary btn-lg">Large button</button></div>
-                <div class="col-6 mb-3"><button type="button" class="p-4 btn btn-primary btn-lg">Large button</button></div>
-                <div class="col-6 mb-3"><button type="button" class="p-4 btn btn-primary btn-lg">Large button</button></div>
+                <div class="col-4 bg-primary p-2 mb-2 ml-2">Pia Kacang Hujau</div>
+                <div class="col-4 bg-primary p-2 mb-2 ml-2">Pia Kacang Hujau</div>
+                <div class="col-4 bg-primary p-2 mb-2 ml-2">Pia Kacang Hujau</div>
+                <div class="col-4 bg-primary p-2 mb-2 ml-2">Pia Kacang Hujau</div>
+                <div class="col-4 bg-primary p-2 mb-2 ml-2">Pia Kacang Hujau</div>
+                <div class="col-4 bg-primary p-2 mb-2 ml-2">Pia Kacang Hujau</div>
             </div>
         </div> 
     </div>
