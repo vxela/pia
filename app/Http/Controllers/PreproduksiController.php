@@ -110,6 +110,7 @@ class PreproduksiController extends Controller
     }
 
     public function simpleView() {
-        return view('preproduksi.simple_index');
+        $pia = \App\Models\Tbl_item::where('item_name', 'like', 'PIA %')->get();
+        return view('preproduksi.simple_index', ['data_pia' => $pia]);
     }
 }
