@@ -44,13 +44,32 @@
                             </div>
                             <div class="row mb-3">
                                 <div class="col-12">
+                                    @php
+                                        $n=0;
+                                    @endphp
                                     @foreach ($data_unit as $unit)
                                         <div class="form-check-inline">
                                             <label class="form-check-label">
-                                                <input type="radio" class="form-check-input" name="unit_id" id="unit_id" value="{{$unit->id}}" required>{{$unit->name}}
+                                                <input type="radio" class="form-check-input" name="unit_id" id="unit_id" value="{{$unit->id}}" required 
+                                                @if ($n==1)
+                                                checked
+                                                @endif
+                                                >{{$unit->name }} 
                                             </label>
                                         </div>
                                     @endforeach
+                                </div>
+                            </div>
+                            <div class="row mb-3">
+                                <div class="col-6">
+                                    <button type="button" class="btn btn-lg btn-warning bt-minus" id="bt-minus" style="width: 100%">
+                                        <i class="fa fa-minus"></i>
+                                    </button>
+                                </div>
+                                <div class="col-6">
+                                    <button type="button" class="btn btn-lg btn-success bt-plus" id="bt-plus" style="width: 100%">
+                                        <i class="fa fa-plus"></i>
+                                    </button>
                                 </div>
                             </div>
                             <input type="hidden" name="produk_id" id="produk_id" value="">
@@ -78,7 +97,19 @@
                 var modal = $(this)
                 modal.find('.modal-title').text(title)
                 modal.find('.modal-body #produk_id').val(id) 
-            })
+            });
+            $('.bt-minus').click(function(){
+                var jml = $('#jml_produk').val()
+                if(jml>1) {
+                    $('#jml_produk').val($('#jml_produk').val() - 1);
+                }
+            });
+            $('.bt-plus').click(function(){
+                var jml = $('#jml_produk').val()
+                if(jml<10) {
+                    $('#jml_produk').val(+$('#jml_produk').val() + 1);
+                }
+            });
         })
     </script>
 @endsection
