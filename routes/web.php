@@ -21,6 +21,7 @@ Route::post('/', 'LoginController@auth')->name('auth');
 Route::get('/logout', 'LoginController@logout')->name('logout');
 
 Route::get('/preproduksi/simple', 'PreproduksiController@simpleView');
+Route::post('/preproduksi/simple', 'PreproduksiController@store');
 Route::resource('/preproduksi', 'PreproduksiController');
 Route::resource('/produksi', 'ProduksiController');
 Route::get('/screen', 'ScreenController@index');

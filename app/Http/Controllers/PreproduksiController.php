@@ -111,6 +111,11 @@ class PreproduksiController extends Controller
 
     public function simpleView() {
         $pia = \App\Models\Tbl_item::where('item_name', 'like', 'PIA %')->get();
-        return view('preproduksi.simple_index', ['data_pia' => $pia]);
+        $unit = \App\Models\Tbl_unit::all();
+        return view('preproduksi.simple_index', ['data_pia' => $pia, 'data_unit' => $unit]);
+    }
+
+    public function SimpleStore(Request $r) {
+        dd($r->all());
     }
 }
