@@ -17,23 +17,23 @@
         @endif
         <div class="col-12">
             <div class="row">
-                <div class="col-6 text-center p-2 mb-2">
-                    <button class="btn btn-success btn-lg">Kacang Hijau</button>
+                <div class="col-6 text-center px-2 py-2 mb-2">
+                    <button class="btn btn-success btn-lg px-2 py-4">Kacang Hijau</button>
                 </div>
-                <div class="col-6 text-center p-2 mb-2">
-                    <button class="btn btn-success btn-lg">Kacang Hijau</button>
+                <div class="col-6 text-center px-2 py-2 mb-2">
+                    <button class="btn btn-success btn-lg px-2 py-4">Kacang Hijau</button>
                 </div>
-                <div class="col-6 text-center p-2 mb-2">
-                    <button class="btn btn-success btn-lg">Kacang Hijau</button>
+                <div class="col-6 text-center px-2 py-2 mb-2">
+                    <button class="btn btn-success btn-lg px-2 py-4">Kacang Hijau</button>
                 </div>
-                <div class="col-6 text-center p-2 mb-2">
-                    <button class="btn btn-success btn-lg">Kacang Hijau</button>
+                <div class="col-6 text-center px-2 py-2 mb-2">
+                    <button class="btn btn-success btn-lg px-2 py-4">Kacang Hijau</button>
                 </div>
-                <div class="col-6 text-center p-2 mb-2">
-                    <button class="btn btn-success btn-lg">Kacang Hijau</button>
+                <div class="col-6 text-center px-2 py-2 mb-2">
+                    <button class="btn btn-success btn-lg px-2 py-4">Kacang Hijau</button>
                 </div>
-                <div class="col-6 text-center p-2 mb-2">
-                    <button class="btn btn-success btn-lg">Kacang Hijau</button>
+                <div class="col-6 text-center px-2 py-2 mb-2">
+                    <button class="btn btn-success btn-lg px-2 py-4">Kacang Hijau</button>
                 </div>
             </div>
         </div> 
