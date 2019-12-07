@@ -47,7 +47,7 @@
                                     @foreach ($data_unit as $unit)
                                         <div class="form-check-inline">
                                             <label class="form-check-label">
-                                                <input type="radio" class="form-check-input" name="unit_id" id="unit_id" value="{{$unit->id}}">{{$unit->name}}
+                                                <input type="radio" class="form-check-input" name="unit_id" id="unit_id" value="{{$unit->id}}" required>{{$unit->name}}
                                             </label>
                                         </div>
                                     @endforeach
