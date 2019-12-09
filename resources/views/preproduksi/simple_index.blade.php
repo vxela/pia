@@ -57,6 +57,9 @@
                                                 >{{$unit->name }} 
                                             </label>
                                         </div>
+                                        @php
+                                            $n++;
+                                        @endphp
                                     @endforeach
                                 </div>
                             </div>
