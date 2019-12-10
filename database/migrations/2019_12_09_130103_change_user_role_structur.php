@@ -15,7 +15,7 @@ class ChangeUserRoleStructur extends Migration
     {
         if (Schema::hasColumn('users', 'role_id')) {
             Schema::table('users', function (Blueprint $table) {
-                $table->unsignedBigInteger('role_id')->nullable()->change();
+                $table->unsignedBigInteger('role_id')->default(3)->change();
             });            
         }
         elseif (Schema::hasColumn('users', 'user_role')) {
@@ -23,7 +23,11 @@ class ChangeUserRoleStructur extends Migration
                 $table->renameColumn('user_role', 'role_id');
             });    
             Schema::table('users', function (Blueprint $table) {
-                $table->unsignedBigInteger('role_id')->nullable()->change();
+                $table->unsignedBigInteger('role_id')->default(3)->change();
+            });
+        } else {
+            Schema::table('users', function (Blueprint $table) {
+                $table->unsignedBigInteger('role_id')->default(3)->after('emp_id');
             });
         }
     }
@@ -34,9 +38,15 @@ class ChangeUserRoleStructur extends Migration
      * @return void
      */
     public function down()
-    {
-        Schema::table('users', function (Blueprint $table) {
-            $table->dropColumn('role_id');
-        });
+    {   
+        if(Schema::hasColumn('users', 'role_id')){
+            Schema::table('users', function (Blueprint $table) {
+                $table->dropColumn('role_id');
+            });
+        } elseif(Schema::hasColumn('users', 'user_role')) {
+            Schema::table('users', function (Blueprint $table) {
+                $table->dropColumn('user_role');
+            });            
+        }
     }
 }
