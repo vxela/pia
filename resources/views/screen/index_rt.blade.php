@@ -38,17 +38,15 @@
                     url     : '{{route('screen.realtime')}}',
                     success : function(data) {
 
-                        if(data == 'true') {
+                        if(data) {
                             createjs.Sound.play("x");
+                            console.log(data);
                             // $('.notif').click();
                         }
                     }
                 });
             }
 
-            function refreshDiv() {
-                
-            }
 
             //load data every 1 second
             setInterval(load,2000);
