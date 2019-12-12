@@ -33,7 +33,7 @@
             function load() {
                 $.ajax({
                     type    : 'get',
-                    url     : 'http://127.0.0.1:8000/screen/rtData',
+                    url     : '{{route('screen.realtime')}}',
                     success : function(data) {
 
                         if(data == 'true') {
