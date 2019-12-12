@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use DB;
+use Session;
 use Carbon\Carbon as Carbon;
 use Response;
 
@@ -57,8 +58,16 @@ class ScreenController extends Controller
                     ->where('item_name', 'like', 'PIA %')
                     ->get();
                     
-        // return $cst->toJson();         
-        return Response::json($cst);            
+        $data = $cst->toJson();
+
+        if(Session::has('data_cst')) {
+            if($data != Session::get('data_cst')) {
+                Session::put('data_cst', $cst->toJson());
+                return 'true';
+            }
+        } else {
+            Session::put('data_cst', $cst->toJson());
+        }
 
     }
 }
