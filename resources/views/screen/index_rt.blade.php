@@ -12,8 +12,10 @@
         <div class="mb-3 text-center">
             <h2>Produksi {{$ndate}}</h2>
         </div>
-        <div class="row">
-            
+        <div class="row" id="data_content">
+            {{-- <div id="data_content">
+
+            </div> --}}
         </div>
     </div>
     <audio id="notif" class="notif" data-turl="{{asset('dist/notif/messenger.mp3')}}">
@@ -31,6 +33,9 @@
             $('.notif').on('click', function() {
                 document.getElementById("notif").play();
             });
+
+            $('#data_content').load('http://127.0.0.1:8000/screen/loadData');
+
             createjs.Sound.registerSound("{{asset('dist/notif/messenger.mp3')}}", "x");
             function load() {
                 $.ajax({
@@ -40,7 +45,9 @@
 
                         if(data) {
                             createjs.Sound.play("x");
-                            console.log(data);
+                            
+                            $('#data_content').load('http://127.0.0.1:8000/screen/loadData');
+                            
                             // $('.notif').click();
                         }
                     }
