@@ -24,6 +24,8 @@ Route::get('/preproduksi/simple', 'PreproduksiController@simpleView');
 Route::post('/preproduksi/simple', 'PreproduksiController@store');
 Route::resource('/preproduksi', 'PreproduksiController');
 Route::resource('/produksi', 'ProduksiController');
+Route::get('/screen/rtData', 'ScreenController@realTime');
+Route::get('/screen/rt', 'ScreenController@GetRtView');
 Route::get('/screen', 'ScreenController@index');
 
 Route::resource('/admin/user', 'UserController');
