@@ -95,16 +95,18 @@ class ScreenController extends Controller
                     ->where('item_name', 'like', 'PIA %')
                     ->get();
                     
-        $data = $cst->toJson();
+        $data = md5($cst->toJson());
 
         if(Session::has('data_cst')) {
             if($data != Session::get('data_cst')) {
-                Session::put('data_cst', $cst->toJson());
+
+                $res = 'changed';
+                Session::put('data_cst', md5($cst->toJson()));
                 // return Response::json($cst);
-                return 'change';
+                return $res;
             }
         } else {
-            Session::put('data_cst', $cst->toJson());
+            Session::put('data_cst', md5($cst->toJson()));
         }
 
     }
