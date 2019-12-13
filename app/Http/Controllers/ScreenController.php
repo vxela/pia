@@ -99,8 +99,9 @@ class ScreenController extends Controller
 
         if(Session::has('data_cst')) {
             if($data != Session::get('data_cst')) {
-                Session::put('data_cst', $cst->toJson());
-                return Response::json($cst);
+                // Session::put('data_cst', $cst->toJson());
+                // return Response::json($cst);
+                return 'change';
             }
         } else {
             Session::put('data_cst', $cst->toJson());
