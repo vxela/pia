@@ -43,7 +43,7 @@
                     url     : '{{route('screen.realtime')}}',
                     success : function(data) {
 
-                        if(data == 'change') {
+                        if(data == 'changed') {
                             // createjs.Sound.play("x");
                             
                             // $('#data_content').load('{{route('screen.loaddata')}}');
