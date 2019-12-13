@@ -44,7 +44,7 @@
                     success : function(data) {
 
                         if(data) {
-                            createjs.Sound.play("x");
+                            // createjs.Sound.play("x");
                             
                             $('#data_content').load('{{route('screen.loaddata')}}');
                             
