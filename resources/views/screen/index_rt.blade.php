@@ -26,7 +26,7 @@
 
 @section('onpagejs')
     <script src="{{asset('dist/js/fullcalendar.min.js')}}"></script>
-    <script src="https://code.createjs.com/createjs-2015.11.26.min.js"></script>
+    {{-- <script src="https://code.createjs.com/createjs-2015.11.26.min.js"></script> --}}
     <script>
         $(document).ready(function(){
             $('.sidebar-toggle').click();
@@ -36,7 +36,7 @@
 
             $('#data_content').load('{{route('screen.loaddata')}}');
 
-            createjs.Sound.registerSound("{{asset('dist/notif/messenger.mp3')}}", "x");
+            // createjs.Sound.registerSound("{{asset('dist/notif/messenger.mp3')}}", "x");
             function load() {
                 $.ajax({
                     type    : 'get',
