@@ -46,8 +46,8 @@
                         if(data == 'change') {
                             // createjs.Sound.play("x");
                             
-                            // $('#data_content').load('{{route('screen.loaddata')}}');
-                            console.log('changed')
+                            $('#data_content').load('{{route('screen.loaddata')}}');
+                            // console.log('changed')
                             
                             // $('.notif').click();
                         }
