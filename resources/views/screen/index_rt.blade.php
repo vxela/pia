@@ -34,7 +34,7 @@
                 document.getElementById("notif").play();
             });
 
-            $('#data_content').load('http://127.0.0.1:8000/screen/loadData');
+            $('#data_content').load('{{route('screen.loaddata')}}');
 
             createjs.Sound.registerSound("{{asset('dist/notif/messenger.mp3')}}", "x");
             function load() {
@@ -46,7 +46,7 @@
                         if(data) {
                             createjs.Sound.play("x");
                             
-                            $('#data_content').load('http://127.0.0.1:8000/screen/loadData');
+                            $('#data_content').load('{{route('screen.loaddata')}}');
                             
                             // $('.notif').click();
                         }
