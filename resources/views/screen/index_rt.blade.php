@@ -45,12 +45,12 @@
                     success : function(data) {
 
                         if(data == 'changed') {
-                            createjs.Sound.play("x");
+                            // createjs.Sound.play("x");
+                            $('.notif').click();
                             
                             $('#data_content').load('{{route('screen.loaddata')}}');
                             console.log(data)
                             
-                            // $('.notif').click();
                         }
                     }
                 });
