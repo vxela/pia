@@ -26,7 +26,7 @@
 
 @section('onpagejs')
     <script src="{{asset('dist/js/fullcalendar.min.js')}}"></script>
-    {{-- <script src="https://code.createjs.com/createjs-2015.11.26.min.js"></script> --}}
+    <script src="https://code.createjs.com/createjs-2015.11.26.min.js"></script>
     <script>
         $(document).ready(function(){
             $.ajaxSetup({ cache: false });
@@ -37,7 +37,7 @@
 
             $('#data_content').load('{{route('screen.loaddata')}}');
 
-            // createjs.Sound.registerSound("{{asset('dist/notif/messenger.mp3')}}", "x");
+            createjs.Sound.registerSound("{{asset('dist/notif/messenger.mp3')}}", "x");
             function load() {
                 $.ajax({
                     type    : 'get',
@@ -45,7 +45,7 @@
                     success : function(data) {
 
                         if(data == 'changed') {
-                            // createjs.Sound.play("x");
+                            createjs.Sound.play("x");
                             
                             $('#data_content').load('{{route('screen.loaddata')}}');
                             console.log(data)
