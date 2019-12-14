@@ -29,6 +29,7 @@
     {{-- <script src="https://code.createjs.com/createjs-2015.11.26.min.js"></script> --}}
     <script>
         $(document).ready(function(){
+            $.ajaxSetup({ cache: false });
             $('.sidebar-toggle').click();
             $('.notif').on('click', function() {
                 document.getElementById("notif").play();
