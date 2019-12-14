@@ -1,5 +1,9 @@
 @extends('layout.main1')
 
+@section('onpagecss')
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.css">
+@endsection
+
 @section('bradcrumb')
     {{-- Produksi {{Carbon\Carbon::now()->format('F Y')}} --}}
 @endsection
@@ -26,9 +30,33 @@
 
 @section('onpagejs')
     <script src="{{asset('dist/js/fullcalendar.min.js')}}"></script>
-    <script src="https://code.createjs.com/createjs-2015.11.26.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"></script>
     <script>
         $(document).ready(function(){
+            
+            toastr.options = {
+            "closeButton": true,
+            "debug": false,
+            "newestOnTop": false,
+            "progressBar": false,
+            "positionClass": "toast-top-full-width",
+            "preventDuplicates": false,
+            "onclick": null,
+            "showDuration": "300",
+            "hideDuration": "1000",
+            "timeOut": "5000",
+            "extendedTimeOut": "1000",
+            "showEasing": "swing",
+            "hideEasing": "linear",
+            "showMethod": "fadeIn",
+            "hideMethod": "fadeOut"
+            };
+
+            toastr["success"]("My name is Inigo Montoya. You killed my father. Prepare to die!")
+
+            
+
+
             $.ajaxSetup({ cache: false });
             $('.sidebar-toggle').click();
             $('.notif').on('click', function() {
@@ -37,7 +65,7 @@
 
             $('#data_content').load('{{route('screen.loaddata')}}');
 
-            createjs.Sound.registerSound("{{asset('dist/notif/messenger.mp3')}}", "x");
+            // createjs.Sound.registerSound("{{asset('dist/notif/messenger.mp3')}}", "x");
             function load() {
                 $.ajax({
                     type    : 'get',
