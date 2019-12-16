@@ -30,17 +30,16 @@
 
 @section('onpagejs')
     <script src="{{asset('dist/js/fullcalendar.min.js')}}"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"></script>
+    {{-- <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"></script> --}}
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/notify/0.4.2/notify.min.js"></script>
     <script>
         $(document).ready(function(){
             
-            toastr.options = {
-            "closeButton": true, "debug": false, "newestOnTop": false, "progressBar": false, "positionClass": "toast-top-full-width", "preventDuplicates": false, "onclick": null, "showDuration": "300", "hideDuration": "1000", "timeOut": "5000", "extendedTimeOut": "1000", "showEasing": "swing", "hideEasing": "linear", "showMethod": "fadeIn", "hideMethod": "fadeOut"
-            };
+            // toastr.options = {
+            // "closeButton": true, "debug": false, "newestOnTop": false, "progressBar": false, "positionClass": "toast-top-full-width", "preventDuplicates": false, "onclick": null, "showDuration": "300", "hideDuration": "1000", "timeOut": "5000", "extendedTimeOut": "1000", "showEasing": "swing", "hideEasing": "linear", "showMethod": "fadeIn", "hideMethod": "fadeOut"
+            // };
 
-            toastr["success"]("My name is Inigo Montoya. You killed my father. Prepare to die!")
-
-            
+            // toastr["success"]("data changed")
 
 
             $.ajaxSetup({ cache: false });
@@ -61,7 +60,7 @@
                         if(data == 'changed') {
                             // createjs.Sound.play("x");
                             $('.notif').click();
-                            
+                            $.notify("New data update", { className:"success" ,position:"bottom left" });
                             $('#data_content').load('{{route('screen.loaddata')}}');
                             console.log(data)
                             
