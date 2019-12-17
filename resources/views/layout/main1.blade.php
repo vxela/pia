@@ -22,6 +22,7 @@
 
     <div class="navbar-collapse collapse">
         <ul class="navbar-nav ml-auto">
+            <li class="nav-item"><span id="fullscreen" class="nav-link"><i class="fa fa-arrows-alt"></i></span></li>
             <li class="nav-item dropdown">
                 <a href="#" id="dd_user" class="nav-link dropdown-toggle" data-toggle="dropdown"><i class="fa fa-user"></i></a>
                 <div class="dropdown-menu dropdown-menu-right" aria-labelledby="dd_user">

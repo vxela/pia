@@ -13,7 +13,9 @@ class UserController extends Controller
      */
     public function index()
     {
-        return view('app.add_user');
+
+        $emp = \App\Models\Tbl_employee::all();
+        return view('admin.add_user', ['data_emp' => $emp]);
     }
 
     /**

@@ -35,11 +35,20 @@
     <script>
         $(document).ready(function(){
             
-            // toastr.options = {
-            // "closeButton": true, "debug": false, "newestOnTop": false, "progressBar": false, "positionClass": "toast-top-full-width", "preventDuplicates": false, "onclick": null, "showDuration": "300", "hideDuration": "1000", "timeOut": "5000", "extendedTimeOut": "1000", "showEasing": "swing", "hideEasing": "linear", "showMethod": "fadeIn", "hideMethod": "fadeOut"
-            // };
-
-            // toastr["success"]("data changed")
+            $('#fullscreen').on('click', function(){
+                document.fullScreenElement && null !== document.fullScreenElement ||
+                !document.mozFullScreen && !document.webkitIsFullScreen ?
+                document.documentElement.requestFullScreen ? 
+                document.documentElement.requestFullScreen() : 
+                document.documentElement.mozRequestFullScreen ? 
+                document.documentElement.mozRequestFullScreen() : 
+                document.documentElement.webkitRequestFullScreen && 
+                document.documentElement.webkitRequestFullScreen(Element.ALLOW_KEYBOARD_INPUT) : 
+                document.cancelFullScreen ? document.cancelFullScreen() : document.mozCancelFullScreen ? 
+                document.mozCancelFullScreen() : 
+                document.webkitCancelFullScreen && document.webkitCancelFullScreen();
+                console.log('clicked');
+            });
 
 
             $.ajaxSetup({ cache: false });
