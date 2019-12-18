@@ -31,7 +31,7 @@
                             <label for="item_unit" class="mr-sm-2">Nama Pegawai</label>
                         </div>
                         <div class="col-md-8">
-                            <select class="form-control" name="gudang_id" id="gudang_id" required>
+                            <select class="form-control" name="emp_name" id="emp_name" required>
                                 <option value="">Pilih Pegawai</option>
                                 @foreach ($data_emp as $emp)
                                     <option value="{{$emp->id}}">{{$emp->name}}</option>
@@ -44,7 +44,7 @@
                             <label for="item_name" class="mr-sm-2">Username</label>
                         </div>
                         <div class="col-md-8">
-                            <input type="text" class="form-control mb-2 mr-sm-2" name="item_name" id="item_name" required>
+                            <input type="text" class="form-control mb-2 mr-sm-2" name="user_name" id="user_name" placeholder="username" required>
                         </div>
                     </div>
                     <div class="row mb-2">
@@ -52,8 +52,8 @@
                             <label for="item_unit" class="mr-sm-2">Password</label>
                         </div>
                         <div class="col-md-8 input-group">
-                            <input type="password" class="form-control" name="item_unit" id="item_unit" required>
-                            <div class="input-group-append" id="show_pass">
+                            <input type="password" class="form-control" name="password" id="password" placeholder="password" required>
+                            <div class="input-group-append show_pass" id="show_pass">
                                 <span class="input-group-text" id="basic-addon2">
                                     <i class="fa fa-eye"></i>
                                 </span>
@@ -65,8 +65,8 @@
                             <label for="item_unit" class="mr-sm-2">Ulangi Password</label>
                         </div>
                         <div class="col-md-8 input-group">
-                            <input type="password" class="form-control" name="item_unit" id="item_unit" required>
-                            <div class="input-group-append" id="show_pass">
+                            <input type="password" class="form-control" name="password2" id="password2" placeholder="password" required>
+                            <div class="input-group-append show_pass2" id="show_pass2">
                                 <span class="input-group-text" id="basic-addon2">
                                     <i class="fa fa-eye"></i>
                                 </span>
@@ -78,7 +78,7 @@
                             <label for="item_unit" class="mr-sm-2">Role</label>
                         </div>
                         <div class="col-md-8">
-                            <select class="form-control" name="gudang_id" id="gudang_id" required>
+                            <select class="form-control" name="role_id" id="role_id" required>
                                 <option value="">Pilih Gudang</option>
                             </select>
                         </div>
@@ -96,4 +96,25 @@
         </div>   
     </div>
 </div>
+@endsection
+
+@section('onpagejs')
+    <script>
+    $(document).ready(function(){
+        $('.show_pass').on('click', function(){
+            if($('#password').attr('type') == 'password') {
+                $('#password').attr('type', 'text');
+            } else {
+                $('#password').attr('type', 'password');
+            }
+        });
+        $('.show_pass2').on('click', function(){
+            if($('#password2').attr('type') == 'password') {
+                $('#password2').attr('type', 'text');
+            } else {
+                $('#password2').attr('type', 'password');
+            }
+        });
+    });
+    </script>
 @endsection
