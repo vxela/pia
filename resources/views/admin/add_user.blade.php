@@ -24,7 +24,7 @@
                 </div>
             </div>
             <div class="card-body">
-                <form action="" method="post">
+                <form action="{{route('user.store')}}" method="post">
                     @csrf
                     <div class="row mb-2">
                         <div class="col-md-4">
