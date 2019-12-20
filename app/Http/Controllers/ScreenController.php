@@ -72,7 +72,7 @@ class ScreenController extends Controller
         foreach ($cst as $data) {
             $clr = $color[rand(0,7)];
             $clt = 'light'; if($clr == 'light') {$clt = 'dark';}
-            $res .= "<div class='col-lg-3 col-md-3 col-sm-6 col-xs-12 mb-3'><div class='d-flex border'><div class='bg-".$clr." text-".$clt." p-4'><div class='d-flex align-items-center h-100'><i class='fa fa-3x fa-fw fa-cubes'></i></div></div><div class='flex-grow-1 bg-white p-4'><p class='text-uppercase text-secondary mb-0' style='font-weight: bold'>".
+            $res .= "<div class='col-lg-3 col-md-4 col-sm-6 col-xs-12 mb-3'><div class='d-flex border'><div class='bg-".$clr." text-".$clt." p-4'><div class='d-flex align-items-center h-100'><i class='fa fa-3x fa-fw fa-cubes'></i></div></div><div class='flex-grow-1 bg-white p-4'><p class='text-uppercase text-secondary mb-0' style='font-weight: bold'>".
                     $data->item_name.    // here item name
                     "</p><h3 class='font-weight-bold mb-0' style='display: inline;'>".
                     $data->jml.    //here item dty
