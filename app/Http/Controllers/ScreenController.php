@@ -97,7 +97,7 @@ class ScreenController extends Controller
             $cst = DB::table('tbl_preproductions')
                     ->selectRaw('tbl_items.item_name, sum(jml_item) as jml, satuan_id, tbl_preproductions.user_id, date, time')
                     ->join('tbl_items', 'tbl_preproductions.item_id', '=', 'tbl_items.id')
-                    ->where('date', '2019-12-19')
+                    ->where('date', $time)
                     ->groupBy('item_id')
                     ->get();
 
