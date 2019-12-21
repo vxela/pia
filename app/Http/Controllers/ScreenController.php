@@ -98,6 +98,8 @@ class ScreenController extends Controller
                     "</p><h3 class='font-weight-bold mb-0' style='display: inline;'>";
                     if($njml['jml_bj'] == 0) {
                         $res .= $njml['jml_ls']."</h3><small>Lengser</small>";
+                    } elseif($njml['jml_ls'] == 0) {
+                        $res .= $njml['jml_bj']."</h3><small>Biji</small>";
                     } else {
                         $res .= $njml['jml_ls']."</h3><small>Ls</small> <strong>".$njml['jml_bj']." </strong><small>Biji</small>";    //here item dty
                     }
