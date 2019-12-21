@@ -55,14 +55,33 @@ class ScreenController extends Controller
         return view('screen.index_rt');
     }
 
+    protected function generateRT($jml) {
+        $x = (int)$jml;
+        if($x % 77 == 0) {
+            $ls = $x / 77;
+            $bj = 0;
+        } else {
+            $y = $x;
+            $y = $y-($x % 77);
+            $ls = $y / 77;
+            $bj = $x % 77;
+        }
+
+        return array(
+                'jml_ls' => $ls,
+                'jml_bj' => $bj
+            );
+    }
+
     public function loadData() {
 
         //inisiasi waktu hari ini
         $time = Carbon::now()->format('Y-m-d');
 
         $cst = DB::table('tbl_preproductions')
-                    ->selectRaw('tbl_items.item_name, sum(jml_item) as jml, tbl_items.item_unit, satuan_id, tbl_preproductions.user_id, date, time')
+                    ->selectRaw('tbl_items.item_name, sum(jml_item) as jml, tbl_units.name as item_unit, satuan_id, tbl_preproductions.user_id, date, time')
                     ->join('tbl_items', 'tbl_preproductions.item_id', '=', 'tbl_items.id')
+                    ->join('tbl_units', 'tbl_preproductions.satuan_id', '=', 'tbl_units.id')
                     ->where('date', $time)
                     ->groupBy('item_id')
                     ->get();
@@ -71,14 +90,18 @@ class ScreenController extends Controller
         $color = ['primary', 'success', 'danger', 'info', 'secondary', 'warning', 'light', 'dark'];
         foreach ($cst as $data) {
             $clr = $color[rand(0,7)];
+            $jml = $data->jml;
+            $njml = $this->generateRT($jml);
             $clt = 'light'; if($clr == 'light') {$clt = 'dark';}
             $res .= "<div class='col-lg-3 col-md-4 col-sm-6 col-xs-12 mb-3'><div class='d-flex border'><div class='bg-".$clr." text-".$clt." p-4'><div class='d-flex align-items-center h-100'><i class='fa fa-3x fa-fw fa-cubes'></i></div></div><div class='flex-grow-1 bg-white p-4'><p class='text-uppercase text-secondary mb-0' style='font-weight: bold'>".
                     $data->item_name.    // here item name
-                    "</p><h3 class='font-weight-bold mb-0' style='display: inline;'>".
-                    $data->jml.    //here item dty
-                    "</h3><small>".
-                    $data->item_unit.   // here item unit
-                    "</small></div></div></div>";
+                    "</p><h3 class='font-weight-bold mb-0' style='display: inline;'>";
+                    if($njml['jml_bj'] == 0) {
+                        $res .= $njml['jml_ls']."</h3><small>Lengser</small>";
+                    } else {
+                        $res .= $njml['jml_ls']."</h3><small>Ls</small> <strong>".$njml['jml_bj']." </strong><small>Biji</small>";    //here item dty
+                    }
+                    $res .= "</div></div></div>";
         }
 
         echo $res;

@@ -14,4 +14,8 @@ class Tbl_preproduction extends Model
         'date',
         'time'
     ];
+
+    public function getUnit() {
+        return Tbl_unit::find($this->satuan_id);
+    }
 }

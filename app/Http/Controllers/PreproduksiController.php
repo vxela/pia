@@ -39,10 +39,14 @@ class PreproduksiController extends Controller
      */
     public function store(Request $request)
     {
+        $qty = $request->jml_produk;
+        if($request->unit_id == 2) {
+            $qty = $qty * 77;
+        }
         $data = array(
             'item_id' => $request->produk_id,
-            'jml_item' => $request->jml_produk,
-            'satuan_id' => $request->unit_id,
+            'jml_item' => $qty,
+            'satuan_id' => 1,
             'user_id' => 1,
             'date' => Carbon::now()->format('Y-m-d'),
             'time' => Carbon::now()->format('H:i:s')            
