@@ -50,7 +50,6 @@
                 console.log('clicked');
             });
 
-
             $.ajaxSetup({ cache: false });
             $('.sidebar-toggle').click();
             $('.notif').on('click', function() {

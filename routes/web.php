@@ -20,9 +20,7 @@ Route::get('/', 'LoginController@index')->name('login');
 Route::post('/', 'LoginController@auth')->name('auth');
 Route::get('/logout', 'LoginController@logout')->name('logout');
 
-Route::get('/preproduksi/simple', 'PreproduksiController@simpleView');
-Route::post('/preproduksi/simple', 'PreproduksiController@store');
-Route::resource('/preproduksi', 'PreproduksiController');
+
 Route::resource('/produksi', 'ProduksiController');
 Route::get('/screen/loadData', 'ScreenController@loadData')->name('screen.loaddata');
 Route::get('/screen/rtData', 'ScreenController@realTime')->name('screen.realtime');
@@ -33,6 +31,9 @@ Route::resource('/admin/user', 'UserController');
 
 
 Route::group(['middleware' => 'auth'], function(){
+    Route::get('/preproduksi/simple', 'PreproduksiController@simpleView');
+    Route::post('/preproduksi/simple', 'PreproduksiController@store');
+    Route::resource('/preproduksi', 'PreproduksiController');
     Route::resource('/dashboard/gudang', 'GudangController');
     Route::get('/dashboard/dataStock', 'StockController@ajaxGetStock')->name('dataStock');
     Route::resource('/dashboard/stock', 'StockController');

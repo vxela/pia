@@ -47,7 +47,7 @@ class PreproduksiController extends Controller
             'item_id' => $request->produk_id,
             'jml_item' => $qty,
             'satuan_id' => 1,
-            'user_id' => 1,
+            'user_id' => auth()->user()->id,
             'date' => Carbon::now()->format('Y-m-d'),
             'time' => Carbon::now()->format('H:i:s')            
         );

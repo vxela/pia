@@ -24,7 +24,13 @@
         <ul class="navbar-nav ml-auto">
             <li class="nav-item"><span id="fullscreen" class="nav-link"><i class="fa fa-arrows-alt"></i></span></li>
             <li class="nav-item dropdown">
-                <a href="#" id="dd_user" class="nav-link dropdown-toggle" data-toggle="dropdown"><i class="fa fa-user"></i></a>
+                <a href="#" id="dd_user" class="nav-link dropdown-toggle" data-toggle="dropdown"><i class="fa fa-user"></i> 
+                    @if (isset(auth()->user()->name))
+                        {{auth()->user()->name}}
+                    @else
+                        {{'login'}}    
+                    @endif
+                </a>
                 <div class="dropdown-menu dropdown-menu-right" aria-labelledby="dd_user">
                     <a href="{{route('logout')}}" class="dropdown-item">Logout</a>
                 </div>
@@ -52,6 +58,7 @@
             <li><a href="{{'/dashboard/stock'}}"><i class="fa fa-fw fa-table"></i> Data Stock</a></li>
             <li><a href="{{route('stock.create')}}"><i class="fa fa-fw fa-plus"></i> Tambah Stock</a></li>
             <li><a href="{{route('gudang.index')}}"><i class="fa fa-fw fa-th"></i> Gudang</a></li>
+            <li><a href="{{'/preproduksi/simple'}}"><i class="fa fa-fw fa-plus"></i> Data Preproduksi</a></li>
             <li><a href="{{route('logout')}}"><i class="fa fa-fw fa-power-off"></i> Log Out</a></li>
         </ul>
     </div>
