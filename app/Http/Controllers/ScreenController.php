@@ -121,12 +121,28 @@ class ScreenController extends Controller
         // echo $data_today;
         if($data_today != 0) {
             
-            $cst = DB::table('tbl_preproductions')
+            $jmldt = DB::table('tbl_preproductions')
                     ->selectRaw('tbl_items.item_name, sum(jml_item) as jml, satuan_id, tbl_preproductions.user_id, date, time')
                     ->join('tbl_items', 'tbl_preproductions.item_id', '=', 'tbl_items.id')
                     ->where('date', $time)
                     ->groupBy('item_id')
-                    ->get();
+                    ->count();
+
+            if($jmldt == 0) {
+
+                $cst = 0;
+
+            } else {
+                
+                $cst = DB::table('tbl_preproductions')
+                        ->selectRaw('tbl_items.item_name, sum(jml_item) as jml, satuan_id, tbl_preproductions.user_id, date, time')
+                        ->join('tbl_items', 'tbl_preproductions.item_id', '=', 'tbl_items.id')
+                        ->where('date', $time)
+                        ->groupBy('item_id')
+                        ->get();
+                        
+            }
+
 
             $data = md5($cst->toJson());
 
