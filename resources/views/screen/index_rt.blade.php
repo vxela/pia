@@ -12,9 +12,10 @@
     <div class="col-12">
         @php
             $ndate = Carbon\Carbon::now()->formatLocalized('%A, %d %B');
+            // $ndate = Carbon\Carbon::now()->format('Y-m-d H:i:s');
         @endphp
-        <div class="mb-3 text-center">
-            <h2>Produksi {{$ndate}}</h2>
+        <div class="mb-3 text-center date" id="date">
+            <h2 id="Hdate">Produksi {{$ndate}}</h2>
         </div>
         <div class="row" id="data_content">
             {{-- <div id="data_content">
@@ -77,9 +78,9 @@
                 });
             }
 
-
             //load data every 1 second
-            setInterval(load,2000);
+            setInterval(load,3000);
+
         });
     </script>
 @endsection
