@@ -22,7 +22,7 @@ class PreproduksiController extends Controller
     // }
     public function index() {
         $date = Carbon::now()->format('Y-m-d');
-        $preproduksi = \App\Models\Tbl_preproduction::where('date', $date)->paginate(10);
+        $preproduksi = \App\Models\Tbl_preproduction::where('date', '2019-12-23')->paginate(10);
         $preproduksi->withPath('/preproduksi'.'/');
         // dd($preproduksi);
         return view('preproduksi.list_table', ['data_preproduksi' => $preproduksi]);
