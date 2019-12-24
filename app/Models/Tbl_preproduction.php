@@ -16,9 +16,9 @@ class Tbl_preproduction extends Model
     ];
 
     public function getUnit() {
-        return Tbl_unit::find($this->satuan_id);
+        return \App\Models\Tbl_unit::find($this->satuan_id);
     }
     public function getItem() {
-        return Tbl_Item::find($this->item_id);
+        return \App\Models\Tbl_Item::find($this->item_id);
     }
 }

@@ -88,7 +88,6 @@
 <script src="{{asset('dist/js/bootadmin.min.js')}}"></script>
 <script src="{{asset('dist/js/datatables.min.js')}}"></script>
 <script src="{{asset('dist/js/moment.min.js')}}"></script>
-{{-- <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-confirm/3.3.2/jquery-confirm.min.js"></script> --}}
 {{-- <script src="{{asset('dist/js/myJs.js')}}"></script> --}}
 
 @yield('onpagejs')
