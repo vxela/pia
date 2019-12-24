@@ -13,14 +13,20 @@ class PreproduksiController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
-    {
-        $produk = \App\Models\Tbl_item::where('gudang_id', 4)->get();
-        $unit = \App\Models\Tbl_unit::all();
-        // dd($produk);
-        return view('preproduksi.index', ['data_produk' => $produk, 'data_unit' => $unit]);
+    // public function index()
+    // {
+    //     $produk = \App\Models\Tbl_item::where('gudang_id', 4)->get();
+    //     $unit = \App\Models\Tbl_unit::all();
+    //     // dd($produk);
+    //     return view('preproduksi.index', ['data_produk' => $produk, 'data_unit' => $unit]);
+    // }
+    public function index() {
+        $date = Carbon::now()->format('Y-m-d');
+        $preproduksi = \App\Models\Tbl_preproduction::where('date', $date)->paginate(10);
+        $preproduksi->withPath('/preproduksi'.'/');
+        // dd($preproduksi);
+        return view('preproduksi.list_table', ['data_preproduksi' => $preproduksi]);
     }
-
     /**
      * Show the form for creating a new resource.
      *

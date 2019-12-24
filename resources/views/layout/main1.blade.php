@@ -6,7 +6,6 @@
     <meta name="csrf-token" content="{{ csrf_token() }}" />
     <link rel="stylesheet" href="{{asset('dist/css/bootstrap.min.css')}}">
     <link rel="stylesheet" href="{{asset('dist/css/fontawesome-all.min.css')}}">
-    {{-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jquery-confirm/3.3.2/jquery-confirm.min.css"> --}}
     <link rel="stylesheet" href="{{asset('dist/css/bootadmin.min.css')}}">
     <link rel="stylesheet" href="{{asset('dist/css/datatables.min.css')}}">
     <link rel="stylesheet" href="{{asset('dist/css/fullcalendar.min.css')}}">
@@ -58,7 +57,9 @@
             <li><a href="{{'/dashboard/stock'}}"><i class="fa fa-fw fa-table"></i> Data Stock</a></li>
             <li><a href="{{route('stock.create')}}"><i class="fa fa-fw fa-plus"></i> Tambah Stock</a></li>
             <li><a href="{{route('gudang.index')}}"><i class="fa fa-fw fa-th"></i> Gudang</a></li>
-            <li><a href="{{'/preproduksi/simple'}}"><i class="fa fa-fw fa-plus"></i> Data Preproduksi</a></li>
+            <li><a href="{{'/preproduksi/simple'}}"><i class="fa fa-fw fa-plus"></i> Tambah Preproduksi</a></li>
+            <li><a href="{{'/preproduksi'}}"><i class="fa fa-fw fa-table"></i> Data Preproduksi</a></li>
+            @yield('pagemenu')
             <li><a href="{{route('logout')}}"><i class="fa fa-fw fa-power-off"></i> Log Out</a></li>
         </ul>
     </div>
