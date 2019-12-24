@@ -9,7 +9,7 @@
 @endsection
 @section('content')
     <div class="row">
-        <div class="col-12">
+        {{-- <div class="col-12">
             <div class="input-group mb-3">
                 <input type="text" class="form-control" placeholder="Recipient's username">
                 <div class="input-group-append">
@@ -18,7 +18,19 @@
                     </span>
                 </div>
             </div>
+        </div> --}}
+        {{-- <div class="col-3">
+
         </div>
+        <div class="col-3">
+
+        </div>
+        <div class="col-3">
+
+        </div>
+        <div class="col-3">
+
+        </div> --}}
         <div class="col-12">
             <table class="table table-hover mb-0">
                 <thead>
