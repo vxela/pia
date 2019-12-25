@@ -31,6 +31,7 @@ Route::resource('/admin/user', 'UserController');
 
 
 Route::group(['middleware' => 'auth'], function(){
+    Route::get('/preproduksi/item/{id}', 'PreproduksiController@showByItem');
     Route::get('/preproduksi/simple', 'PreproduksiController@simpleView');
     Route::post('/preproduksi/simple', 'PreproduksiController@store');
     Route::resource('/preproduksi', 'PreproduksiController');

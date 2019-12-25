@@ -4,9 +4,8 @@
     Data Preproduksi
 @endsection
 @section('onpagecss')
-    <meta name="csrf-token" content="{{ csrf_token() }}">
     <link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
-    <link href="{{asset('/datepicker/css/datepicker.css')}}" rel="stylesheet" type="text/css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jquery-confirm/3.3.2/jquery-confirm.min.css">
 @endsection
 @section('content')
     <div class="row">
@@ -35,19 +34,7 @@
         <div class="card col-12 mb-4">
             <div class="card-header bg-white font-weight-bold">
                 {{-- title --}}
-                <div class="row">
-                    <div class="col-6">
-                        Data Preproduksi
-                    </div>
-                    <div class="col-6 justify-content-end">
-                        <div class="input-group">
-                            <input type="text" readonly name="tgl_prep" id="tgl_prep" class="form-control form-control-sm col-lg-4 offset-lg-8 col-sm-8 offset-md-4 col-xs-12 tgl_prep" value="{{date('Y-m-d')}}">
-                            <div class="input-group-append">
-                                <span class="input-group-text cari" id="cari" style="cursor:pointer;"><i class="fa fa-search"></i></span>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+                Data Preproduksi
             </div>
             <div class="card-body">
                 {{-- body --}}
@@ -56,10 +43,10 @@
                     <thead>
                     <tr>
                         <th scope="col">No</th>
-                        <th scope="col">Item Name</th>
                         <th scope="col">Jumlah</th>
-                        <th scope="col">Jumlah (Biji)</th>
-                        <th scope="col"></th>
+                        <th scope="col">Satuan</th>
+                        <th scope="col">Waktu</th>
+                        <th scope="col">Oleh</th>
                     </tr>
                     </thead>
                     <tbody>
@@ -69,13 +56,10 @@
                         @foreach ($data_preproduksi as $key => $prep)
                             <tr>
                                 <th scope="row">{{$i++.'.'}}</th>
-                                <td>{{$prep->item_name}}</td>
-                                <td>{{$prep->jml.' Biji'}}</td>
-                                <td>
-                                    {{
-                                        Mush::getJml($prep->jml)
-                                    }}
-                                </td>
+                                <td>{{$prep->jml_item}}</td>
+                                <td>{{$prep->getUnit()->name}}</td>
+                                <td>{{$prep->time}}</td>
+                                <td>{{$prep->getUser()->name}}</td>
                                 <td>    
                                     <a href="{{'/preproduksi/item'.'/'.$prep->id}}" class="btn btn-primary btn-sm">Detail</a>
                                     {{-- <div class="btn-group btn-group-sm" role="group" aria-label="...">
@@ -99,28 +83,25 @@
 @endsection
 
 @section('onpagejs')
-<script src="{{asset('/datepicker/js/bootstrap-datepicker.js')}}"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-confirm/3.3.2/jquery-confirm.min.js"></script>
     <script>
         $(document).ready(function() {
-            //setup ajax headers setup
-            $.ajaxSetup({
-                headers: {
-                    'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
-                }
-            });
-
-            //set date by datepicker
-            $('#tgl_prep').datepicker({
-                format : 'yyyy-mm-dd'
-            }).on('changeDate', function(){
-                $('#tgl_prep').datepicker('hide');
-            });
-
-            //do something when cari is clicked
-            $('#cari').click(function(){
-                var date = $('#tgl_prep').val();
-                
-            });
+            $('.btn_delete').on('click', function(){
+                $.confirm({
+                                title: 'Hapus Data',
+                                content: 'Yakin hapus data?',
+                                buttons: {
+                                    cancel: function () {
+                                    },
+                                    confirm: {
+                                        btnClass : 'btn-danger',
+                                        action : function() {
+                                            console.log('deleted');
+                                        }
+                                    }
+                                }
+                            });
+            })
         })
     </script>
 @endsection

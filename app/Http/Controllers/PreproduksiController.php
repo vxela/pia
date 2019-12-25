@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use DB;
 use Session;
 use Carbon\Carbon as Carbon;
 
@@ -20,10 +21,19 @@ class PreproduksiController extends Controller
     //     // dd($produk);
     //     return view('preproduksi.index', ['data_produk' => $produk, 'data_unit' => $unit]);
     // }
-    public function index() {
-        $date = Carbon::now()->format('Y-m-d');
-        $preproduksi = \App\Models\Tbl_preproduction::where('date', '2019-12-23')->paginate(10);
-        $preproduksi->withPath('/preproduksi'.'/');
+    public function index(Request $r) {
+        if ($r->has('date')) {
+            $date = $r->date;
+        } else {
+            $date = Carbon::now()->format('Y-m-d');
+        }
+
+        $preproduksi =  DB::table('tbl_preproductions')
+                        ->selectRaw('tbl_items.id as id, tbl_items.item_name, sum(jml_item) as jml, satuan_id, tbl_preproductions.user_id, date, time')
+                        ->join('tbl_items', 'tbl_preproductions.item_id', '=', 'tbl_items.id')
+                        ->where('date', $date)
+                        ->groupBy('item_id')
+                        ->get();
         // dd($preproduksi);
         return view('preproduksi.list_table', ['data_preproduksi' => $preproduksi]);
     }
@@ -127,5 +137,14 @@ class PreproduksiController extends Controller
 
     public function SimpleStore(Request $r) {
         dd($r->all());
+    }
+
+    public function showByItem($id) {
+        $date = Carbon::now()->format('Y-m-d');
+        $preproduksi = \App\Models\Tbl_preproduction::where('item_id', $id)
+                                                        ->where('date', $date)
+                                                        ->get();
+
+        return view('preproduksi.detail_by_item', ['data_preproduksi' => $preproduksi]);
     }
 }
