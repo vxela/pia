@@ -147,12 +147,17 @@ class PreproduksiController extends Controller
         dd($r->all());
     }
 
-    public function showByItem($id) {
-        $date = Carbon::now()->format('Y-m-d');
+    public function showByItem($date,$id) {
+        // echo $date.' - '.$id;
+
+        $item = \App\Models\Tbl_item::find($id);
+
+        $item_name = $item->item_name;
+
         $preproduksi = \App\Models\Tbl_preproduction::where('item_id', $id)
                                                         ->where('date', $date)
                                                         ->get();
 
-        return view('preproduksi.detail_by_item', ['data_preproduksi' => $preproduksi]);
+        return view('preproduksi.detail_by_item', ['data_preproduksi' => $preproduksi, 'date' => $date, 'item_name' => $item_name]);
     }
 }

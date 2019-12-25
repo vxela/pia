@@ -79,7 +79,8 @@
                                     }}
                                 </td>
                                 <td>    
-                                    <a href="{{'/preproduksi/item'.'/'.$prep->id}}" class="btn btn-primary btn-sm">Detail</a>
+                                    {{-- <a href="{{'/preproduksi'.'/'.$date.'/'.$prep->id}}" class="btn btn-primary btn-sm">Detail</a> --}}
+                                    <a href="{{route('preproduksiDateId', [$date,$prep->id])}}" class="btn btn-primary btn-sm">Detail</a>
                                     {{-- <div class="btn-group btn-group-sm" role="group" aria-label="...">
                                         <button type="button" class="btn btn-success"><i class="fa fa-eye"></i></button>
                                         <button type="button" class="btn btn-warning"><i class="fa fa-pencil-square-o"></i></button>

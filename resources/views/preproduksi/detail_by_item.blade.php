@@ -34,7 +34,7 @@
         <div class="card col-12 mb-4">
             <div class="card-header bg-white font-weight-bold">
                 {{-- title --}}
-                Data Preproduksi
+                Preproduksi {{$item_name.' Tgl : '.$date}}
             </div>
             <div class="card-body">
                 {{-- body --}}
@@ -60,14 +60,6 @@
                                 <td>{{$prep->getUnit()->name}}</td>
                                 <td>{{$prep->time}}</td>
                                 <td>{{$prep->getUser()->name}}</td>
-                                <td>    
-                                    <a href="{{'/preproduksi/item'.'/'.$prep->id}}" class="btn btn-primary btn-sm">Detail</a>
-                                    {{-- <div class="btn-group btn-group-sm" role="group" aria-label="...">
-                                        <button type="button" class="btn btn-success"><i class="fa fa-eye"></i></button>
-                                        <button type="button" class="btn btn-warning"><i class="fa fa-pencil-square-o"></i></button>
-                                        <button type="button" class="btn btn-danger btn_delete" id="btn_delete"><i class="fa fa-trash-o"></i></button>
-                                    </div> --}}
-                                </td>
                             </tr>
                         @endforeach
                     </tbody>
