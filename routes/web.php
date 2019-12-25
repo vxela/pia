@@ -31,9 +31,9 @@ Route::resource('/admin/user', 'UserController');
 
 
 Route::group(['middleware' => 'auth'], function(){
+    Route::get('/preproduksi/simple', 'PreproduksiController@simpleView')->name('preproduksi.simpleView');
     Route::get('/preproduksi/{date}/{id}', 'PreproduksiController@showByItem')->name('preproduksiDateId');
     Route::get('/preproduksi/{date}', 'PreproduksiController@showByDate');
-    Route::get('/preproduksi/simple', 'PreproduksiController@simpleView');
     Route::post('/preproduksi/simple', 'PreproduksiController@store');
     Route::resource('/preproduksi', 'PreproduksiController');
     Route::resource('/dashboard/gudang', 'GudangController');

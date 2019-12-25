@@ -58,7 +58,7 @@
             <li><a href="{{route('stock.create')}}"><i class="fa fa-fw fa-plus"></i> Tambah Stock</a></li>
             <li><a href="{{route('gudang.index')}}"><i class="fa fa-fw fa-th"></i> Gudang</a></li>
             <li><a href="{{'/preproduksi'}}"><i class="fa fa-fw fa-table"></i> Data Preproduksi</a></li>
-            <li><a href="{{'/preproduksi/simple'}}"><i class="fa fa-fw fa-plus"></i> Tambah Preproduksi</a></li>
+            <li><a href="{{route('preproduksi.simpleView')}}"><i class="fa fa-fw fa-plus"></i> Tambah Preproduksi</a></li>
             @yield('pagemenu')
             <li><a href="{{route('logout')}}"><i class="fa fa-fw fa-power-off"></i> Log Out</a></li>
         </ul>
