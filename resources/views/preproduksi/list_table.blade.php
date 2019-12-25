@@ -7,6 +7,7 @@
     <meta name="csrf-token" content="{{ csrf_token() }}">
     <link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
     <link href="{{asset('/datepicker/css/datepicker.css')}}" rel="stylesheet" type="text/css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.css">
 @endsection
 @section('content')
     <div class="row">
@@ -41,15 +42,16 @@
                     </div>
                     <div class="col-6 justify-content-end">
                         <div class="input-group">
-                            <input type="text" readonly name="tgl_prep" id="tgl_prep" class="form-control form-control-sm col-lg-4 offset-lg-8 col-sm-8 offset-md-4 col-xs-12 tgl_prep" value="{{date('Y-m-d')}}">
+                            <input type="text" readonly name="tgl_prep" id="tgl_prep" class="form-control form-control-sm col-lg-5 offset-lg-7 col-sm-8 offset-md-4 col-xs-12 tgl_prep" value="{{$date}}">
+                            <input type="hidden" readonly name="date_now" class="date_now" id="date_now" value="{{date('Y-m-d')}}">
                             <div class="input-group-append">
-                                <span class="input-group-text cari" id="cari" style="cursor:pointer;"><i class="fa fa-search"></i></span>
+                                <a href="{{'/preproduksi'}}" class="input-group-text text-light cari" style="background-color:#28a745; border:1px solid #28a745;" id="cari" style="cursor:pointer;"><i class="fa fa-search"></i></a>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
-            <div class="card-body">
+            <div class="card-body" id="data_preproduksi">
                 {{-- body --}}
                 
                 <table class="table table-hover mb-0">
@@ -100,6 +102,7 @@
 
 @section('onpagejs')
 <script src="{{asset('/datepicker/js/bootstrap-datepicker.js')}}"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/notify/0.4.2/notify.min.js"></script>
     <script>
         $(document).ready(function() {
             //setup ajax headers setup
@@ -114,12 +117,17 @@
                 format : 'yyyy-mm-dd'
             }).on('changeDate', function(){
                 $('#tgl_prep').datepicker('hide');
-            });
 
-            //do something when cari is clicked
-            $('#cari').click(function(){
-                var date = $('#tgl_prep').val();
-                
+                var date_start = new Date('2019-12-23');
+                var date_cari = new Date($('#tgl_prep').val());
+                var date_now = new Date($('#date_now').val());
+
+                if(date_cari < date_start || date_cari > date_now) {
+                    $.notify("Date not in range", { className:"warning" ,position:"top right" });
+                    $('.cari').attr('href', '#')
+                } else {
+                    $('.cari').attr('href', '/preproduksi/'+$('#tgl_prep').val())
+                }
             });
         })
     </script>
