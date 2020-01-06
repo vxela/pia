@@ -29,7 +29,7 @@ class OvenController extends Controller
         $date = Carbon::now()->format('Y-m-d');
         $tunggus = \App\Models\Tbl_preproduction::where('date', $date)
                                                 ->where('status_oven', 'tunggu')
-                                                ->get();
+                                                ->paginate(10);
 
         $res = "<table class='table table-striped'>";
         foreach ($tunggus as $tunggu) {
