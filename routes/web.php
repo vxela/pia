@@ -29,6 +29,8 @@ Route::get('/screen', 'ScreenController@index');
 
 Route::resource('/admin/user', 'UserController');
 
+Route::get('/oven/loadTunggu', 'OvenController@LoadDataTunggu')->name('oven.LoadTunggu');
+Route::get('/oven', 'OvenController@index')->name('oven.index');
 
 Route::group(['middleware' => 'auth'], function(){
     Route::get('/preproduksi/simple', 'PreproduksiController@simpleView')->name('preproduksi.simpleView');
