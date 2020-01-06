@@ -115,14 +115,14 @@
                         Data Tunggu ({{$tg}})</button>
                     </div>
                     <div class="col-6 text-center py-2 mb-2">
-                        <button class="btn btn-success py-4" style="width:100%;" data-toggle="modal"
-                        data-target="#modal_data_in" data-title="" data-item_id="">
+                        <button class="btn btn-success py-4 LoadDI" style="width:100%;" data-toggle="modal"
+                        data-target="#modal_data_in" data-title="" data-item_id="" id="LoadDI">
                         <i class="fa fa-sign-in"></i>
                          Data Panggang ({{$pg}})</button>
                     </div>
                     <div class="col-6 text-center py-2 mb-2">
-                        <button class="btn btn-success py-4" style="width:100%;" data-toggle="modal"
-                        data-target="#modal_data_out" data-title="" data-item_id="">
+                        <button class="btn btn-success py-4 LoadDO" style="width:100%;" data-toggle="modal"
+                        data-target="#modal_data_out" data-title="" data-item_id="" id="LoadDO">
                         <i class="fa fa-sign-out"></i> 
                         Data Selesai ({{$out}})</button>
                     </div>                    
@@ -148,6 +148,40 @@
         </div>
     </div>
 </div>
+<div class="modal fade" id="modal_data_in" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalCenterTitle">Modal title</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+                <div class="modal-body" id="loadContentIn">
+
+                </div>
+                <div class="modal-footer">
+                </div>
+        </div>
+    </div>
+</div>
+<div class="modal fade" id="modal_data_out" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalCenterTitle">Modal title</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+                <div class="modal-body" id="loadContentOut">
+
+                </div>
+                <div class="modal-footer">
+                </div>
+        </div>
+    </div>
+</div>
 @endsection
 
 @section('onpagejs')
@@ -156,6 +190,14 @@
         // $("#loadContentTunggu").load("{{route('oven.LoadTunggu')}}");
         $('#LoadDT').on('click', function(){
             $("#loadContentTunggu").load("{{route('oven.LoadTunggu')}}");
+        });
+
+        $('#LoadDI').on('click', function(){
+            $("#loadContentIn").load("{{route('oven.LoadIn')}}");
+        });
+
+        $('#LoadDO').on('click', function(){
+            $("#loadContentOut").load("{{route('oven.LoadOut')}}");
         });
     });
     </script>

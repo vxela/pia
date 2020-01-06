@@ -29,6 +29,10 @@ Route::get('/screen', 'ScreenController@index');
 
 Route::resource('/admin/user', 'UserController');
 
+Route::post('/oven/move_data_in', 'OvenController@MoveFromOven')->name('oven.move_from_oven');
+Route::post('/oven/move_data_wait', 'OvenController@MoveToOven')->name('oven.move_to_oven');
+Route::get('/oven/loadOut', 'OvenController@LoadDataOut')->name('oven.LoadOut');
+Route::get('/oven/loadIn', 'OvenController@LoadDataIn')->name('oven.LoadIn');
 Route::get('/oven/loadTunggu', 'OvenController@LoadDataTunggu')->name('oven.LoadTunggu');
 Route::get('/oven', 'OvenController@index')->name('oven.index');
 
