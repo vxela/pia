@@ -187,6 +187,7 @@
 @section('onpagejs')
     <script>
     $(document).ready(function() {
+        $.ajaxSetup({ cache: false });
         // $("#loadContentTunggu").load("{{route('oven.LoadTunggu')}}");
         $('#LoadDT').on('click', function(){
             $("#loadContentTunggu").load("{{route('oven.LoadTunggu')}}");
