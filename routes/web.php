@@ -29,6 +29,9 @@ Route::get('/screen', 'ScreenController@index');
 
 Route::resource('/admin/user', 'UserController');
 
+Route::post('/packing/store', 'PackingController@store')->name('packing.store');
+Route::get('/packing', 'PackingController@index')->name('packing.index');
+
 Route::post('/oven/move_data_in', 'OvenController@MoveFromOven')->name('oven.move_from_oven');
 Route::post('/oven/move_data_wait', 'OvenController@MoveToOven')->name('oven.move_to_oven');
 Route::get('/oven/loadOut', 'OvenController@LoadDataOut')->name('oven.LoadOut');
