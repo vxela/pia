@@ -156,9 +156,6 @@
         $(".nav-tabs a").click(function(){
             if($(this).data('target') == 'wait') {
 
-                $("#proccess").text('');
-                $("#complete").text('');
-
                 if($("#wait").hasClass('active show')){
                     $("#wait").removeClass('active show');
                 }
@@ -169,17 +166,12 @@
                 
             } else if ($(this).data('target') == 'proccess') {
 
-                $("#wait").text('');
-                $("#complete").text('');
                 $("#wait").removeClass('active show');
                 $("#complete").removeClass('active show');
                 $("#proccess").addClass('active show');
                 $("#proccess").load("{{route('oven.LoadIn')}}");
 
             } else if ($(this).data('target') == 'complete') {
-
-                $("#wait").text('');
-                $("#proccess").text('');
                 $("#wait").removeClass('active show');
                 $("#proccess").removeClass('active show');
                 $("#complete").addClass('active show');
