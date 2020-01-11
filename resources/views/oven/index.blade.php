@@ -27,17 +27,17 @@
                 <div class="card-body">
                     <ul class="nav nav-tabs nav-fill mb-3" id="myTab" role="tablist">
                         <li class="nav-item">
-                            <a class="nav-link active show" id="home-tab-2" data-target="wait" data-toggle="tab" href="#wait" role="tab" aria-controls="wait" aria-selected="true">Home</a>
+                            <a class="nav-link active show" id="home-tab-2" data-target="wait" data-toggle="tab" href="#wait" role="tab" aria-controls="wait" aria-selected="true">Tunggu</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" id="profile-tab-2" data-target="proccess" data-toggle="tab" href="#proccess" role="tab" aria-controls="proccess" aria-selected="false">Profile</a>
+                            <a class="nav-link" id="profile-tab-2" data-target="proccess" data-toggle="tab" href="#proccess" role="tab" aria-controls="proccess" aria-selected="false">Oven</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" id="contact-tab-2" data-target="complete" data-toggle="tab" href="#complete" role="tab" aria-controls="complete" aria-selected="false">Contact</a>
+                            <a class="nav-link" id="contact-tab-2" data-target="complete" data-toggle="tab" href="#complete" role="tab" aria-controls="complete" aria-selected="false">Keluar</a>
                         </li>
                     </ul>
                     <div class="tab-content" id="myTabContent">
-                        <div class="tab-pane fade" id="wait" role="tabpanel" aria-labelledby="wait-tab-2">
+                        <div class="tab-pane active show" id="wait" role="tabpanel" aria-labelledby="wait-tab-2">
                             
                         </div>
                         <div class="tab-pane fade" id="proccess" role="tabpanel" aria-labelledby="proccess-tab-2">
@@ -134,7 +134,7 @@
         $.ajaxSetup({ cache: false });
         // $("#loadContentTunggu").load("{{route('oven.LoadTunggu')}}");
 
-        // $("#wait").load("{{route('oven.LoadTunggu')}}");
+        $("#wait").load("{{route('oven.LoadTunggu')}}");
         // $('#wait').tab('show').load("{{route('oven.LoadTunggu')}}");
         // $('#proccess').tab('show').load("{{route('oven.LoadIn')}}");
         // $('#complete').tab('show').load("{{route('oven.LoadOut')}}");
@@ -156,24 +156,34 @@
         $(".nav-tabs a").click(function(){
             if($(this).data('target') == 'wait') {
 
-                $("#wait").load("{{route('oven.LoadTunggu')}}");
-                // $("#proccess").text('');
-                // $("#complete").text('');
-                $(this).tab('show');
+                $("#proccess").text('');
+                $("#complete").text('');
 
+                if($("#wait").hasClass('active show')){
+                    $("#wait").removeClass('active show');
+                }
+
+                $("#wait").addClass('active show');
+
+                $("#wait").load("{{route('oven.LoadTunggu')}}");
+                
             } else if ($(this).data('target') == 'proccess') {
 
-                // $("#wait").text('');
-                // $("#complete").text('');
+                $("#wait").text('');
+                $("#complete").text('');
+                $("#wait").removeClass('active show');
+                $("#complete").removeClass('active show');
+                $("#proccess").addClass('active show');
                 $("#proccess").load("{{route('oven.LoadIn')}}");
-                $(this).tab('show');
 
             } else if ($(this).data('target') == 'complete') {
 
-                // $("#wait").text('');
-                // $("#proccess").text('');
+                $("#wait").text('');
+                $("#proccess").text('');
+                $("#wait").removeClass('active show');
+                $("#proccess").removeClass('active show');
+                $("#complete").addClass('active show');
                 $("#complete").load("{{route('oven.LoadOut')}}");
-                $(this).tab('show');
             }
             // console.log($(this).data('target'));
         });
