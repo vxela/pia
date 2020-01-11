@@ -20,91 +20,35 @@
                 </div>
             @endif
         
-        {{-- <div class="card mb-4">
-            <div class="card-header bg-white font-weight-bold">
-                <div class="row">
-                    <div class="col-md-12">
-                        Pemanggangan (Waiting)
-                    </div>
+            <div class="card mb-4">
+                <div class="card-header bg-white font-weight-bold">
+                    Filled &amp; Justified
                 </div>
-            </div>
-            <div class="card-body">
-                @foreach ($data_tunggu as $tunggu)
-                    <div class="row mb-1">
-                        <div class="col-8">
-                            <strong>PIA KEJU</strong>
-                            <hr class="m-0">
-                            <strong>2</strong> Layer
+                <div class="card-body">
+                    <ul class="nav nav-tabs nav-fill mb-3" id="myTab" role="tablist">
+                        <li class="nav-item">
+                            <a class="nav-link active show" id="home-tab-2" data-target="wait" data-toggle="tab" href="#wait" role="tab" aria-controls="wait" aria-selected="true">Home</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" id="profile-tab-2" data-target="proccess" data-toggle="tab" href="#proccess" role="tab" aria-controls="proccess" aria-selected="false">Profile</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" id="contact-tab-2" data-target="complete" data-toggle="tab" href="#complete" role="tab" aria-controls="complete" aria-selected="false">Contact</a>
+                        </li>
+                    </ul>
+                    <div class="tab-content" id="myTabContent">
+                        <div class="tab-pane fade" id="wait" role="tabpanel" aria-labelledby="wait-tab-2">
+                            
                         </div>
-                        <div class="col-4 text-right my-auto">
-                            <button type="button" class="btn btn-primary">
-                                <i class="fa fa-plus"></i>
-                            </button>
+                        <div class="tab-pane fade" id="proccess" role="tabpanel" aria-labelledby="proccess-tab-2">
+                            
                         </div>
-                    </div>    
-                @endforeach
-                <table class="table table-borderless">
-                    <tr>
-                        <td class="col-10">
-                            <strong>PIA KEJU</strong>
-                            <hr class="m-0">
-                            <strong>2</strong> Layer
-                        </td>
-                        <td class="col-2">
-                            <button type="button" class="btn btn-primary">
-                                <i class="fa fa-plus"></i>
-                            </button>
-                        </td>
-                    </tr>
-                </table>
-            </div>
-        </div>
-        <div class="card mb-4">
-            <div class="card-header bg-white font-weight-bold">
-                <div class="row">
-                    <div class="col-md-12">
-                        Pemanggangan (In Process)
+                        <div class="tab-pane fade" id="complete" role="tabpanel" aria-labelledby="complete-tab-2">
+                            
+                        </div>
                     </div>
                 </div>
             </div>
-            <div class="card-body">
-                <div class="row">
-                    <div class="col-8">
-                        <strong>PIA KEJU</strong>
-                        <hr class="m-0">
-                        <strong>2</strong> Layer
-                    </div>
-                    <div class="col-4 text-right my-auto">
-                        <button type="button" class="btn btn-success">
-                            <i class="fa fa-check"></i>
-                        </button>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="card mb-4">
-            <div class="card-header bg-white font-weight-bold">
-                <div class="row">
-                    <div class="col-md-12">
-                        Pemanggangan (Done)
-                    </div>
-                </div>
-            </div>
-            <div class="card-body">
-                <div class="row">
-                    <div class="col-8">
-                        <strong>PIA KEJU</strong>
-                        <hr class="m-0">
-                        <strong>2</strong> Layer
-                    </div>
-                    <div class="col-4 text-right my-auto">
-                        <button type="button" class="btn btn-success">
-                            <i class="fa fa-check"></i>
-                        </button>
-                    </div>
-                </div>
-            </div>
-        </div>  --}}
         <div class="col-12">
             <div class="row d-flex justify-content-center">
                 {{-- @foreach ($data_pia as $pia) --}}
@@ -189,6 +133,14 @@
     $(document).ready(function() {
         $.ajaxSetup({ cache: false });
         // $("#loadContentTunggu").load("{{route('oven.LoadTunggu')}}");
+
+        // $("#wait").load("{{route('oven.LoadTunggu')}}");
+        // $('#wait').tab('show').load("{{route('oven.LoadTunggu')}}");
+        // $('#proccess').tab('show').load("{{route('oven.LoadIn')}}");
+        // $('#complete').tab('show').load("{{route('oven.LoadOut')}}");
+        // $('#wait').tab('hide').load("{{route('oven.LoadTunggu')}}");
+
+
         $('#LoadDT').on('click', function(){
             $("#loadContentTunggu").load("{{route('oven.LoadTunggu')}}");
         });
@@ -200,6 +152,32 @@
         $('#LoadDO').on('click', function(){
             $("#loadContentOut").load("{{route('oven.LoadOut')}}");
         });
+
+        $(".nav-tabs a").click(function(){
+            if($(this).data('target') == 'wait') {
+
+                $("#wait").load("{{route('oven.LoadTunggu')}}");
+                // $("#proccess").text('');
+                // $("#complete").text('');
+                $(this).tab('show');
+
+            } else if ($(this).data('target') == 'proccess') {
+
+                // $("#wait").text('');
+                // $("#complete").text('');
+                $("#proccess").load("{{route('oven.LoadIn')}}");
+                $(this).tab('show');
+
+            } else if ($(this).data('target') == 'complete') {
+
+                // $("#wait").text('');
+                // $("#proccess").text('');
+                $("#complete").load("{{route('oven.LoadOut')}}");
+                $(this).tab('show');
+            }
+            // console.log($(this).data('target'));
+        });
+
     });
     </script>
 @endsection
