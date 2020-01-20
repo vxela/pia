@@ -30,28 +30,30 @@ class OvenController extends Controller
         $date = Carbon::now()->format('Y-m-d');
         $tunggus = \App\Models\Tbl_preproduction::where('date', $date)
                                                 ->where('status_oven', 'tunggu')
-                                                ->paginate(10);
+                                                ->get();
 
-        $res = "<table class='table table-striped'>";
-        foreach ($tunggus as $tunggu) {
-            $res .= "<tr>";
-            $jml = Mush::getJmlSat($tunggu->jml_item);
-            $res .= "<td class='col-10'><strong>".$tunggu->getItem()->item_name."</strong><hr class='my-0'><strong>".$jml."</strong></td>";
-            $res .= "<td class='col-2'>
-            <form action='".route('oven.move_to_oven')."' method='post'>
-                <button type='submit' class='btn btn-primary'>
-                    <i class='fa fa-sign-in'></i>
-                </button>
-                <input type='hidden' name='prep_id' value='".$tunggu->id."'>
-                <input type='hidden' name='_token' value='".csrf_token()."'>
-            </form>
-            </td>";
-            $res .= "</tr>";
-        }
+        // $res = "<table class='table table-striped'>";
+        // foreach ($tunggus as $tunggu) {
+        //     $res .= "<tr>";
+        //     $jml = Mush::getJmlSat($tunggu->jml_item);
+        //     $res .= "<td class='col-10'><strong>".$tunggu->getItem()->item_name."</strong><hr class='my-0'><strong>".$jml."</strong></td>";
+        //     $res .= "<td class='col-2'>
+        //     <form action='".route('oven.move_to_oven')."' method='post'>
+        //         <button type='submit' class='btn btn-primary'>
+        //             <i class='fa fa-sign-in'></i>
+        //         </button>
+        //         <input type='hidden' name='prep_id' value='".$tunggu->id."'>
+        //         <input type='hidden' name='_token' value='".csrf_token()."'>
+        //     </form>
+        //     </td>";
+        //     $res .= "</tr>";
+        // }
 
-        $res .= "</table>";
+        // $res .= "</table>";
 
-        echo $res;
+        // echo $res;
+
+        return response::json($tunggus);
     }
 
     public function LoadDataIn() {

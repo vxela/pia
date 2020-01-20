@@ -27,7 +27,7 @@
                 <div class="card-body">
                     <ul class="nav nav-tabs nav-fill mb-3" id="myTab" role="tablist">
                         <li class="nav-item">
-                            <a class="nav-link active show" id="home-tab-2" data-target="wait" data-toggle="tab" href="#wait" role="tab" aria-controls="wait" aria-selected="true">Tunggu</a>
+                            <a class="nav-link active show" id="home-tab-2" data-target="wait" data-route_url="{{route('oven.LoadTunggu')}}" data-toggle="tab" href="#wait" role="tab" aria-controls="wait" aria-selected="true">Tunggu</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" id="profile-tab-2" data-target="proccess" data-toggle="tab" href="#proccess" role="tab" aria-controls="proccess" aria-selected="false">Oven</a>
@@ -154,30 +154,18 @@
         });
 
         $(".nav-tabs a").click(function(){
-            if($(this).data('target') == 'wait') {
-
-                if($("#wait").hasClass('active show')){
-                    $("#wait").removeClass('active show');
-                }
-
-                $("#wait").addClass('active show');
-
-                $("#wait").load("{{route('oven.LoadTunggu')}}");
-                
-            } else if ($(this).data('target') == 'proccess') {
-
-                $("#wait").removeClass('active show');
-                $("#complete").removeClass('active show');
-                $("#proccess").addClass('active show');
-                $("#proccess").load("{{route('oven.LoadIn')}}");
-
-            } else if ($(this).data('target') == 'complete') {
-                $("#wait").removeClass('active show');
-                $("#proccess").removeClass('active show');
-                $("#complete").addClass('active show');
-                $("#complete").load("{{route('oven.LoadOut')}}");
+            var situasi = $(this).data('target');
+            var r_url = $(this).data('route_url');
+            
+            if(situasi == 'wait') {
+                $.ajax({
+                    url : r_url,
+                    success : function(data) {
+                        console.log(data);
+                    }
+                });
             }
-            // console.log($(this).data('target'));
+
         });
 
     });
