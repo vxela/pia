@@ -20,7 +20,7 @@ class PackingController extends Controller
             'item_id'    => $r->id_pia,
             'jml_item'   => $r->jml_produk,
             'satuan_id'  => 1,
-            'user_id'    => auth()->user()->name,
+            'user_id'    => 2,
             'date'       => Carbon::now()->format('Y-m-d'),
             'time'       => Carbon::now()->format('H:i:s')
         ];
