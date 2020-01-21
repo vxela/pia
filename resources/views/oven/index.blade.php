@@ -171,7 +171,7 @@
                 $("#wait").removeClass('active show');
                 $("#proccess").removeClass('active show');
                 $("#complete").addClass('active show');
-                $("#complete").load("{{route('oven.LoadOut')}}");
+                $("#complete").load("{{route('oven.LoadOut')}}"); }
             // var situasi = $(this).data('target');
             // var r_url = $(this).data('route_url');
             
