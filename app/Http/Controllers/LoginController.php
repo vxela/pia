@@ -22,7 +22,8 @@ class LoginController extends Controller
             return back();
         } else {
             if(Auth::attempt($request->only('name', 'password'))) {
-                return redirect()->route('dashboard.index');
+                $user = \App\User::find(auth()->user()->id);
+                return redirect()->route($user->role->route);
             }
             else {
                 Session::flash('alert', ['type' => 'danger', 'msg' => 'username atau password salah!!']);
