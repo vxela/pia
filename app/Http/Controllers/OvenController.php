@@ -36,7 +36,8 @@ class OvenController extends Controller
                                                 foreach ($tunggus as $tunggu) {
                                                     $res .= "<tr>";
                                                     $jml = Mush::getJmlSat($tunggu->jml_item);
-                                                    $res .= "<td class='col-10'><strong>".$tunggu->getItem()->item_name."</strong><hr class='my-0'><strong>".$jml."</strong></td>";
+                                                    $res .= "<td><input type='checkbox' id=''></td>";
+                                                    $res .= "<td class='col-9'><strong>".$tunggu->getItem()->item_name."</strong><hr class='my-0'><strong>".$jml."</strong></td>";
                                                     $res .= "<td class='col-2'>
                                                     <form action='".route('oven.move_to_oven')."' method='post'>
                                                         <button type='submit' class='btn btn-primary'>

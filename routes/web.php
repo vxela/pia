@@ -40,6 +40,9 @@ Route::get('/oven/loadTunggu', 'OvenController@LoadDataTunggu')->name('oven.Load
 Route::get('/oven', 'OvenController@index')->name('oven.index');
 
 Route::group(['middleware' => 'auth'], function(){
+
+    Route::get('/production/dashboard', 'ProductionController@index')->name('production.dashboard');
+
     Route::get('/preproduksi/simple', 'PreproduksiController@simpleView')->name('preproduksi.simpleView');
     Route::get('/preproduksi/{date}/{id}', 'PreproduksiController@showByItem')->name('preproduksiDateId');
     Route::get('/preproduksi/{date}', 'PreproduksiController@showByDate');
