@@ -51,6 +51,18 @@
                     <li><a href="#">Submenu Item</a></li>
                 </ul>
             </li> --}}
+            <li>
+                <a href="#sm_examples" data-toggle="collapse" class="">
+                    <i class="fa fa-fw fa-lightbulb"></i> Examples
+                </a>
+                <ul id="sm_examples" class="list-unstyled collapse" style="">
+                    <li><a href="#">Blank/Starter</a></li>
+                    <li><a href="#">Pricing</a></li>
+                    <li><a href="#">Invoice</a></li>
+                    <li><a href="#">FAQ</a></li>
+                    <li><a href="#">Login</a></li>
+                </ul>
+            </li>
             {{-- <li><a href="{{route('dashboard.item-stock')}}"><i class="fa fa-fw fa-th"></i> Tambah Item</a></li> --}}
             <li><a href="{{'/dashboard/item'}}"><i class="fa fa-fw fa-table"></i> Data Item</a></li>
             <li><a href="{{route('item.create')}}"><i class="fa fa-fw fa-plus-square"></i> Tambah Item</a></li>
@@ -90,17 +102,26 @@
 <script src="{{asset('dist/js/moment.min.js')}}"></script>
 {{-- <script src="{{asset('dist/js/myJs.js')}}"></script> --}}
 <script>
-    var elem = document.getElementById("MyPage");
+    var elem = document.documentElement;
     function openFullscreen() {
-      if (elem.requestFullscreen) {
-        elem.requestFullscreen();
-      } else if (elem.mozRequestFullScreen) { /* Firefox */
-        elem.mozRequestFullScreen();
-      } else if (elem.webkitRequestFullscreen) { /* Chrome, Safari & Opera */
-        elem.webkitRequestFullscreen();
-      } else if (elem.msRequestFullscreen) { /* IE/Edge */
-        elem.msRequestFullscreen();
-      }
+        if (document.fullscreenEnabled) {
+            // supported
+            if (document.fullscreenElement) {
+                // fullscreen is activated
+                document.exitFullscreen();                
+            } else {
+                // fullscreen is cancelled
+                if (elem.requestFullscreen) {
+                    elem.requestFullscreen();
+                } else if (elem.mozRequestFullScreen) { /* Firefox */
+                    elem.mozRequestFullScreen();
+                } else if (elem.webkitRequestFullscreen) { /* Chrome, Safari & Opera */
+                    elem.webkitRequestFullscreen();
+                } else if (elem.msRequestFullscreen) { /* IE/Edge */
+                    elem.msRequestFullscreen();
+                }
+            }
+        }
     }
 </script>
 

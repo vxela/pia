@@ -41,8 +41,7 @@ Route::get('/oven', 'OvenController@index')->name('oven.index');
 
 Route::group(['middleware' => 'auth'], function(){
 
-    Route::get('/production/dashboard', 'ProductionController@index')->name('production.dashboard');
-
+    
     Route::get('/preproduksi/simple', 'PreproduksiController@simpleView')->name('preproduksi.simpleView');
     Route::get('/preproduksi/{date}/{id}', 'PreproduksiController@showByItem')->name('preproduksiDateId');
     Route::get('/preproduksi/{date}', 'PreproduksiController@showByDate');
@@ -54,6 +53,11 @@ Route::group(['middleware' => 'auth'], function(){
     Route::resource('/dashboard/item', 'ItemController');
     Route::get('/dashboard/item-stock', 'HomeController@itemStock')->name('dashboard.item-stock');
     Route::resource('/dashboard', 'HomeController');
+    
+    //route for user_production role
+    Route::get('/production/dashboard', 'ProductionController@index')->name('production.dashboard');
+
+    //route for admin role
     Route::get('/admin/dashboard', 'AdminController@index')->name('admin.dashboard');
 });
 
