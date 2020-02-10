@@ -42,12 +42,12 @@
                 <table class="table table-hover mb-0">
                     <thead>
                     <tr>
-                        <th scope="col">No</th>
-                        <th scope="col">Jumlah</th>
-                        <th scope="col">Satuan</th>
-                        <th scope="col">Waktu</th>
-                        <th scope="col">Oleh</th>
-                        <th scope="col" class="text-right">-</th>
+                        <th>No</th>
+                        <th>Jumlah</th>
+                        <th>Satuan</th>
+                        <th>Waktu</th>
+                        <th>Oleh</th>
+                        <th class="text-right">-</th>
                     </tr>
                     </thead>
                     <tbody>
