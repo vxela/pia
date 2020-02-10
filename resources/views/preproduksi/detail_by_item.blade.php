@@ -47,7 +47,7 @@
                         <th>Satuan</th>
                         <th>Waktu</th>
                         <th>Oleh</th>
-                        <th class="col-1 text-right">-</th>
+                        <th class="text-right">-</th>
                     </tr>
                     </thead>
                     <tbody>
