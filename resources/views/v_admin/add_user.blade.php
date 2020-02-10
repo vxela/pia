@@ -105,7 +105,7 @@
                 </div>
             </div>
             <div class="card-body">
-                <form action="" method="post">
+                <form action="{{route('admin.store_employee')}}" method="post">
                     @csrf
                     <div class="row mb-2">
                         <div class="col-md-4">
@@ -120,7 +120,14 @@
                             <label for="emp_code" class="mr-sm-2">Kode Pegawai</label>
                         </div>
                         <div class="col-md-8">
-                            <input class="form-control" type="text" placeholder="Kode Pegawai" id="emp_code" name="emp_code">
+                            <select class="form-control" name="emp_code" id="emp_code" required>
+                                <option value="">Pilih Kode</option>
+                                <option value="SDM">SDM | SYSTEM ADMIN</option>
+                                <option value="ADM">ADM | ADMIN</option>
+                                <option value="GDG">GDG | GUDANG</option>
+                                <option value="OVN">OVN | PEMANGGANGAN</option>
+                                <option value="PCK">PCK | PACKING</option>
+                            </select>
                         </div>
                     </div>
                     <div class="row mb-2">
@@ -137,6 +144,14 @@
                         </div>
                         <div class="col-md-8 input-group">
                             <input class="form-control" type="text" placeholder="Nomor Telpon" id="no_hp" name="no_hp" pattern="[0-9]{10,14}" title="Nomor Hp Hanya angka 10 sampai 12 digit">
+                        </div>
+                    </div>
+                    <div class="row mb-2">
+                        <div class="col-md-4">
+                            <label for="no_hp" class="mr-sm-2">Alamat</label>
+                        </div>
+                        <div class="col-md-8 input-group">
+                            <textarea class="form-control" id="emp_address" name="emp_address" rows="2" placeholder="Alamat .."></textarea>
                         </div>
                     </div>
                     <div class="row mb-3">
