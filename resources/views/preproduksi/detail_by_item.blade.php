@@ -63,7 +63,7 @@
                                 <td>{{$prep->getUser()->name}}</td>
                                 <td>
                                     {{-- {{$prep->id}} --}}
-                                    <form action="" class="form-inline text-right">
+                                    <form action="" class="form-inline float-right">
                                         @csrf
                                         <button type="button" class="btn btn-primary">Edit</button>
                                         <button type="button" class="btn btn-danger">Delete</button>
