@@ -61,7 +61,14 @@
                                 <td>{{$prep->getUnit()->name}}</td>
                                 <td>{{$prep->time}}</td>
                                 <td>{{$prep->getUser()->name}}</td>
-                                <td>{{$prep->id}}</td>
+                                <td>
+                                    {{-- {{$prep->id}} --}}
+                                    <form action="" class="form-inline">
+                                        @csrf
+                                        <button type="button" class="btn btn-primary">Edit</button>
+                                        <button type="button" class="btn btn-danger">Delete</button>
+                                    </form>
+                                </td>
                             </tr>
                         @endforeach
                     </tbody>
