@@ -47,6 +47,7 @@
                         <th scope="col">Satuan</th>
                         <th scope="col">Waktu</th>
                         <th scope="col">Oleh</th>
+                        <th scope="col">-</th>
                     </tr>
                     </thead>
                     <tbody>
@@ -60,6 +61,7 @@
                                 <td>{{$prep->getUnit()->name}}</td>
                                 <td>{{$prep->time}}</td>
                                 <td>{{$prep->getUser()->name}}</td>
+                                <td>{{$prep->id}}</td>
                             </tr>
                         @endforeach
                     </tbody>
