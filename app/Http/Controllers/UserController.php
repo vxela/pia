@@ -144,10 +144,10 @@ class UserController extends Controller
         $store = \App\Models\Tbl_employee::create($data_emp);
 
         if(!$store) {
-            Session::flash('alert', ['status' => 'danger', 'msg' => ''.$store->name.' '.$store->nik.' Gagal di tambahkan dalam data pegawai']);
+            Session::flash('alert', ['status' => 'danger', 'msg' => ''.$store->name.' '.$store->code.' Gagal di tambahkan dalam data pegawai']);
             return redirect()->back();
         } else {
-            Session::flash('alert', ['status' => 'success', 'msg' => ''.$store->name.' '.$store->nik.' Berhasil di tambahkan dalam data pegawai']);
+            Session::flash('alert', ['status' => 'success', 'msg' => ''.$store->name.' '.$store->code.' Berhasil di tambahkan dalam data pegawai']);
             return redirect()->back();
         }
     }
