@@ -25,7 +25,10 @@ class UserController extends Controller
     public function addUser() {
         
         $emp = \App\Models\Tbl_employee::all();
-        return view('v_admin.add_user', ['data_emp' => $emp]);
+        $role = \App\Models\Tbl_role::all();
+
+        // dd($role);
+        return view('v_admin.add_user', ['data_emp' => $emp, 'data_role' => $role]);
 
     }
 
@@ -45,9 +48,25 @@ class UserController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(Request $r)
     {
-        //
+        $data_user = [
+            'emp_id' => $r->emp_id,
+            'name' => $r->user_name,
+            'email' => $r->email,
+            'password' => bcrypt($r->password),
+            'role_id' => $r->role_id
+        ];
+
+        $store = \App\User::create($data_user);
+
+        if(!$store) {
+            Session::flash('alert', ['status' => 'danger', 'msg' => ''.$store->name.' Gagal di tambahkan dalam data pegawai']);
+            return redirect()->back();
+        } else {
+            Session::flash('alert', ['status' => 'success', 'msg' => ''.$store->name.' Berhasil di tambahkan dalam data pegawai']);
+            return redirect()->back();
+        }
     }
 
     /**

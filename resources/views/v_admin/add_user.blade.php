@@ -31,7 +31,7 @@
                             <label for="item_unit" class="mr-sm-2">Nama Pegawai</label>
                         </div>
                         <div class="col-md-8">
-                            <select class="form-control" name="emp_name" id="emp_name" required>
+                            <select class="form-control" name="emp_id" id="emp_id" required>
                                 <option value="">Pilih Pegawai</option>
                                 @foreach ($data_emp as $emp)
                                     <option value="{{$emp->id}}">{{$emp->name}}</option>
@@ -45,6 +45,14 @@
                         </div>
                         <div class="col-md-8">
                             <input type="text" class="form-control mb-2 mr-sm-2" name="user_name" id="user_name" placeholder="username" required>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-4">
+                            <label for="item_name" class="mr-sm-2">Email</label>
+                        </div>
+                        <div class="col-md-8">
+                            <input type="email" class="form-control mb-2 mr-sm-2" name="email" id="email" placeholder="email" required>
                         </div>
                     </div>
                     <div class="row mb-2">
@@ -79,7 +87,10 @@
                         </div>
                         <div class="col-md-8">
                             <select class="form-control" name="role_id" id="role_id" required>
-                                <option value="">Pilih Gudang</option>
+                                <option value="">Pilih Role</option>
+                                @foreach ($data_role as $role)
+                                    <option value="{{$role->id}}">{{$role->role}}</option>
+                                @endforeach
                             </select>
                         </div>
                     </div>
