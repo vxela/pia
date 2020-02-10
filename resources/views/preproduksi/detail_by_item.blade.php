@@ -61,7 +61,7 @@
                                 <td>{{$prep->getUnit()->name}}</td>
                                 <td>{{$prep->time}}</td>
                                 <td>{{$prep->getUser()->name}}</td>
-                                <td>
+                                <td class="text-right">
                                     {{-- {{$prep->id}} --}}
                                     <button type="button" class="btn btn-primary">Edit</button>
                                     <button type="button" class="btn btn-danger">Delete</button>
