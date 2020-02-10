@@ -14,7 +14,7 @@
     </div>
 @endif
 <div class="row">
-    <div class="col-lg-6 col-md-8 col-sm-10 col-xs-12">
+    <div class="col-12">
         <div class="card mb-4">
             <div class="card-header bg-white font-weight-bold">
                 <div class="row">
@@ -30,19 +30,21 @@
                 <table class="table">
                     <thead>
                         <tr>
-                            <th>Username</th>
-                            <th>Email</th>
-                            <th>role</th>
-                            <th>-</th>
+                            <th>Code</th>
+                            <th class="text-center">Username</th>
+                            <th class="text-center">Email</th>
+                            <th class="text-center">role</th>
+                            <th class="text-right">-</th>
                         </tr>
                     </thead>
                     <tbody>
                         @foreach ($users as $user)
                             <tr>
-                                <td>{{$user->name}}</td>
-                                <td>{{$user->email}}</td>
-                                <td>{{$user->role->role}}</td>
-                                <td>
+                                <td>{{$user->emp->code}}</td>
+                                <td class="text-center">{{$user->name}}</td>
+                                <td class="text-center">{{$user->email}}</td>
+                                <td class="text-center">{{$user->role->role}}</td>
+                                <td class="text-right">
                                     <a href="{{$user->id}}" class="btn btn-primary">Edit</a>
                                     <a href="{{$user->id}}" class="btn btn-danger">Delete</a>
                                 </td>

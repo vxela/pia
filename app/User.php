@@ -40,4 +40,8 @@ class User extends Authenticatable
     public function role() {
         return $this->hasOne('App\Models\Tbl_role', 'id', 'role_id');
     }
+
+    public function emp() {
+        return $this->hasOne('App\Models\Tbl_employee', 'id', 'emp_id');
+    }
 }
