@@ -47,7 +47,7 @@
                         <th scope="col">Satuan</th>
                         <th scope="col">Waktu</th>
                         <th scope="col">Oleh</th>
-                        <th scope="col">-</th>
+                        <th scope="col" class="text-right">-</th>
                     </tr>
                     </thead>
                     <tbody>
@@ -63,7 +63,7 @@
                                 <td>{{$prep->getUser()->name}}</td>
                                 <td>
                                     {{-- {{$prep->id}} --}}
-                                    <form action="" class="form-inline">
+                                    <form action="" class="form-inline text-right">
                                         @csrf
                                         <button type="button" class="btn btn-primary">Edit</button>
                                         <button type="button" class="btn btn-danger">Delete</button>
