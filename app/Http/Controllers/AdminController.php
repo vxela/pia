@@ -24,6 +24,10 @@ class AdminController extends Controller
         // dd($cst);
         $item = \App\Models\Tbl_item::latest()->offset(5)->limit(10)->get();
         $stock = \App\Models\Tbl_stock::latest()->offset(5)->limit(10)->get();
-        return view('app.index', ['data_item' => $item, 'data_stock' => $stock, 'data_cst' => $cst]);
+        return view('v_admin.index', [
+                                        'data_item' => $item,
+                                        'data_stock' => $stock,
+                                        'data_cst' => $cst
+                                    ]);
     }
 }

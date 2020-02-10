@@ -58,6 +58,7 @@ Route::group(['middleware' => 'auth'], function(){
     Route::get('/production/dashboard', 'ProductionController@index')->name('production.dashboard');
 
     //route for admin role
+    Route::get('/admin/add_user', 'UserController@addUser')->name('admin.add_user');
     Route::get('/admin/dashboard', 'AdminController@index')->name('admin.dashboard');
 });
 
