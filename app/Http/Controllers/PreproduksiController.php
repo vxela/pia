@@ -160,4 +160,36 @@ class PreproduksiController extends Controller
 
         return view('preproduksi.detail_by_item', ['data_preproduksi' => $preproduksi, 'date' => $date, 'item_name' => $item_name]);
     }
+
+    public function ShowDataById($id) {
+        $dprep = \App\Models\Tbl_preproduction::find($id);
+        $unit = \App\Models\Tbl_unit::all();
+        return view('preproduksi.detail_by_id', [
+            'prep' => $dprep,
+            'data_unit' => $unit
+        ]);
+    }
+
+    public function UpdateData(Request $r, $id) {
+
+        $dprep = \App\Models\Tbl_preproduction::find($id);
+
+        if($dprep->jml_item == $r->jumlah_item) {
+            Session::flash('alert', ['status' => 'warning', 'msg' => 'Data Tidak berubah!!']);
+            return back();
+        } else {
+            $dprep->jml_item = $r->jumlah_item;
+            $dprep->updated_at = Carbon::now()->format('Y-m-d H:i:s');
+    
+            $update = $dprep->save();
+    
+            if(!$update) {
+                Session::flash('alert', ['status' => 'success', 'msg' => 'Update data berhasil!']);
+                return back();
+            } else {
+                Session::flash('alert', ['status' => 'danger', 'msg' => 'Update data gagal!']);
+                return back();
+            }
+        }
+    }
 }

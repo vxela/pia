@@ -63,8 +63,9 @@
                                 <td>{{$prep->getUser()->name}}</td>
                                 <td class="text-right">
                                     {{-- {{$prep->id}} --}}
-                                    <button type="button" class="btn btn-primary">Edit</button>
-                                    <button type="button" class="btn btn-danger">Delete</button>
+                                    <a href="{{route('preproduksi.item_show', ['id' => $prep->id])}}" class="btn btn-primary">Edit</a>
+                                    {{-- <button type="button" class="btn btn-primary" data>Edit</button> --}}
+                                    {{-- <button type="button" class="btn btn-danger">Delete</button> --}}
                                 </td>
                             </tr>
                         @endforeach

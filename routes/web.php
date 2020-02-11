@@ -42,6 +42,8 @@ Route::get('/oven', 'OvenController@index')->name('oven.index');
 Route::group(['middleware' => 'auth'], function(){
 
     
+    Route::post('/preproduksi/item_update/{id}', 'PreproduksiController@UpdateData')->name('preproduksi.item_update');
+    Route::get('/preproduksi/item_show/{id}', 'PreproduksiController@ShowDataById')->name('preproduksi.item_show');
     Route::get('/preproduksi/simple', 'PreproduksiController@simpleView')->name('preproduksi.simpleView');
     Route::get('/preproduksi/{date}/{id}', 'PreproduksiController@showByItem')->name('preproduksiDateId');
     Route::get('/preproduksi/{date}', 'PreproduksiController@showByDate');
