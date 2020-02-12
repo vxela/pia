@@ -34,7 +34,17 @@
                         <div class="form-group row">
                             <label for="inputPassword3" class="col-sm-2 col-form-label">Item Type</label>
                             <div class="col-sm-10 col-form-label">
-                                <b>{{$prep->getItem()->item_name}}</b>
+                                {{-- <b>{{$prep->getItem()->item_name}}</b> --}}
+                                <select class="form-control" id="item_id" name="item_id">
+                                    <option value="">Jenis Pia</option>
+                                    @foreach ($data_pia as $pia)
+                                        @if ($pia->id == $prep->item_id) 
+                                            <option value="{{$pia->id}}" selected>{{$pia->item_name}}</option>
+                                        @else
+                                            <option value="{{$pia->id}}">{{$pia->item_name}}</option>
+                                        @endif
+                                    @endforeach
+                                </select>
                             </div>
                         </div>
                         <div class="form-group row">
@@ -66,9 +76,15 @@
                             </div>
                         </div>
                         <div class="form-group row">
+                            <label for="inputPassword3" class="col-sm-2 col-form-label">Alasan</label>
+                            <div class="col-sm-10">
+                                <textarea class="form-control" id="alasan" name="alasan" rows="2" required title="Alasan update tidak boleh kosong!!" placeholder="Alasan Update atau Delete data"></textarea>
+                            </div>
+                        </div>
+                        <div class="form-group row">
                             <label for="inputPassword3" class="col-sm-2 col-form-label"></label>
                             <div class="col-sm-10 col-form-label">
-                                <button type="submit" class="btn btn-primary">Update</button>
+                                <button type="submit" class="btn btn-primary">Update Data</button>
                                 <button type="button" class="btn btn-danger btn_delete" data-btn_url="">Hapus Data</button>
                             </div>
                             </div>

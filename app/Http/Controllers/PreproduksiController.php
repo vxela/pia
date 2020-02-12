@@ -164,10 +164,10 @@ class PreproduksiController extends Controller
 
     public function ShowDataById($id) {
         $dprep = \App\Models\Tbl_preproduction::find($id);
-        $unit = \App\Models\Tbl_unit::all();
+        $pia = \App\Models\Tbl_item::where('item_name', 'like', 'PIA %')->get();
         return view('preproduksi.detail_by_id', [
             'prep' => $dprep,
-            'data_unit' => $unit
+            'data_pia' => $pia
         ]);
     }
 
@@ -175,11 +175,12 @@ class PreproduksiController extends Controller
 
         $dprep = \App\Models\Tbl_preproduction::find($id);
 
-        if($dprep->jml_item == $r->jumlah_item) {
+        if($dprep->jml_item == $r->jumlah_item && $dprep->item_id == $r->item_id) {
             Mush::LogUpdateFail($model = 'Tbl_preproduction', $data = 'ID : '.$id.' Jml : '.$r->jumlah_item);
             Session::flash('alert', ['status' => 'warning', 'msg' => 'Data Tidak berubah!!']);
             return back();
         } else {
+            $dprep->item_id = $r->item_id;
             $dprep->jml_item = $r->jumlah_item;
             $dprep->updated_at = Carbon::now()->format('Y-m-d H:i:s');
     
@@ -190,7 +191,7 @@ class PreproduksiController extends Controller
                 Session::flash('alert', ['status' => 'danger', 'msg' => 'Update data gagal!']);
                 return back();
             } else {
-                Mush::LogUpdateSuccess($model = 'Tbl_preproduction', $data = 'ID : '.$id.' Jml : '.$r->jumlah_item);
+                Mush::LogUpdateSuccess($model = 'Tbl_preproduction', $data = 'ID : '.$id.', Item ID : '.$r->item_id.', Jml : '.$r->jumlah_item, $desc = $r->alasan);
                 Session::flash('alert', ['status' => 'success', 'msg' => 'Update data berhasil!']);
                 return back();
             }

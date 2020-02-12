@@ -62,6 +62,7 @@ Route::group(['middleware' => 'auth'], function(){
     //route for admin role
     Route::post('admin/save_employee', 'UserController@StoreEmployee')->name('admin.store_employee');
     Route::get('/admin/add_user', 'UserController@addUser')->name('admin.add_user');
+    Route::get('/admin/system/log', 'LogController@index')->name('admin.log_sistem');
     Route::get('/admin/dashboard', 'AdminController@index')->name('admin.dashboard');
 });
 
