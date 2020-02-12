@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use DB;
 use Session;
 use Carbon\Carbon as Carbon;
+use Mush;
 
 class PreproduksiController extends Controller
 {
@@ -175,6 +176,7 @@ class PreproduksiController extends Controller
         $dprep = \App\Models\Tbl_preproduction::find($id);
 
         if($dprep->jml_item == $r->jumlah_item) {
+            Mush::LogUpdateFail($model = 'Tbl_preproduction', $data = 'ID : '.$id.' Jml : '.$r->jumlah_item);
             Session::flash('alert', ['status' => 'warning', 'msg' => 'Data Tidak berubah!!']);
             return back();
         } else {
@@ -184,12 +186,20 @@ class PreproduksiController extends Controller
             $update = $dprep->save();
     
             if(!$update) {
-                Session::flash('alert', ['status' => 'success', 'msg' => 'Update data berhasil!']);
+                Mush::LogUpdateFail($model = 'Tbl_preproduction', $data = 'ID : '.$id.' Jml : '.$r->jumlah_item);
+                Session::flash('alert', ['status' => 'danger', 'msg' => 'Update data gagal!']);
                 return back();
             } else {
-                Session::flash('alert', ['status' => 'danger', 'msg' => 'Update data gagal!']);
+                Mush::LogUpdateSuccess($model = 'Tbl_preproduction', $data = 'ID : '.$id.' Jml : '.$r->jumlah_item);
+                Session::flash('alert', ['status' => 'success', 'msg' => 'Update data berhasil!']);
                 return back();
             }
         }
+    }
+
+    public function DeleteData(Request $r, $id) {
+        
+        // $dprep = \App\Models\Tbl_preproduction::find($id);
+
     }
 }

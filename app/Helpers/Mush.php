@@ -2,6 +2,8 @@
 
 namespace App\Helpers;
 
+use \App\Models\Tbl_log as Mlog;
+
 class Mush {
 
     public static function getJml($jml) {
@@ -43,5 +45,31 @@ class Mush {
             return $res; 
         }
 
+    }
+
+    public static function LogUpdateSuccess($model,$data = 'No Data',$desc = 'No Description') {
+        $data = [
+            'job' => 'update',
+            'model_target' => $model,
+            'data_target' => $data,
+            'status' => 'success',
+            'user_id' => auth()->user()->id,
+            'desc' => $desc
+        ];
+
+        Mlog::create($data);
+    }
+
+    public static function LogUpdateFail($model,$data = 'No Data',$desc = 'No Description') {
+        $data = [
+            'job' => 'update',
+            'model_target' => $model,
+            'data_target' => $data,
+            'status' => 'fail',
+            'user_id' => auth()->user()->id,
+            'desc' => $desc
+        ];
+
+        Mlog::create($data);
     }
 }

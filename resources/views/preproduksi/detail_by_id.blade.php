@@ -69,7 +69,7 @@
                             <label for="inputPassword3" class="col-sm-2 col-form-label"></label>
                             <div class="col-sm-10 col-form-label">
                                 <button type="submit" class="btn btn-primary">Update</button>
-                                <button type="button" class="btn btn-danger">Hapus Data</button>
+                                <button type="button" class="btn btn-danger btn_delete" data-btn_url="">Hapus Data</button>
                             </div>
                             </div>
                         </div>
