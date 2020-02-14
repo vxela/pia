@@ -85,7 +85,7 @@
                             <label for="inputPassword3" class="col-sm-2 col-form-label"></label>
                             <div class="col-sm-10 col-form-label">
                                 <button type="submit" class="btn btn-primary">Update Data</button>
-                                <button type="button" class="btn btn-danger btn_delete" data-btn_url="">Hapus Data</button>
+                                <button type="button" class="btn btn-danger btn_delete" data-btn_url="{{route('preproduksi.item_delete', ['id' => $prep->id])}}" data-red_url="{{route('preproduksi.index')}}">Hapus Data</button>
                             </div>
                             </div>
                         </div>
@@ -106,16 +106,43 @@
     <script>
         $(document).ready(function() {
             $('.btn_delete').on('click', function(){
+                var del_url = $(this).data('btn_url');
+                var red_url = $(this).data('red_url');
+                var tkn = $("input[name = '_token']").val();
                 $.confirm({
                                 title: 'Hapus Data',
-                                content: 'Yakin hapus data?',
+                                content: 'Yakin hapus data?<br><strong>Data yang dihapus tidak bisa di kembalikan!!</strong>',
                                 buttons: {
                                     cancel: function () {
                                     },
                                     confirm: {
                                         btnClass : 'btn-danger',
                                         action : function() {
-                                            console.log('deleted');
+                                            // $.ajaxSetup({
+                                            //     headers: {
+                                            //         'X-CSRF-TOKEN': tkn
+                                            //     }
+                                            // });
+                                            $.ajax({
+                                                type : 'post',
+                                                url : del_url,
+                                                data : {
+                                                            _token : tkn,
+                                                        },
+                                                success : function(data) {
+                                                    $.alert({
+                                                        title: 'Data Deleted',
+                                                        content: 'ID : '+data.id+' <br>ITEM : '+data.item_name+'<br>Jumlah : '+data.jml,
+                                                        buttons : {
+                                                            'ok' : function(){
+                                                                $(location).attr('href',red_url);
+                                                            }
+                                                        }
+                                                        });
+                                                    // $(location).attr('href',red_url);
+                                                }
+                                            });
+                                            console.log(del_url+tkn);
                                         }
                                     }
                                 }

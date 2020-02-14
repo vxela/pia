@@ -200,7 +200,28 @@ class PreproduksiController extends Controller
 
     public function DeleteData(Request $r, $id) {
         
-        // $dprep = \App\Models\Tbl_preproduction::find($id);
+        // return $id;
+        $dprep = \App\Models\Tbl_preproduction::find($id);
+
+        $del_data = [
+            'id' => $dprep->id,
+            'item_name' => $dprep->getItem()->item_name,
+            'jml' => $dprep->jml_item
+        ];
+
+        // $delete = $dprep->forceDelete();
+
+        // if(!$delete) {
+        //     Mush::LogDeleteFail($model = 'Tbl_preproduction', $data = 'ID : '.$id.' Jml : '.$del_data->jml);
+        //     Session::flash('alert', ['status' => 'danger', 'msg' => 'Delete data gagal!']);
+        //     return back();
+        // } else {
+        //     Mush::LogUpdateSuccess($model = 'Tbl_preproduction', $data = 'ID : '.$id.', Item ID : '.$r->item_id.', Jml : '.$del_data->jml, $desc = $r->alasan);
+        //     Session::flash('alert', ['status' => 'success', 'msg' => 'Update data berhasil!']);
+        //     return back();
+        // }
+
+        return response()->json($del_data);
 
     }
 }

@@ -42,6 +42,7 @@ Route::get('/oven', 'OvenController@index')->name('oven.index');
 Route::group(['middleware' => 'auth'], function(){
 
     
+    Route::post('/preproduksi/item_delete/{id}', 'PreproduksiController@DeleteData')->name('preproduksi.item_delete');
     Route::post('/preproduksi/item_update/{id}', 'PreproduksiController@UpdateData')->name('preproduksi.item_update');
     Route::get('/preproduksi/item_show/{id}', 'PreproduksiController@ShowDataById')->name('preproduksi.item_show');
     Route::get('/preproduksi/simple', 'PreproduksiController@simpleView')->name('preproduksi.simpleView');
