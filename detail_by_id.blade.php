@@ -115,7 +115,6 @@
                 if(res_val == true) {
                     var del_url = $(this).data('btn_url');
                     var red_url = $(this).data('red_url');
-                    var alasan = $('#alasan').val();
                     var tkn = $("input[name = '_token']").val();
                     $.confirm({
                         title: 'Hapus Data',
@@ -134,7 +133,6 @@
                                         url : del_url,
                                         data : {
                                                     _token : tkn,
-                                                    alasan : alasan
                                                 },
                                         success : function(data) {
                                             $.alert({
@@ -147,9 +145,6 @@
                                                 }
                                                 });
                                             // $(location).attr('href',red_url);
-                                        }, 
-                                        error : function() {
-                                            console.log('failur');
                                         }
                                     });
                                     console.log(del_url+tkn);

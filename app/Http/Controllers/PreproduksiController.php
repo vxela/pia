@@ -209,17 +209,19 @@ class PreproduksiController extends Controller
             'jml' => $dprep->jml_item
         ];
 
-        // $delete = $dprep->forceDelete();
+        $ditem = \App\Models\Tbl_item::find($dprep->item_id);
 
-        // if(!$delete) {
-        //     Mush::LogDeleteFail($model = 'Tbl_preproduction', $data = 'ID : '.$id.' Jml : '.$del_data->jml);
-        //     Session::flash('alert', ['status' => 'danger', 'msg' => 'Delete data gagal!']);
-        //     return back();
-        // } else {
-        //     Mush::LogUpdateSuccess($model = 'Tbl_preproduction', $data = 'ID : '.$id.', Item ID : '.$r->item_id.', Jml : '.$del_data->jml, $desc = $r->alasan);
-        //     Session::flash('alert', ['status' => 'success', 'msg' => 'Update data berhasil!']);
-        //     return back();
-        // }
+        $delete = $dprep->forceDelete();
+
+        if(!$delete) {
+            Mush::LogDeleteFail($model = 'Tbl_preproduction', $data = 'ID : '.$id.' Jml : '.$dprep->jml_item);
+            Session::flash('alert', ['status' => 'danger', 'msg' => 'Delete data gagal!']);
+            // return back();
+        } else {
+            Mush::LogDeleteSuccess($model = 'Tbl_preproduction', $data = 'ID : '.$dprep->id.', Item ID : '.$ditem->item_name.', Jml : '.$dprep->jml_item, $desc = $r->alasan);
+            Session::flash('alert', ['status' => 'success', 'msg' => 'Update data berhasil!']);
+            // return back();
+        }
 
         return response()->json($del_data);
 
