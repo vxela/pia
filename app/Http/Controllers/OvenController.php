@@ -30,78 +30,61 @@ class OvenController extends Controller
         $date = Carbon::now()->format('Y-m-d');
         $tunggus = \App\Models\Tbl_preproduction::where('date', $date)
                                                 ->where('status_oven', 'tunggu')
-                                                ->paginate(10);
+                                                ->get();
 
-                                                $res = "<table class='table table-striped'>";
+                                                
+                                                $n=0;
+                                                $data = array();
+                                                
                                                 foreach ($tunggus as $tunggu) {
-                                                    $res .= "<tr>";
-                                                    $jml = Mush::getJmlSat($tunggu->jml_item);
-                                                    $res .= "<td><input type='checkbox' id=''></td>";
-                                                    $res .= "<td class='col-9'><strong>".$tunggu->getItem()->item_name."</strong><hr class='my-0'><strong>".$jml."</strong></td>";
-                                                    $res .= "<td class='col-2'>
-                                                    <form action='".route('oven.move_to_oven')."' method='post'>
-                                                        <button type='submit' class='btn btn-primary'>
-                                                            <i class='fa fa-sign-in'></i>
-                                                        </button>
-                                                        <input type='hidden' name='prep_id' value='".$tunggu->id."'>
-                                                        <input type='hidden' name='_token' value='".csrf_token()."'>
-                                                    </form>
-                                                    </td>";
-                                                    $res .= "</tr>";
+                                                    $data[$n++] = [
+                                                        "id" => $tunggu->id,
+                                                        "item_jml" => Mush::getJmlSat($tunggu->jml_item),
+                                                        "item_name" => $tunggu->getItem()->item_name
+                                                    ];
                                                 }
-                                        
-                                                $res .= "</table>";
-                                        
-                                                echo $res;
 
-        // return response::json($tunggus);
+        return response::json($data);
     }
 
     public function LoadDataIn() {
         $date = Carbon::now()->format('Y-m-d');
         $tunggus = \App\Models\Tbl_preproduction::where('date', $date)
                                                 ->where('status_oven', 'masuk')
-                                                ->paginate(10);
+                                                ->get();
 
-        $res = "<table class='table table-striped'>";
-        foreach ($tunggus as $tunggu) {
-            $res .= "<tr>";
-            $jml = Mush::getJmlSat($tunggu->jml_item);
-            $res .= "<td class='col-10'><strong>".$tunggu->getItem()->item_name."</strong><hr class='my-0'><strong>".$jml."</strong></td>";
-            $res .= "<td class='col-2'>
-            <form action='".route('oven.move_from_oven')."' method='post'>
-                <button type='submit' class='btn btn-primary'>
-                    <i class='fa fa-sign-in'></i>
-                </button>
-                <input type='hidden' name='prep_id' value='".$tunggu->id."'>
-                <input type='hidden' name='_token' value='".csrf_token()."'>
-            </form>
-            </td>";
-            $res .= "</tr>";
-        }
+                                                $n=0;
+                                                $data = array();
+                                                
+                                                foreach ($tunggus as $tunggu) {
+                                                    $data[$n++] = [
+                                                        "id" => $tunggu->id,
+                                                        "item_jml" => Mush::getJmlSat($tunggu->jml_item),
+                                                        "item_name" => $tunggu->getItem()->item_name
+                                                    ];
+                                                }
 
-        $res .= "</table>";
-
-        echo $res;
+        return response::json($data);
     }
 
     public function LoadDataOut() {
         $date = Carbon::now()->format('Y-m-d');
         $tunggus = \App\Models\Tbl_preproduction::where('date', $date)
                                                 ->where('status_oven', 'keluar')
-                                                ->paginate(10);
+                                                ->get();
 
-        $res = "<table class='table table-striped'>";
-        foreach ($tunggus as $tunggu) {
-            $res .= "<tr>";
-            $jml = Mush::getJmlSat($tunggu->jml_item);
-            $res .= "<td class='col-12'><strong>".$tunggu->getItem()->item_name."</strong><hr class='my-0'><strong>".$jml."</strong></td>";
-            $res .= "</tr>";
-        }
+                                                $n=0;
+                                                $data = array();
+                                                
+                                                foreach ($tunggus as $tunggu) {
+                                                    $data[$n++] = [
+                                                        "id" => $tunggu->id,
+                                                        "item_jml" => Mush::getJmlSat($tunggu->jml_item),
+                                                        "item_name" => $tunggu->getItem()->item_name
+                                                    ];
+                                                }
 
-        $res .= "</table>";
-
-        echo $res;
+        return response::json($data);
     }
 
     public function LoadDataTungguToJson() {
