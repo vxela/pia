@@ -35,4 +35,29 @@ class PackingController extends Controller
         return redirect()->back();
 
     }
+
+    public function store_campur(Request $r) {
+
+        if(count($r->id_pia) == count($r->jml_produk)) {
+            for($i = 0;  $i< count($r->id_pia); $i++) {
+                if($r->jml_produk[$i] > 0) {
+                    $data = [
+                        'item_id'    => $r->id_pia[$i], 
+                        'jml_item'   => $r->jml_produk[$i],
+                        'satuan_id'  => 1,
+                        'user_id'    => 2,
+                        'date'       => Carbon::now()->format('Y-m-d'),
+                        'time'       => Carbon::now()->format('H:i:s')
+                    ];
+
+                    $packing = \App\Models\Tbl_production::create($data);
+
+                }
+            }
+        }
+
+        Session::flash('alert', ['status' => 'success', 'msg' => 'Tambah data berhasil!']);
+            
+        return redirect()->back();
+    }
 }

@@ -29,6 +29,7 @@ Route::get('/screen', 'ScreenController@index');
 
 Route::resource('/admin/user', 'UserController');
 
+Route::post('/packing/store/campur', 'PackingController@store_campur')->name('packing.store.campur');
 Route::post('/packing/store', 'PackingController@store')->name('packing.store');
 Route::get('/packing', 'PackingController@index')->name('packing.index');
 

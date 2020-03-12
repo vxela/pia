@@ -37,9 +37,63 @@
                     <div class="tab-content" id="myTabContent">
                         <div class="tab-pane active show" id="wait" role="tabpanel" aria-labelledby="wait-tab-2">
                             <button type="button" class="btn btn-sm btn-success btncheck">Check All</button>
-                            <div class="row border-top waitspace" id="waitspace"><div class="col-1 " id="cbox" style="margin : auto;"><input type="checkbox" name="item_id[]" value="2911"></div><div class="col-10"><strong>PIA COKLAT</strong><hr class="my-0 border-light"><small>1 Langser</small></div><div class="col-1 p-0" style="margin : auto;"><form action="http://127.0.0.1:8000/oven/move_data_wait" method="post"><button type="submit" class="btn btn-primary"><i class="fa fa-sign-in"></i></button><input type="hidden" name="prep_id" value="2911"><input type="hidden" name="_token" value="De76AofFWEbHqQhCk0Fr9c0YrLt8y63o9FbAneb8"></form></div></div>
-                            <div class="row border-top waitspace" id="waitspace"><div class="col-1 " id="cbox" style="margin : auto;"><input type="checkbox" name="item_id[]" value="2911"></div><div class="col-10"><strong>PIA COKLAT</strong><hr class="my-0 border-light"><small>1 Langser</small></div><div class="col-1 p-0" style="margin : auto;"><form action="http://127.0.0.1:8000/oven/move_data_wait" method="post"><button type="submit" class="btn btn-primary"><i class="fa fa-sign-in"></i></button><input type="hidden" name="prep_id" value="2911"><input type="hidden" name="_token" value="De76AofFWEbHqQhCk0Fr9c0YrLt8y63o9FbAneb8"></form></div></div>
-                            <div class="row border-top waitspace" id="waitspace"><div class="col-1 " id="cbox" style="margin : auto;"><input type="checkbox" name="item_id[]" value="2911"></div><div class="col-10"><strong>PIA COKLAT</strong><hr class="my-0 border-light"><small>1 Langser</small></div><div class="col-1 p-0" style="margin : auto;"><form action="http://127.0.0.1:8000/oven/move_data_wait" method="post"><button type="submit" class="btn btn-primary"><i class="fa fa-sign-in"></i></button><input type="hidden" name="prep_id" value="2911"><input type="hidden" name="_token" value="De76AofFWEbHqQhCk0Fr9c0YrLt8y63o9FbAneb8"></form></div></div>
+                            <div class="row border-top waitspace" id="waitspace">
+                                <div class="col-1 " id="cbox" style="margin : auto;">
+                                    <input type="checkbox" name="item_id[]" value="2911">
+                                </div>
+                                <div class="col-10">
+                                    <strong>PIA COKLAT</strong>
+                                    <hr class="my-0 border-light">
+                                    <small>1 Langser</small>
+                                </div>
+                                <div class="col-1 p-0" style="margin : auto;">
+                                    <form action="http://127.0.0.1:8000/oven/move_data_wait" method="post">
+                                        <button type="submit" class="btn btn-primary">
+                                            <i class="fa fa-sign-in"></i>
+                                        </button>
+                                        <input type="hidden" name="prep_id" value="2911">
+                                        <input type="hidden" name="_token" value="De76AofFWEbHqQhCk0Fr9c0YrLt8y63o9FbAneb8">
+                                    </form>
+                                </div>
+                            </div>
+                            <div class="row border-top waitspace" id="waitspace">
+                                <div class="col-1 " id="cbox" style="margin : auto;">
+                                    <input type="checkbox" name="item_id[]" value="2911">
+                                </div>
+                                <div class="col-10">
+                                    <strong>PIA COKLAT</strong>
+                                    <hr class="my-0 border-light">
+                                    <small>1 Langser</small>
+                                </div>
+                                <div class="col-1 p-0" style="margin : auto;">
+                                    <form action="http://127.0.0.1:8000/oven/move_data_wait" method="post">
+                                        <button type="submit" class="btn btn-primary">
+                                            <i class="fa fa-sign-in"></i>
+                                        </button>
+                                        <input type="hidden" name="prep_id" value="2911">
+                                        <input type="hidden" name="_token" value="De76AofFWEbHqQhCk0Fr9c0YrLt8y63o9FbAneb8">
+                                    </form>
+                                </div>
+                            </div>
+                            <div class="row border-top waitspace" id="waitspace">
+                                <div class="col-1 " id="cbox" style="margin : auto;">
+                                    <input type="checkbox" name="item_id[]" value="2911">
+                                </div>
+                                <div class="col-10">
+                                    <strong>PIA COKLAT</strong>
+                                    <hr class="my-0 border-light">
+                                    <small>1 Langser</small>
+                                </div>
+                                <div class="col-1 p-0" style="margin : auto;">
+                                    <form action="http://127.0.0.1:8000/oven/move_data_wait" method="post">
+                                        <button type="submit" class="btn btn-primary">
+                                            <i class="fa fa-sign-in"></i>
+                                        </button>
+                                        <input type="hidden" name="prep_id" value="2911">
+                                        <input type="hidden" name="_token" value="De76AofFWEbHqQhCk0Fr9c0YrLt8y63o9FbAneb8">
+                                    </form>
+                                </div>
+                            </div>
                             <div class="col-12" id="parentWait">
                             </div>
                         </div>
@@ -61,15 +115,21 @@
     $(document).ready(function() {
         $.ajaxSetup({ cache: false });
         $(".nav-tabs a").click(function(){
+
             var Turl = '{{route('oven.LoadTunggu')}}';
             var Iurl = '{{route('oven.LoadIn')}}';
             var Ourl = '{{route('oven.LoadOut')}}';
+
             var resdata;
+
             if($(this).data('target') == 'wait') {
+            
                 if($("#wait").hasClass('active show')) {
                     $("#wait").removeClass('active show');
                 }
+
                 $("#wait").addClass('active show');
+                
                 $.ajax({
                     url : '{{route('oven.LoadTunggu')}}',
                     type : 'GET',
@@ -105,7 +165,6 @@
                             $("#waitspace"+json[i].id).append($('<div>').attr({'class' : 'col-1 ', 'id' : 'cbox', 'style' : 'margin : auto;'}).append('<input type="checkbox" name="item_id[]" value='+json[i].id+' />'));
                             $("#waitspace"+json[i].id).append($('<div>').attr('class', 'col-10').append('<strong>'+json[i].item_name+'</strong><hr class="my-0 border-light"><small>'+json[i].item_jml+'</small>'));
                             $("#waitspace"+json[i].id).append($('<div>').attr({'class' : 'col-1 p-0', 'style' : 'margin : auto;'}).append('<form action="{{route('oven.move_from_oven')}}" method="post"><button type="submit" class="btn btn-primary"><i class="fa fa-sign-in"></i></button><input type="hidden" name="prep_id" value="'+json[i].id+'">@csrf</form>'));
-
                         }
                     }
                 });
