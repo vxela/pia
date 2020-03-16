@@ -60,4 +60,13 @@ class PackingController extends Controller
             
         return redirect()->back();
     }
+
+    public function listdata() {
+        $data = \App\Models\Tbl_production::where('date', Carbon::now()->format('Y-m-d'))
+                                            ->orderBy('created_at', 'desc')                                            
+                                            ->get();
+
+        // dd($data);
+        return view('packing.data_table', ['data_pia' => $data]);
+    }
 }

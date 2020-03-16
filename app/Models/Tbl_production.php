@@ -14,4 +14,14 @@ class Tbl_production extends Model
         'date',
         'time'
     ];
+
+    public function getUnit() {
+        return \App\Models\Tbl_unit::find($this->satuan_id);
+    }
+    public function getItem() {
+        return \App\Models\Tbl_item::find($this->item_id);
+    }
+    public function getUser() {
+        return \App\User::find($this->user_id);
+    }
 }
